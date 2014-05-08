@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Animales</string>
+    <string name="action_settings">Configuración</string>
+    <string name="btnVerTablas">TABLAS</string>
+    <string name="btnFiltros">FILTROS</string>
+    <string name="btnInformes">INFORMES</string>
+    <string name="btnVer">VER RESUMEN</string>
+    <string name="title_activity_tabbed">TabbedActivity</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+
+</resources>
