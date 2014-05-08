@@ -3,13 +3,18 @@
     <!-- These settings headers are only used on tablets. -->
 
     <header
-        android:fragment="omicron.app.SettingsActivity$GeneralPreferenceFragment"
-        android:title="@string/pref_header_general" />
+        android:fragment="omicron.app.SettingsActivity$SettingsFragment"
+        android:title="@string/pref_header_general" >
+    	<extra android:name="settings" android:value="general" />
+    	</header>
     <header
-        android:fragment="omicron.app.SettingsActivity$NotificationPreferenceFragment"
-        android:title="@string/pref_header_notifications" />
+        android:fragment="omicron.app.SettingsActivity$SettingsFragment"
+        android:title="@string/pref_header_notifications" >
+    	<extra android:name="settings" android:value="notifications" />
+    	</header>
     <header
-        android:fragment="omicron.app.SettingsActivity$DataSyncPreferenceFragment"
-        android:title="@string/pref_header_data_sync" />
-
+        android:fragment="omicron.app.SettingsActivity$SettingsFragment"
+        android:title="@string/pref_header_data_sync" >
+		<extra android:name="settings" android:value="data_sync" />
+		</header>
 </preference-headers>
