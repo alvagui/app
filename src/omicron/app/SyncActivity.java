@@ -1,18 +1,26 @@
 package omicron.app;
 
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.PowerManager;
+import android.provider.SyncStateContract.Constants;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
 
 public class SyncActivity extends ActionBarActivity {
+
+	private ProgressDialog pDialog;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -63,4 +71,62 @@ public class SyncActivity extends ActionBarActivity {
 		}
 	}
 
-}
+	// Receive data from server
+//	public void receiveData(View view) {
+//        pDialog = new ProgressDialog(this);
+//        pDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+//        pDialog.setMessage(R.string.DOWNLOADING);
+//        pDialog.setCancelable(true);
+//        pDialog.setMax(100); 
+//		String stringUrl = Constants.WEB_SERVICE_URL;
+//		// Gets the URL from the UI's text field.
+//		ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+//		NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+//		if (networkInfo != null && networkInfo.isConnected()) {
+//			new DownloadTask().execute(stringUrl);
+//		} else {
+//			Log.d("Network: ", "Conexión de datos no disponible.");
+//		}
+//	}
+		
+	}
+
+//	private class DownloadTask extends AsyncTask<void, Integer, String> {
+//
+//		private Context context;
+//		private PowerManager.WakeLock mWakeLock;
+//
+//		public DownloadTask(Context context) {
+//			this.context = context;
+//		}
+//
+//		
+//		// Get data from server database.
+//		@Override
+//		protected String doInBackground(String... sUrl) {
+//			return null;}
+//		
+//        @Override
+//        protected void onProgressUpdate(Integer... values) {
+//            int progreso = values[0].intValue();
+// 
+//            pDialog.setProgress(progreso);
+//        }
+//	}
+//
+//	private class PopulateDBTask extends AsyncTask<String, Integer, String> {
+//
+//		private Context context;
+//		private PowerManager.WakeLock mWakeLock;
+//
+//		public PopulateDBTask(Context context) {
+//			this.context = context;
+//		}
+//
+//		
+//		// Populate device's SQLite database
+//		@Override
+//		protected String doInBackground(String... sUrl) {
+//			return null;}
+//	}
+//}

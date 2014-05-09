@@ -27,4 +27,6 @@
     <string name="title_activity_explore">ExploreActivity</string>
     <string name="explore_loren_ipsum">Lista de tablas a explorar</string>
 
+    <!-- Commons -->
+    <string name="DOWNLOADING">Descargando</string>
 </resources>

@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"     
         android:layout_below="@+id/btnReceiveData"
         android:text="@string/button_send_data" />
-        <!-- android:onClick="openExploreActivity" -->
+        <!-- android:onClick="downloadData" -->
 
 	<Button
         android:id="@+id/btnReceiveData"
@@ -29,6 +29,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/syncActivityHeader"
         android:text="@string/button_receive_data" />
-        <!-- android:onClick="openExploreActivity" --> 
+        <!-- android:onClick="sendData" --> 
     
 </RelativeLayout>
