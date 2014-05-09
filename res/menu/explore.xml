@@ -1,16 +1,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="omicron.app.MainActivity" >
+    tools:context="omicron.app.ExploreActivity" >
 
-    <!-- Synchronize button -->
-    <item
-        android:id="@+id/action_sync"
-        android:icon="@drawable/refresh3"
-        android:orderInCategory="100"
-        android:title="@string/action_sync"
-        app:showAsAction="ifRoom"/>
-    <!-- Settings button -->
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"

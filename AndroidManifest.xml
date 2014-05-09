@@ -34,6 +34,18 @@
             android:name="omicron.app.SettingsActivity"
             android:label="@string/title_activity_settings" >
         </activity>
+        <activity
+            android:name="omicron.app.SyncActivity"
+            android:label="@string/title_activity_sync" >
+        </activity>
+        <activity
+            android:name="omicron.app.ExploreActivity"
+            android:label="@string/title_activity_explore"
+            android:parentActivityName="omicron.app.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="omicron.app.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

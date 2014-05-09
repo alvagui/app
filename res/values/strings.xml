@@ -3,12 +3,28 @@
 
     <string name="app_name">Animales</string>
     <string name="action_settings">Configuración</string>
-    <string name="btnVerTablas">TABLAS</string>
-    <string name="btnFiltros">FILTROS</string>
-    <string name="btnInformes">INFORMES</string>
+    <string name="action_sync">Sincronizar</string>
+
+    <!-- Main Activity -->
+    <string name="btnExplore">TABLAS</string>
+    <string name="btnFilter">FILTROS</string>
+    <string name="btnReports">INFORMES</string>
     <string name="btnVer">VER RESUMEN</string>
+
+    <!-- Tabbed Activity -->
     <string name="title_activity_tabbed">TabbedActivity</string>
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>
+
+    <!-- Sync Activity -->
+    <string name="title_activity_sync">SyncActivity</string>
+    <string name="hello_world">Gestión de sincronización de datos</string>
+    <string name="button_send_data">Guardar modificaciones en el servidor</string>
+    <string name="button_receive_data">Recibir datos del servidor</string>
+    
+    <!-- Explore Activity -->
+    <string name="title_activity_explore">ExploreActivity</string>
+    <string name="explore_loren_ipsum">Lista de tablas a explorar</string>
+
 </resources>

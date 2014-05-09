@@ -11,31 +11,31 @@
 
     
     <Button
-        android:id="@+id/btnVerTablas"
+        android:id="@+id/btnExplore"
         style="@style/botones_inicio"
-        android:layout_alignBottom="@+id/btnInformes"
+        android:layout_alignBottom="@+id/btnReports"
         android:layout_alignParentLeft="true"
-        android:layout_alignTop="@+id/btnInformes"
+        android:layout_alignTop="@+id/btnReports"
         android:drawableTop="@drawable/search4"
-        android:text="@string/btnVerTablas"
-        android:onClick="openTabbedActivity" />
+        android:text="@string/btnExplore"
+        android:onClick="openExploreActivity" />
     
     <Button
-        android:id="@+id/btnFiltros"
+        android:id="@+id/btnFilter"
         style="@style/botones_inicio"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:drawableTop="@drawable/filter2"
-        android:text="@string/btnFiltros" />
+        android:text="@string/btnFilter" />
 
     <Button
-        android:id="@+id/btnInformes"
+        android:id="@+id/btnReports"
         style="@style/botones_inicio"
-        android:layout_alignBaseline="@+id/btnFiltros"
-        android:layout_alignBottom="@+id/btnFiltros"
+        android:layout_alignBaseline="@+id/btnFilter"
+        android:layout_alignBottom="@+id/btnFilter"
         android:layout_centerHorizontal="true"
         android:drawableTop="@drawable/navigation"
-        android:text="@string/btnInformes" />
+        android:text="@string/btnReports" />
 
 
 </RelativeLayout>
