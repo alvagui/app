@@ -1,5 +1,6 @@
 package omicron.app;
 
+import omicron.app.DbManagement.DbAdapter;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,8 @@ import android.view.ViewGroup;
 
 public class MainActivity extends ActionBarActivity {
 
+	private DbAdapter mDbHelper;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -21,6 +24,10 @@ public class MainActivity extends ActionBarActivity {
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
+		
+		mDbHelper = new DbAdapter(this);
+	    mDbHelper.open();
+
 	}
 
 	@Override

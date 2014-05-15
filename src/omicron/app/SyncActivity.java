@@ -1,16 +1,27 @@
 package omicron.app;
 
-import android.app.ProgressDialog;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.json.JSONObject;
+
 import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.PowerManager;
-import android.provider.SyncStateContract.Constants;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
+import android.util.JsonReader;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -19,8 +30,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class SyncActivity extends ActionBarActivity {
-
-	private ProgressDialog pDialog;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -67,66 +76,174 @@ public class SyncActivity extends ActionBarActivity {
 				Bundle savedInstanceState) {
 			View rootView = inflater.inflate(R.layout.fragment_sync, container,
 					false);
+
+			SharedPreferences preferences = PreferenceManager
+					.getDefaultSharedPreferences(getActivity());
+			String serverURLPref = preferences.getString("serverURL", "");
+			Log.d("DEBUGGING", serverURLPref);
+
+			DownloadTask dt = new DownloadTask(getActivity());
+			dt.executeOnExecutor(AsyncTask.SERIAL_EXECUTOR, serverURLPref);
+
 			return rootView;
 		}
-	}
 
-	// Receive data from server
-//	public void receiveData(View view) {
-//        pDialog = new ProgressDialog(this);
-//        pDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-//        pDialog.setMessage(R.string.DOWNLOADING);
-//        pDialog.setCancelable(true);
-//        pDialog.setMax(100); 
-//		String stringUrl = Constants.WEB_SERVICE_URL;
-//		// Gets the URL from the UI's text field.
-//		ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-//		NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-//		if (networkInfo != null && networkInfo.isConnected()) {
-//			new DownloadTask().execute(stringUrl);
-//		} else {
-//			Log.d("Network: ", "Conexión de datos no disponible.");
-//		}
-//	}
-		
-	}
+		// Receive data from server
+		// public void receiveData(View view) {
+		// pDialog = new ProgressDialog(this);
+		// pDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+		// pDialog.setMessage(R.string.DOWNLOADING);
+		// pDialog.setCancelable(true);
+		// pDialog.setMax(100);
+		// String stringUrl = Constants.WEB_SERVICE_URL;
+		// // Gets the URL from the UI's text field.
+		// ConnectivityManager connMgr = (ConnectivityManager)
+		// getSystemService(Context.CONNECTIVITY_SERVICE);
+		// NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+		// if (networkInfo != null && networkInfo.isConnected()) {
+		// new DownloadTask().execute(stringUrl);
+		// } else {
+		// Log.d("Network: ", "Conexión de datos no disponible.");
+		// }
+		// }
 
-//	private class DownloadTask extends AsyncTask<void, Integer, String> {
-//
-//		private Context context;
-//		private PowerManager.WakeLock mWakeLock;
-//
-//		public DownloadTask(Context context) {
-//			this.context = context;
-//		}
-//
-//		
-//		// Get data from server database.
-//		@Override
-//		protected String doInBackground(String... sUrl) {
-//			return null;}
-//		
-//        @Override
-//        protected void onProgressUpdate(Integer... values) {
-//            int progreso = values[0].intValue();
-// 
-//            pDialog.setProgress(progreso);
-//        }
-//	}
-//
-//	private class PopulateDBTask extends AsyncTask<String, Integer, String> {
-//
-//		private Context context;
-//		private PowerManager.WakeLock mWakeLock;
-//
-//		public PopulateDBTask(Context context) {
-//			this.context = context;
-//		}
-//
-//		
-//		// Populate device's SQLite database
-//		@Override
-//		protected String doInBackground(String... sUrl) {
-//			return null;}
-//	}
-//}
+		private class DownloadTask extends AsyncTask<String, Integer, String> {
+
+			@Override
+			protected void onPreExecute() {
+				super.onPreExecute();
+				Log.d("Debugging", "Got into onPreExecute()");
+			}
+
+			private Context context;
+
+			public DownloadTask(Context context) {
+				this.context = context;
+			}
+
+			// Get data from server database.
+			protected String doInBackground(String... urls) {
+
+				Log.d("Debugging", "Got into doInBackground() with " + urls[0]);
+				// params comes from the execute() call: params[0] is the url.
+				try {
+					return downloadUrl(urls[0]);
+				} catch (IOException e) {
+					return getString(R.string.urlNotFound);
+				}
+			}
+
+			// Given a URL, establishes an HttpUrlConnection and retrieves
+			// the web page content as a InputStream, which it returns as
+			// a string.
+			private String downloadUrl(String myurl) throws IOException {
+				InputStream is = null;
+				try {
+					// Post construction
+					Map<String, Object> params = new LinkedHashMap<String, Object>();
+					params.put("read", "*");
+					params.put("from", "newtable");
+					params.put("where", "Julio");
+
+					StringBuilder postData = new StringBuilder();
+					for (Map.Entry<String, Object> param : params.entrySet()) {
+						if (postData.length() != 0)
+							postData.append('&');
+						postData.append(URLEncoder.encode(param.getKey(),
+								"UTF-8"));
+						postData.append('=');
+						postData.append(URLEncoder.encode(
+								String.valueOf(param.getValue()), "UTF-8"));
+					}
+					byte[] postDataBytes = postData.toString()
+							.getBytes("UTF-8");
+
+					// Request construction
+					URL url = new URL(myurl);
+					HttpURLConnection conn = (HttpURLConnection) url
+							.openConnection();
+					conn.setReadTimeout(10000 /* milliseconds */);
+					conn.setConnectTimeout(15000 /* milliseconds */);
+					conn.setRequestMethod("POST");
+					conn.setRequestProperty("Content-Type",
+							"application/x-www-form-urlencoded");
+					conn.setRequestProperty("Content-Length",
+							String.valueOf(postDataBytes.length));
+					conn.setDoOutput(true);
+					conn.getOutputStream().write(postDataBytes);
+
+					// Starts the query
+					conn.connect();
+					int response = conn.getResponseCode();
+					Log.d("Response code: ", Integer.toString(response));
+					is = conn.getInputStream();
+
+					// Convert the InputStream into a string
+					// String contentAsString = readIt(is, len);
+					// Log.d("Response content: ", contentAsString);
+					// Log.d("Longitud:",Integer.toString(contentAsString.length()));
+					String contentAsString = readJsonStream(is).toString();
+					return contentAsString;
+
+					// Makes sure that the InputStream is closed after the app
+					// is
+					// finished using it.
+				} finally {
+					if (is != null) {
+						is.close();
+					}
+				}
+			}
+
+			public List readJsonStream(InputStream in) throws IOException {
+				JsonReader reader = new JsonReader(new InputStreamReader(in,
+						"UTF-8"));
+				try {
+					return readMessagesArray(reader);
+				} finally {
+					reader.close();
+				}
+			}
+
+			public String readMessage(JsonReader reader) throws IOException {
+				long id = -1;
+				String name = null;
+
+				reader.beginObject();
+				while (reader.hasNext()) {
+					String current = reader.nextName();
+					if (current.equals("id")) {
+						id = reader.nextLong();
+					} else if (current.equals("Name")) {
+						name = reader.nextString();
+					} else {
+						reader.skipValue();
+					}
+				}
+				Log.d("id", Long.toString(id));
+				Log.d("name", name);
+				reader.endObject();
+
+				return new String(id + " " + name);
+			}
+
+			public List readMessagesArray(JsonReader reader) throws IOException {
+				List messages = new ArrayList();
+
+				reader.beginArray();
+				while (reader.hasNext()) {
+					messages.add(readMessage(reader));
+				}
+				reader.endArray();
+				return messages;
+			}
+
+			@Override
+			protected void onPostExecute(String result) {
+				Log.d("Debugging", "Got into onPostExecute() with " + result);
+				Log.d("Response: ", result);
+			}
+
+		}
+	}
+}

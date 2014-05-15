@@ -29,4 +29,5 @@
 
     <!-- Commons -->
     <string name="DOWNLOADING">Descargando</string>
+    <string name="urlNotFound">URL no encontrada</string>
 </resources>
