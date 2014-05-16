@@ -49,51 +49,116 @@ public class DbAdapter {
 //    private static final String DATABASE_TABLE_CONFIGURACION_CEBADERO_KEY_PK = "clave_primaria";
 //    private static final String DATABASE_TABLE_CONFIGURACION_CEBADERO_KEY_PCTC_PS = "porcentaje_corrector_peso_salida";
 //    private static final String DATABASE_TABLE_CONFIGURACION_CEBADERO_KEY_VETERINARIO_RECETAS = "cod_veterinario_recetas";
-  
-  //  Table: cebadero  
-  private static final String DATABASE_TABLE_CEBADERO = "cebadero";
-  private static final String DATABASE_TABLE_CEBADERO_KEY_ID = "_id";
-  private static final String DATABASE_TABLE_CEBADERO_KEY_CODIGO = "codigo";
-  private static final String DATABASE_TABLE_CEBADERO_KEY_NOMBRE = "nombre";
-  private static final String DATABASE_TABLE_CEBADERO_KEY_NOMBRE2= "nombre2";
-  private static final String DATABASE_TABLE_CEBADERO_KEY_DIRECCION = "direccion";
-  private static final String DATABASE_TABLE_CEBADERO_KEY_DIRECCION2 = "direccion2";
-  private static final String DATABASE_TABLE_CEBADERO_KEY_POBLACION = "poblacion";
-  private static final String DATABASE_TABLE_CEBADERO_KEY_TELEFONO = "no_telefono";
-  private static final String DATABASE_TABLE_CEBADERO_KEY_TELEFONO2 = "no_telefono2";
-  private static final String DATABASE_TABLE_CEBADERO_KEY_FAX = "no_fax";
-  private static final String DATABASE_TABLE_CEBADERO_KEY_CONTACTO = "contacto";
-  private static final String DATABASE_TABLE_CEBADERO_KEY_CP = "cp";
-  private static final String DATABASE_TABLE_CEBADERO_KEY_PROVINCIA = "provincia";
-  private static final String DATABASE_TABLE_CEBADERO_KEY_EMAIL = "correo_electronico";
-  private static final String DATABASE_TABLE_CEBADERO_KEY_WEB = "pagina_web";
-  private static final String DATABASE_TABLE_CEBADERO_KEY_CPR = "cod_pais_region";
-  private static final String DATABASE_TABLE_CEBADERO_KEY_PLAZAS_D = "no_plazas_disponibles";
-  private static final String DATABASE_TABLE_CEBADERO_KEY_PLAZAS_O = "no_plazas_ocupadas";
-//Create Table statement
-private static final String DATABASE_CREATE_CEBADERO =
-        DATABASE_CREATE_STATEMENT_START + DATABASE_TABLE_CEBADERO  
-        +" (" + DATABASE_TABLE_CEBADERO_KEY_ID + 
-        " integer primary key autoincrement, "
-        + DATABASE_TABLE_CEBADERO_KEY_CODIGO + " text, "
-        + DATABASE_TABLE_CEBADERO_KEY_NOMBRE + " text, "
-        + DATABASE_TABLE_CEBADERO_KEY_NOMBRE2 + " text, "
-        + DATABASE_TABLE_CEBADERO_KEY_DIRECCION + " text, "
-        + DATABASE_TABLE_CEBADERO_KEY_DIRECCION2 + " text, "
-        + DATABASE_TABLE_CEBADERO_KEY_POBLACION + " text, "
-        + DATABASE_TABLE_CEBADERO_KEY_TELEFONO + " text, "
-        + DATABASE_TABLE_CEBADERO_KEY_TELEFONO2 + " text, "
-        + DATABASE_TABLE_CEBADERO_KEY_FAX + " text, "
-        + DATABASE_TABLE_CEBADERO_KEY_CONTACTO + " text, "
-        + DATABASE_TABLE_CEBADERO_KEY_CP + " integer, "
-        + DATABASE_TABLE_CEBADERO_KEY_PROVINCIA + " text, "
-        + DATABASE_TABLE_CEBADERO_KEY_EMAIL + " text, "
-        + DATABASE_TABLE_CEBADERO_KEY_WEB + " text, "
-        + DATABASE_TABLE_CEBADERO_KEY_CPR + " text, "
-        + DATABASE_TABLE_CEBADERO_KEY_PLAZAS_D + " real, "
-        + DATABASE_TABLE_CEBADERO_KEY_PLAZAS_O + " integer"
-        + DATABASE_CREATE_STATEMENT_END;
+
+    //  Table: cebadero  
+    private static final String DATABASE_TABLE_CEBADERO = "cebadero";
+    private static final String DATABASE_TABLE_CEBADERO_KEY_ID = "_id";
+    private static final String DATABASE_TABLE_CEBADERO_KEY_CODIGO = "codigo";
+    private static final String DATABASE_TABLE_CEBADERO_KEY_NOMBRE = "nombre";
+    private static final String DATABASE_TABLE_CEBADERO_KEY_NOMBRE2= "nombre2";
+    private static final String DATABASE_TABLE_CEBADERO_KEY_DIRECCION = "direccion";
+    private static final String DATABASE_TABLE_CEBADERO_KEY_DIRECCION2 = "direccion2";
+    private static final String DATABASE_TABLE_CEBADERO_KEY_POBLACION = "poblacion";
+    private static final String DATABASE_TABLE_CEBADERO_KEY_TELEFONO = "no_telefono";
+    private static final String DATABASE_TABLE_CEBADERO_KEY_TELEFONO2 = "no_telefono2";
+    private static final String DATABASE_TABLE_CEBADERO_KEY_FAX = "no_fax";
+    private static final String DATABASE_TABLE_CEBADERO_KEY_CONTACTO = "contacto";
+    private static final String DATABASE_TABLE_CEBADERO_KEY_CP = "cp";
+    private static final String DATABASE_TABLE_CEBADERO_KEY_PROVINCIA = "provincia";
+    private static final String DATABASE_TABLE_CEBADERO_KEY_EMAIL = "correo_electronico";
+    private static final String DATABASE_TABLE_CEBADERO_KEY_WEB = "pagina_web";
+    private static final String DATABASE_TABLE_CEBADERO_KEY_CPR = "cod_pais_region";
+    private static final String DATABASE_TABLE_CEBADERO_KEY_PLAZAS_D = "no_plazas_disponibles";
+    private static final String DATABASE_TABLE_CEBADERO_KEY_PLAZAS_O = "no_plazas_ocupadas";
+  //Create Table statement
+  private static final String DATABASE_CREATE_CEBADERO =
+          DATABASE_CREATE_STATEMENT_START + DATABASE_TABLE_CEBADERO  
+          +" (" + DATABASE_TABLE_CEBADERO_KEY_ID + 
+          " integer primary key autoincrement, "
+          + DATABASE_TABLE_CEBADERO_KEY_CODIGO + " text, "
+          + DATABASE_TABLE_CEBADERO_KEY_NOMBRE + " text, "
+          + DATABASE_TABLE_CEBADERO_KEY_NOMBRE2 + " text, "
+          + DATABASE_TABLE_CEBADERO_KEY_DIRECCION + " text, "
+          + DATABASE_TABLE_CEBADERO_KEY_DIRECCION2 + " text, "
+          + DATABASE_TABLE_CEBADERO_KEY_POBLACION + " text, "
+          + DATABASE_TABLE_CEBADERO_KEY_TELEFONO + " text, "
+          + DATABASE_TABLE_CEBADERO_KEY_TELEFONO2 + " text, "
+          + DATABASE_TABLE_CEBADERO_KEY_FAX + " text, "
+          + DATABASE_TABLE_CEBADERO_KEY_CONTACTO + " text, "
+          + DATABASE_TABLE_CEBADERO_KEY_CP + " integer, "
+          + DATABASE_TABLE_CEBADERO_KEY_PROVINCIA + " text, "
+          + DATABASE_TABLE_CEBADERO_KEY_EMAIL + " text, "
+          + DATABASE_TABLE_CEBADERO_KEY_WEB + " text, "
+          + DATABASE_TABLE_CEBADERO_KEY_CPR + " text, "
+          + DATABASE_TABLE_CEBADERO_KEY_PLAZAS_D + " real, "
+          + DATABASE_TABLE_CEBADERO_KEY_PLAZAS_O + " integer"
+          + DATABASE_CREATE_STATEMENT_END;
+
     
+    //  Table: guia
+    private static final String DATABASE_TABLE_GUIA = "guia";
+	private static final String DATABASE_TABLE_GUIA_KEY_ID = "_id";
+	private static final String DATABASE_TABLE_GUIA_KEY_TIPO = "tipo";
+	private static final String DATABASE_TABLE_GUIA_KEY_FECHA = "fecha";
+	private static final String DATABASE_TABLE_GUIA_KEY_NUMERO = "numero";
+	private static final String DATABASE_TABLE_GUIA_KEY_EXPLOTACION = "explotacion";
+	private static final String DATABASE_TABLE_GUIA_KEY_POBLACION = "poblacion";
+	private static final String DATABASE_TABLE_GUIA_KEY_PROVINCIA = "provincia";
+	private static final String DATABASE_TABLE_GUIA_KEY_MUNICIPIO = "cod_municipio";
+	private static final String DATABASE_TABLE_GUIA_KEY_CA = "comunidad_autonoma";
+	private static final String DATABASE_TABLE_GUIA_KEY_PAIS = "cod_pais";
+	private static final String DATABASE_TABLE_GUIA_KEY_TRANSPORTISTA = "cod_transportista";
+	private static final String DATABASE_TABLE_GUIA_KEY_EXPLOTACION_PROCEDENCIA = "cod_explotacion_procedencia";
+	private static final String DATABASE_TABLE_GUIA_KEY_COSTE_TRANSPORTE_ANIMAL = "coste_transporte_animal";
+	private static final String DATABASE_TABLE_GUIA_KEY_MOTIVO_SALIDA = "motivo_salida";
+	private static final String DATABASE_TABLE_GUIA_KEY_PESO_MEDIO_SALIDA_MACHOS = "peso_medio_salida_machos";
+	private static final String DATABASE_TABLE_GUIA_KEY_PESO_MEDIO_SALIDA_HEMBRAS = "peso_medio_salida_hembras";
+	private static final String DATABASE_TABLE_GUIA_KEY_DESTINO = "destino";
+	private static final String DATABASE_TABLE_GUIA_KEY_PIENSO_CONSUMIDO_MACHOS = "kg_dia_pienso_consumido_macho";
+	private static final String DATABASE_TABLE_GUIA_KEY_PIENSO_CONSUMIDO_HEMBRAS = "kg_dia_pienso_consumido_hembras";
+	private static final String DATABASE_TABLE_GUIA_KEY_COSTE_MEDIO_PIENSO = "coste_medio_kg_pienso";
+	private static final String DATABASE_TABLE_GUIA_KEY_PAJA_CONSUMIDA_ANIMAL = "kg_dia_paja_consumidos_animal";
+	private static final String DATABASE_TABLE_GUIA_KEY_COSTE_MEDIO_PAJA = "coste_medio_kg_paja";
+	private static final String DATABASE_TABLE_GUIA_KEY_COSTE_FIJO_ANIMAL = "coste_fijo_animal_dia";
+	private static final String DATABASE_TABLE_GUIA_KEY_COSTE_VARIABLE_ANIMAL = "coste_variable_animal_dia";
+	private static final String DATABASE_TABLE_GUIA_KEY_COSTE_MER = "coste_mer_animal";
+	private static final String DATABASE_TABLE_GUIA_KEY_N_ANIMALES_ENTRADA = "no_animales_entrada";
+	private static final String DATABASE_TABLE_GUIA_KEY_N_ANIMALES_SALIDA = "no_animales_salida";
+	//Create Table statement
+	private static final String DATABASE_CREATE_GUIA =
+		  DATABASE_CREATE_STATEMENT_START + DATABASE_TABLE_GUIA 
+		  +" (" + DATABASE_TABLE_GUIA_KEY_ID + 
+		  " integer primary key autoincrement, "
+		  + DATABASE_TABLE_GUIA_KEY_TIPO + " text, "
+		  + DATABASE_TABLE_GUIA_KEY_FECHA + " date, "
+		  + DATABASE_TABLE_GUIA_KEY_NUMERO + " integer, "
+		  + DATABASE_TABLE_GUIA_KEY_EXPLOTACION + " integer, "
+		  + DATABASE_TABLE_GUIA_KEY_POBLACION + " text, "
+		  + DATABASE_TABLE_GUIA_KEY_PROVINCIA + " text, "
+		  + DATABASE_TABLE_GUIA_KEY_MUNICIPIO + " integer, "
+		  + DATABASE_TABLE_GUIA_KEY_CA + " integer, "
+		  + DATABASE_TABLE_GUIA_KEY_PAIS + " integer, "
+		  + DATABASE_TABLE_GUIA_KEY_TRANSPORTISTA + " integer, "
+		  + DATABASE_TABLE_GUIA_KEY_EXPLOTACION_PROCEDENCIA + " integer, "
+		  + DATABASE_TABLE_GUIA_KEY_COSTE_TRANSPORTE_ANIMAL + " real, "
+		  + DATABASE_TABLE_GUIA_KEY_MOTIVO_SALIDA + " text, "
+		  + DATABASE_TABLE_GUIA_KEY_PESO_MEDIO_SALIDA_MACHOS + " real, "
+		  + DATABASE_TABLE_GUIA_KEY_PESO_MEDIO_SALIDA_HEMBRAS + " real, "
+		  + DATABASE_TABLE_GUIA_KEY_DESTINO + " text, "
+		  + DATABASE_TABLE_GUIA_KEY_PIENSO_CONSUMIDO_MACHOS + " real, "
+		  + DATABASE_TABLE_GUIA_KEY_PIENSO_CONSUMIDO_HEMBRAS + " real, "
+		  + DATABASE_TABLE_GUIA_KEY_COSTE_MEDIO_PIENSO + " real, "
+		  + DATABASE_TABLE_GUIA_KEY_PAJA_CONSUMIDA_ANIMAL + " real, "
+		  + DATABASE_TABLE_GUIA_KEY_COSTE_MEDIO_PAJA + " real, "
+		  + DATABASE_TABLE_GUIA_KEY_COSTE_FIJO_ANIMAL + " real, "
+		  + DATABASE_TABLE_GUIA_KEY_COSTE_VARIABLE_ANIMAL + " real, "
+		  + DATABASE_TABLE_GUIA_KEY_COSTE_MER + " real, "
+		  + DATABASE_TABLE_GUIA_KEY_N_ANIMALES_ENTRADA + " integer, "
+		  + DATABASE_TABLE_GUIA_KEY_N_ANIMALES_SALIDA + " integer, "
+		  + "FOREIGN KEY("+DATABASE_TABLE_GUIA_KEY_EXPLOTACION +") REFERENCES " + DATABASE_TABLE_EXPLOTACION + "( "+DATABASE_TABLE_EXPLOTACION_KEY_ID + "), "
+		  + "FOREIGN KEY("+DATABASE_TABLE_GUIA_KEY_EXPLOTACION_PROCEDENCIA +") REFERENCES " + DATABASE_TABLE_EXPLOTACION + "( "+DATABASE_TABLE_EXPLOTACION_KEY_ID + ")"
+			+ DATABASE_CREATE_STATEMENT_END;
+        
 //Table: ceba_cebadero
   private static final String DATABASE_TABLE_CEBA_CEBADERO = "ceba_cebadero";
   private static final String DATABASE_TABLE_CEBA_CEBADERO_KEY_ID = "_id";
@@ -133,10 +198,9 @@ private static final String DATABASE_CREATE_CEBADERO =
         + DATABASE_TABLE_CEBA_CEBADERO_KEY_PCOMPRA_M + " real, "
         + DATABASE_TABLE_CEBA_CEBADERO_KEY_PCOMPRA_H + " real, "
         + DATABASE_TABLE_CEBA_CEBADERO_KEY_FILTRO_NO_GUIA + " text, "
-        + DATABASE_TABLE_CEBA_CEBADERO_KEY_NO_GUIA_E + " text, "
-//        TODO: Añadir FKs
-        + "FOREIGN KEY("+DATABASE_TABLE_CEBA_CEBADERO_KEY_CEBADERO+") REFERENCES " + DATABASE_TABLE_CEBADERO + "( "+DATABASE_TABLE_CEBADERO_KEY_ID + ")"
-//        + "FOREIGN KEY("+DATABASE_TABLE_CEBA_CEBADERO_KEY_TRANSPORTISTA+") REFERENCES " + DATABASE_TABLE_CEBADERO + "( "+DATABASE_TABLE_CEBADERO_KEY_ID
+        + DATABASE_TABLE_CEBA_CEBADERO_KEY_NO_GUIA_E + " integer, "
+        + "FOREIGN KEY("+DATABASE_TABLE_CEBA_CEBADERO_KEY_CEBADERO+") REFERENCES " + DATABASE_TABLE_CEBADERO + "( "+DATABASE_TABLE_CEBADERO_KEY_ID + "),"
+        + "FOREIGN KEY("+DATABASE_TABLE_CEBA_CEBADERO_KEY_NO_GUIA_E+") REFERENCES " + DATABASE_TABLE_GUIA + "( "+DATABASE_TABLE_GUIA_KEY_ID + ")"
         + DATABASE_CREATE_STATEMENT_END;
 
   //  Table: corral
@@ -159,6 +223,60 @@ private static final String DATABASE_CREATE_CEBADERO =
         + DATABASE_TABLE_CORRAL_KEY_BASCULA + " integer, "
         + "FOREIGN KEY("+DATABASE_TABLE_CORRAL_KEY_CEBADERO +") REFERENCES " + DATABASE_TABLE_CEBADERO + "( "+DATABASE_TABLE_CEBADERO_KEY_ID + ")"
         + DATABASE_CREATE_STATEMENT_END;
+
+  //  Table: lote_cebadero
+  private static final String DATABASE_TABLE_LOTE_CEBADERO = "lote_cebadero";
+  private static final String DATABASE_TABLE_LOTE_CEBADERO_KEY_ID = "_id";
+  private static final String DATABASE_TABLE_LOTE_CEBADERO_KEY_CEBADERO = "cod_cebadero";
+  private static final String DATABASE_TABLE_LOTE_CEBADERO_KEY_CEBA = "cod_ceba";
+  private static final String DATABASE_TABLE_LOTE_CEBADERO_KEY_NUMERO = "numero";
+  private static final String DATABASE_TABLE_LOTE_CEBADERO_KEY_N_ANIMALES = "no_animales";
+  private static final String DATABASE_TABLE_LOTE_CEBADERO_KEY_LOTE_CON_BAJAS = "lote_con_bajas";
+  private static final String DATABASE_TABLE_LOTE_CEBADERO_KEY_PIENSO_CONSUMIDO = "kg_dia_pienso_consumidos";
+  private static final String DATABASE_TABLE_LOTE_CEBADERO_KEY_COSTE_MEDIO_PIENSO = "coste_medio_pienso";
+  //Create Table statement
+  private static final String DATABASE_CREATE_LOTE_CEBADERO =
+		  DATABASE_CREATE_STATEMENT_START + DATABASE_TABLE_LOTE_CEBADERO
+		  +" (" + DATABASE_TABLE_LOTE_CEBADERO_KEY_ID + 
+		  " integer primary key autoincrement, "
+		  + DATABASE_TABLE_LOTE_CEBADERO_KEY_CEBADERO + " integer, "
+		  + DATABASE_TABLE_LOTE_CEBADERO_KEY_CEBA + " integer, "
+		  + DATABASE_TABLE_LOTE_CEBADERO_KEY_NUMERO + " text, "
+		  + DATABASE_TABLE_LOTE_CEBADERO_KEY_N_ANIMALES + " integer, "
+		  + DATABASE_TABLE_LOTE_CEBADERO_KEY_LOTE_CON_BAJAS + " integer, "
+		  + DATABASE_TABLE_LOTE_CEBADERO_KEY_PIENSO_CONSUMIDO + " real, "
+		  + DATABASE_TABLE_LOTE_CEBADERO_KEY_COSTE_MEDIO_PIENSO + " real, "
+		  + "FOREIGN KEY("+DATABASE_TABLE_LOTE_CEBADERO_KEY_CEBADERO +") REFERENCES " + DATABASE_TABLE_CEBADERO + "( "+DATABASE_TABLE_CEBADERO_KEY_ID + "), "		  
+		  + "FOREIGN KEY("+DATABASE_TABLE_LOTE_CEBADERO_KEY_CEBA +") REFERENCES " + DATABASE_TABLE_CEBA_CEBADERO + "( "+DATABASE_TABLE_CEBA_CEBADERO_KEY_ID + ") "		  
+		  + DATABASE_CREATE_STATEMENT_END;
+
+  //  Table: raza
+  private static final String DATABASE_TABLE_RAZA = "raza";
+  private static final String DATABASE_TABLE_RAZA_KEY_ID = "_id";
+  private static final String DATABASE_TABLE_RAZA_KEY_CODIGO = "codigo";
+  private static final String DATABASE_TABLE_RAZA_KEY_DESCRIPCION = "descripcion";
+//Create Table statement
+  private static final String DATABASE_CREATE_RAZA =
+		  DATABASE_CREATE_STATEMENT_START + DATABASE_TABLE_RAZA
+		  +" (" + DATABASE_TABLE_RAZA_KEY_ID + 
+		  " integer primary key autoincrement, "
+		  + DATABASE_TABLE_RAZA_KEY_CODIGO + " text, "
+		  + DATABASE_TABLE_RAZA_KEY_DESCRIPCION + " text"
+		  + DATABASE_CREATE_STATEMENT_END;
+  
+  //  Table: especie
+  private static final String DATABASE_TABLE_ESPECIE = "especie";
+  private static final String DATABASE_TABLE_ESPECIE_KEY_ID = "_id";
+  private static final String DATABASE_TABLE_ESPECIE_KEY_CODIGO = "codigo";
+  private static final String DATABASE_TABLE_ESPECIE_KEY_DESCRIPCION = "descripcion";
+//Create Table statement
+  private static final String DATABASE_CREATE_ESPECIE =
+		  DATABASE_CREATE_STATEMENT_START + DATABASE_TABLE_ESPECIE
+		  +" (" + DATABASE_TABLE_ESPECIE_KEY_ID + 
+		  " integer primary key autoincrement, "
+		  + DATABASE_TABLE_ESPECIE_KEY_CODIGO + " text, "
+		  + DATABASE_TABLE_ESPECIE_KEY_DESCRIPCION + " text"
+		  + DATABASE_CREATE_STATEMENT_END;
 
   //  Table: animales
   private static final String DATABASE_TABLE_ANIMALES = "animales";
@@ -245,76 +363,21 @@ private static final String DATABASE_CREATE_CEBADERO =
         + DATABASE_TABLE_ANIMALES_KEY_KG_ENGORDADOS + " real, "
         + DATABASE_TABLE_ANIMALES_KEY_GANANCIA_MEDIA_DIARIA + " real, "
         + DATABASE_TABLE_ANIMALES_KEY_COSTE_TRATAMIENTO_CURATIVO + " real, "
-        + DATABASE_TABLE_ANIMALES_KEY_INDICE_TRANSFORMACION + " real, "
-        
-        //TODO: Añadir Foreign keys
-        + "FOREIGN KEY("+DATABASE_TABLE_CORRAL_KEY_CEBADERO +") REFERENCES " + DATABASE_TABLE_CEBADERO + "( "+DATABASE_TABLE_CEBADERO_KEY_ID + ")"
+        + DATABASE_TABLE_ANIMALES_KEY_INDICE_TRANSFORMACION + " real, "            
+        + "FOREIGN KEY("+DATABASE_TABLE_ANIMALES_KEY_RAZA +") REFERENCES " + DATABASE_TABLE_RAZA + "( "+DATABASE_TABLE_RAZA_KEY_ID + "),"
+        + "FOREIGN KEY("+DATABASE_TABLE_ANIMALES_KEY_N_ID_MADRE +") REFERENCES " + DATABASE_TABLE_ANIMALES + "( "+DATABASE_TABLE_ANIMALES_KEY_ID + "),"
+        + "FOREIGN KEY("+DATABASE_TABLE_ANIMALES_KEY_EXPLOTACION_NACIMIENTO +") REFERENCES " + DATABASE_TABLE_EXPLOTACION + "( "+DATABASE_TABLE_EXPLOTACION_KEY_ID + "),"
+        + "FOREIGN KEY("+DATABASE_TABLE_ANIMALES_KEY_CEBADERO +") REFERENCES " + DATABASE_TABLE_CEBADERO + "( "+DATABASE_TABLE_CEBADERO_KEY_ID + "),"
+        + "FOREIGN KEY("+DATABASE_TABLE_ANIMALES_KEY_CEBA +") REFERENCES " + DATABASE_TABLE_CEBA_CEBADERO + "( "+DATABASE_TABLE_CEBA_CEBADERO_KEY_ID + "),"
+        + "FOREIGN KEY("+DATABASE_TABLE_ANIMALES_KEY_CORRAL +") REFERENCES " + DATABASE_TABLE_CORRAL + "( "+DATABASE_TABLE_CORRAL_KEY_ID + "),"
+        + "FOREIGN KEY("+DATABASE_TABLE_ANIMALES_KEY_LOTE_CEBADERO +") REFERENCES " + DATABASE_TABLE_LOTE_CEBADERO + "( "+DATABASE_TABLE_LOTE_CEBADERO_KEY_ID + "),"
+        + "FOREIGN KEY("+DATABASE_TABLE_ANIMALES_KEY_ESPECIE +") REFERENCES " + DATABASE_TABLE_ESPECIE + "( "+DATABASE_TABLE_ESPECIE_KEY_ID + "),"
+        + "FOREIGN KEY("+DATABASE_TABLE_ANIMALES_KEY_EXPLOTACION +") REFERENCES " + DATABASE_TABLE_EXPLOTACION + "( "+DATABASE_TABLE_EXPLOTACION_KEY_ID + "),"        
+        + "FOREIGN KEY("+DATABASE_TABLE_ANIMALES_KEY_N_GUIA_ENTRADA +") REFERENCES " + DATABASE_TABLE_GUIA + "( "+DATABASE_TABLE_GUIA_KEY_ID + "),"        
+        + "FOREIGN KEY("+DATABASE_TABLE_ANIMALES_KEY_EXPLOTACION_PROCEDENCIA +") REFERENCES " + DATABASE_TABLE_EXPLOTACION + "( "+DATABASE_TABLE_EXPLOTACION_KEY_ID + "),"        
+        + "FOREIGN KEY("+DATABASE_TABLE_ANIMALES_KEY_N_GUIA_SALIDA +") REFERENCES " + DATABASE_TABLE_GUIA + "( "+DATABASE_TABLE_GUIA_KEY_ID + ")"        
         + DATABASE_CREATE_STATEMENT_END;
-
-  //  Table: guia
-  private static final String DATABASE_TABLE_GUIA = "guia";
-  private static final String DATABASE_TABLE_GUIA_KEY_ID = "_id";
-  private static final String DATABASE_TABLE_GUIA_KEY_TIPO = "tipo";
-  private static final String DATABASE_TABLE_GUIA_KEY_FECHA = "fecha";
-  private static final String DATABASE_TABLE_GUIA_KEY_NUMERO = "numero";
-  private static final String DATABASE_TABLE_GUIA_KEY_EXPLOTACION = "explotacion";
-  private static final String DATABASE_TABLE_GUIA_KEY_POBLACION = "poblacion";
-  private static final String DATABASE_TABLE_GUIA_KEY_PROVINCIA = "provincia";
-  private static final String DATABASE_TABLE_GUIA_KEY_MUNICIPIO = "cod_municipio";
-  private static final String DATABASE_TABLE_GUIA_KEY_CA = "comunidad_autonoma";
-  private static final String DATABASE_TABLE_GUIA_KEY_PAIS = "cod_pais";
-  private static final String DATABASE_TABLE_GUIA_KEY_TRANSPORTISTA = "cod_transportista";
-  private static final String DATABASE_TABLE_GUIA_KEY_EXPLOTACION_PROCEDENCIA = "cod_explotacion_procedencia";
-  private static final String DATABASE_TABLE_GUIA_KEY_COSTE_TRANSPORTE_ANIMAL = "coste_transporte_animal";
-  private static final String DATABASE_TABLE_GUIA_KEY_MOTIVO_SALIDA = "motivo_salida";
-  private static final String DATABASE_TABLE_GUIA_KEY_PESO_MEDIO_SALIDA_MACHOS = "peso_medio_salida_machos";
-  private static final String DATABASE_TABLE_GUIA_KEY_PESO_MEDIO_SALIDA_HEMBRAS = "peso_medio_salida_hembras";
-  private static final String DATABASE_TABLE_GUIA_KEY_DESTINO = "destino";
-  private static final String DATABASE_TABLE_GUIA_KEY_PIENSO_CONSUMIDO_MACHOS = "kg_dia_pienso_consumido_macho";
-  private static final String DATABASE_TABLE_GUIA_KEY_PIENSO_CONSUMIDO_HEMBRAS = "kg_dia_pienso_consumido_hembras";
-  private static final String DATABASE_TABLE_GUIA_KEY_COSTE_MEDIO_PIENSO = "coste_medio_kg_pienso";
-  private static final String DATABASE_TABLE_GUIA_KEY_PAJA_CONSUMIDA_ANIMAL = "kg_dia_paja_consumidos_animal";
-  private static final String DATABASE_TABLE_GUIA_KEY_COSTE_MEDIO_PAJA = "coste_medio_kg_paja";
-  private static final String DATABASE_TABLE_GUIA_KEY_COSTE_FIJO_ANIMAL = "coste_fijo_animal_dia";
-  private static final String DATABASE_TABLE_GUIA_KEY_COSTE_VARIABLE_ANIMAL = "coste_variable_animal_dia";
-  private static final String DATABASE_TABLE_GUIA_KEY_COSTE_MER = "coste_mer_animal";
-  private static final String DATABASE_TABLE_GUIA_KEY_N_ANIMALES_ENTRADA = "no_animales_entrada";
-  private static final String DATABASE_TABLE_GUIA_KEY_N_ANIMALES_SALIDA = "no_animales_salida";
-//Create Table statement
-  private static final String DATABASE_CREATE_GUIA =
-        DATABASE_CREATE_STATEMENT_START + DATABASE_TABLE_GUIA 
-        +" (" + DATABASE_TABLE_GUIA_KEY_ID + 
-        " integer primary key autoincrement, "
-        + DATABASE_TABLE_GUIA_KEY_TIPO + " text, "
-        + DATABASE_TABLE_GUIA_KEY_FECHA + " date, "
-        + DATABASE_TABLE_GUIA_KEY_NUMERO + " integer, "
-        + DATABASE_TABLE_GUIA_KEY_EXPLOTACION + " integer, "
-        + DATABASE_TABLE_GUIA_KEY_POBLACION + " text, "
-        + DATABASE_TABLE_GUIA_KEY_PROVINCIA + " text, "
-        + DATABASE_TABLE_GUIA_KEY_MUNICIPIO + " integer, "
-        + DATABASE_TABLE_GUIA_KEY_CA + " integer, "
-        + DATABASE_TABLE_GUIA_KEY_PAIS + " integer, "
-        + DATABASE_TABLE_GUIA_KEY_TRANSPORTISTA + " integer, "
-        + DATABASE_TABLE_GUIA_KEY_EXPLOTACION_PROCEDENCIA + " integer, "
-        + DATABASE_TABLE_GUIA_KEY_COSTE_TRANSPORTE_ANIMAL + " real, "
-        + DATABASE_TABLE_GUIA_KEY_MOTIVO_SALIDA + " text, "
-        + DATABASE_TABLE_GUIA_KEY_PESO_MEDIO_SALIDA_MACHOS + " real, "
-        + DATABASE_TABLE_GUIA_KEY_PESO_MEDIO_SALIDA_HEMBRAS + " real, "
-        + DATABASE_TABLE_GUIA_KEY_DESTINO + " text, "
-        + DATABASE_TABLE_GUIA_KEY_PIENSO_CONSUMIDO_MACHOS + " real, "
-        + DATABASE_TABLE_GUIA_KEY_PIENSO_CONSUMIDO_HEMBRAS + " real, "
-        + DATABASE_TABLE_GUIA_KEY_COSTE_MEDIO_PIENSO + " real, "
-        + DATABASE_TABLE_GUIA_KEY_PAJA_CONSUMIDA_ANIMAL + " real, "
-        + DATABASE_TABLE_GUIA_KEY_COSTE_MEDIO_PAJA + " real, "
-        + DATABASE_TABLE_GUIA_KEY_COSTE_FIJO_ANIMAL + " real, "
-        + DATABASE_TABLE_GUIA_KEY_COSTE_VARIABLE_ANIMAL + " real, "
-        + DATABASE_TABLE_GUIA_KEY_COSTE_MER + " real, "
-        + DATABASE_TABLE_GUIA_KEY_N_ANIMALES_ENTRADA + " integer, "
-        + DATABASE_TABLE_GUIA_KEY_N_ANIMALES_SALIDA + " integer "
-//        TODO: Añadir FKs
-//        + "FOREIGN KEY("+DATABASE_TABLE_CORRAL_KEY_CEBADERO +") REFERENCES " + DATABASE_TABLE_CEBADERO + "( "+DATABASE_TABLE_CEBADERO_KEY_ID + ")"
-        + DATABASE_CREATE_STATEMENT_END;
-
+  
   //  Table: patologias
   private static final String DATABASE_TABLE_PATOLOGIAS = "patologias";
   private static final String DATABASE_TABLE_PATOLOGIAS_KEY_ID = "_id";
@@ -333,30 +396,6 @@ private static final String DATABASE_CREATE_CEBADERO =
         + DATABASE_TABLE_PATOLOGIAS_KEY_ENFERMEDAD_PARASITARIA + " integer "
         + DATABASE_CREATE_STATEMENT_END;
 
-  //  Table: lote_cebadero
-  private static final String DATABASE_TABLE_LOTE_CEBADERO = "lote_cebadero";
-  private static final String DATABASE_TABLE_LOTE_CEBADERO_KEY_ID = "_id";
-  private static final String DATABASE_TABLE_LOTE_CEBADERO_KEY_CEBADERO = "cod_cebadero";
-  private static final String DATABASE_TABLE_LOTE_CEBADERO_KEY_CEBA = "cod_ceba";
-  private static final String DATABASE_TABLE_LOTE_CEBADERO_KEY_NUMERO = "numero";
-  private static final String DATABASE_TABLE_LOTE_CEBADERO_KEY_N_ANIMALES = "no_animales";
-  private static final String DATABASE_TABLE_LOTE_CEBADERO_KEY_LOTE_CON_BAJAS = "lote_con_bajas";
-  private static final String DATABASE_TABLE_LOTE_CEBADERO_KEY_PIENSO_CONSUMIDO = "kg_dia_pienso_consumidos";
-  private static final String DATABASE_TABLE_LOTE_CEBADERO_KEY_COSTE_MEDIO_PIENSO = "coste_medio_pienso";
-  //Create Table statement
-  private static final String DATABASE_CREATE_LOTE_CEBADERO =
-		  DATABASE_CREATE_STATEMENT_START + DATABASE_TABLE_LOTE_CEBADERO
-		  +" (" + DATABASE_TABLE_LOTE_CEBADERO_KEY_ID + 
-		  " integer primary key autoincrement, "
-		  + DATABASE_TABLE_LOTE_CEBADERO_KEY_CEBADERO + " text, "
-		  + DATABASE_TABLE_LOTE_CEBADERO_KEY_CEBA + " text, "
-		  + DATABASE_TABLE_LOTE_CEBADERO_KEY_NUMERO + " text, "
-		  + DATABASE_TABLE_LOTE_CEBADERO_KEY_N_ANIMALES + " integer, "
-		  + DATABASE_TABLE_LOTE_CEBADERO_KEY_LOTE_CON_BAJAS + " integer, "
-		  + DATABASE_TABLE_LOTE_CEBADERO_KEY_PIENSO_CONSUMIDO + " real, "
-		  + DATABASE_TABLE_LOTE_CEBADERO_KEY_COSTE_MEDIO_PIENSO + " real "
-		  //TODO: Añadir FKs
-		  + DATABASE_CREATE_STATEMENT_END;
 
   //  Table: pruebas
   private static final String DATABASE_TABLE_PRUEBAS = "pruebas";
@@ -372,33 +411,6 @@ private static final String DATABASE_CREATE_CEBADERO =
         + DATABASE_TABLE_PRUEBAS_KEY_DESCRIPCION + " text"
         + DATABASE_CREATE_STATEMENT_END;
 
-  //  Table: raza
-  private static final String DATABASE_TABLE_RAZA = "raza";
-  private static final String DATABASE_TABLE_RAZA_KEY_ID = "_id";
-  private static final String DATABASE_TABLE_RAZA_KEY_CODIGO = "codigo";
-  private static final String DATABASE_TABLE_RAZA_KEY_DESCRIPCION = "descripcion";
-//Create Table statement
-  private static final String DATABASE_CREATE_RAZA =
-		  DATABASE_CREATE_STATEMENT_START + DATABASE_TABLE_RAZA
-		  +" (" + DATABASE_TABLE_RAZA_KEY_ID + 
-		  " integer primary key autoincrement, "
-		  + DATABASE_TABLE_RAZA_KEY_CODIGO + " text, "
-		  + DATABASE_TABLE_RAZA_KEY_DESCRIPCION + " text"
-		  + DATABASE_CREATE_STATEMENT_END;
-  
-  //  Table: especie
-  private static final String DATABASE_TABLE_ESPECIE = "especie";
-  private static final String DATABASE_TABLE_ESPECIE_KEY_ID = "_id";
-  private static final String DATABASE_TABLE_ESPECIE_KEY_CODIGO = "codigo";
-  private static final String DATABASE_TABLE_ESPECIE_KEY_DESCRIPCION = "descripcion";
-//Create Table statement
-  private static final String DATABASE_CREATE_ESPECIE =
-		  DATABASE_CREATE_STATEMENT_START + DATABASE_TABLE_ESPECIE
-		  +" (" + DATABASE_TABLE_ESPECIE_KEY_ID + 
-		  " integer primary key autoincrement, "
-		  + DATABASE_TABLE_ESPECIE_KEY_CODIGO + " text, "
-		  + DATABASE_TABLE_ESPECIE_KEY_DESCRIPCION + " text"
-		  + DATABASE_CREATE_STATEMENT_END;
 
   //  Table: veterinario
   private static final String DATABASE_TABLE_VETERINARIO = "veterinario";
@@ -453,8 +465,10 @@ private static final String DATABASE_CREATE_CEBADERO =
 		  + DATABASE_TABLE_TRAT_PREV_CEBA_KEY_PRECIO_UNITARIO + " real, "
 		  + DATABASE_TABLE_TRAT_PREV_CEBA_KEY_PRECIO_ML + " real, "
 		  + DATABASE_TABLE_TRAT_PREV_CEBA_KEY_N_DOSIS + " real, "
-		  + DATABASE_TABLE_TRAT_PREV_CEBA_KEY_FECHA + " date"
-//		  TODO: Añadir FKs
+		  + DATABASE_TABLE_TRAT_PREV_CEBA_KEY_FECHA + " date, "
+		  + "FOREIGN KEY("+DATABASE_TABLE_TRAT_PREV_CEBA_KEY_CEBADERO +") REFERENCES " + DATABASE_TABLE_CEBADERO + "( "+DATABASE_TABLE_CEBADERO_KEY_ID + "),"
+		  + "FOREIGN KEY("+DATABASE_TABLE_TRAT_PREV_CEBA_KEY_CEBA +") REFERENCES " + DATABASE_TABLE_CEBA_CEBADERO + "( "+DATABASE_TABLE_CEBA_CEBADERO_KEY_ID + "),"
+		  + "FOREIGN KEY("+DATABASE_TABLE_TRAT_PREV_CEBA_KEY_PRUEBA +") REFERENCES " + DATABASE_TABLE_PRUEBAS + "( "+DATABASE_TABLE_PRUEBAS_KEY_ID + ")"
 		  + DATABASE_CREATE_STATEMENT_END;
   
   //  Table: tratamiento curativo animal
@@ -478,14 +492,18 @@ private static final String DATABASE_CREATE_CEBADERO =
 		  + DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_CEBADERO + " integer, "
 		  + DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_CEBA + " integer, "
 		  + DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_ANIMAL + " integer, "
-		  + DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_PRODUCTO + " integer, "
+		  + DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_PRODUCTO + " text, "
 		  + DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_FECHA + " date, "
 		  + DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_EXPLOTACION + " integer, "
 		  + DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_PATOLOGIA + " integer, "
 		  + DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_PRECIO_UNITARIO + " real, "
 		  + DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_PRECIO_ML + " real, "
-		  + DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_N_DOSIS + " real"
-//		  TODO: Añadir FKs
+		  + DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_N_DOSIS + " real, "
+		  + "FOREIGN KEY("+DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_CEBADERO +") REFERENCES " + DATABASE_TABLE_CEBADERO + "( "+DATABASE_TABLE_CEBADERO_KEY_ID + "),"
+		  + "FOREIGN KEY("+DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_CEBA +") REFERENCES " + DATABASE_TABLE_CEBA_CEBADERO + "( "+DATABASE_TABLE_CEBA_CEBADERO_KEY_ID + "),"
+		  + "FOREIGN KEY("+DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_ANIMAL +") REFERENCES " + DATABASE_TABLE_ANIMALES + "( "+DATABASE_TABLE_ANIMALES_KEY_ID + "),"
+		  + "FOREIGN KEY("+DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_EXPLOTACION +") REFERENCES " + DATABASE_TABLE_EXPLOTACION + "( "+DATABASE_TABLE_EXPLOTACION_KEY_ID + "),"
+		  + "FOREIGN KEY("+DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_PATOLOGIA +") REFERENCES " + DATABASE_TABLE_PATOLOGIAS + "( "+DATABASE_TABLE_PATOLOGIAS_KEY_ID + ")"
 		  + DATABASE_CREATE_STATEMENT_END;
   
   
@@ -518,19 +536,18 @@ private static final String DATABASE_CREATE_CEBADERO =
 
             db.execSQL(DATABASE_CREATE_EXPLOTACION);
             db.execSQL(DATABASE_CREATE_CEBADERO);
+            db.execSQL(DATABASE_CREATE_GUIA);
             db.execSQL(DATABASE_CREATE_CEBA_CEBADERO);
             db.execSQL(DATABASE_CREATE_CORRAL);
-            db.execSQL(DATABASE_CREATE_ANIMALES);
-            db.execSQL(DATABASE_CREATE_GUIA);
-            db.execSQL(DATABASE_CREATE_PATOLOGIAS);
             db.execSQL(DATABASE_CREATE_LOTE_CEBADERO);
-            db.execSQL(DATABASE_CREATE_PRUEBAS);
             db.execSQL(DATABASE_CREATE_RAZA);
             db.execSQL(DATABASE_CREATE_ESPECIE);
+            db.execSQL(DATABASE_CREATE_ANIMALES);
+            db.execSQL(DATABASE_CREATE_PATOLOGIAS);
+            db.execSQL(DATABASE_CREATE_PRUEBAS);
             db.execSQL(DATABASE_CREATE_VETERINARIO);
             db.execSQL(DATABASE_CREATE_TRAT_PREV_CEBA);
             db.execSQL(DATABASE_CREATE_TRAT_CUR_ANIMAL);
-            //TODO: Añadir todas las tablas
         }
 
 		@Override
@@ -540,20 +557,19 @@ private static final String DATABASE_CREATE_CEBADERO =
 
             db.execSQL(DROP_STATEMENT + DATABASE_TABLE_EXPLOTACION + ";");
             db.execSQL(DROP_STATEMENT + DATABASE_TABLE_CEBADERO + ";");
+            db.execSQL(DROP_STATEMENT + DATABASE_TABLE_GUIA + ";");
             db.execSQL(DROP_STATEMENT + DATABASE_TABLE_CEBA_CEBADERO + ";");
             db.execSQL(DROP_STATEMENT + DATABASE_TABLE_CORRAL + ";");
-            db.execSQL(DROP_STATEMENT + DATABASE_TABLE_ANIMALES + ";");
-            db.execSQL(DROP_STATEMENT + DATABASE_TABLE_GUIA + ";");
-            db.execSQL(DROP_STATEMENT + DATABASE_TABLE_PATOLOGIAS+ ";");
             db.execSQL(DROP_STATEMENT + DATABASE_TABLE_LOTE_CEBADERO + ";");
-            db.execSQL(DROP_STATEMENT + DATABASE_TABLE_PRUEBAS + ";");
             db.execSQL(DROP_STATEMENT + DATABASE_TABLE_RAZA + ";");
             db.execSQL(DROP_STATEMENT + DATABASE_TABLE_ESPECIE + ";");
+            db.execSQL(DROP_STATEMENT + DATABASE_TABLE_ANIMALES + ";");
+            db.execSQL(DROP_STATEMENT + DATABASE_TABLE_PATOLOGIAS+ ";");
+            db.execSQL(DROP_STATEMENT + DATABASE_TABLE_PRUEBAS + ";");
             db.execSQL(DROP_STATEMENT + DATABASE_TABLE_VETERINARIO + ";");
             db.execSQL(DROP_STATEMENT + DATABASE_TABLE_TRAT_PREV_CEBA + ";");
             db.execSQL(DROP_STATEMENT + DATABASE_TABLE_TRAT_CUR_ANIMAL + ";");
             onCreate(db);
-//            TODO: Añadir todas las tablas
         }
 		
     }
