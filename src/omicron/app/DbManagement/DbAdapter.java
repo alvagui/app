@@ -9,7 +9,8 @@ import android.util.Log;
 public class DbAdapter {
 	
     private static final String DATABASE_NAME = "omicron.db";
-    private static final int DATABASE_VERSION = 1;
+//    Whenever DB structure is changed, must be incremented
+    private static final int DATABASE_VERSION = 5;
 	
 //    Log Tag
     private static final String TAG = "DbAdapter";
@@ -157,7 +158,7 @@ public class DbAdapter {
 		  + DATABASE_TABLE_GUIA_KEY_N_ANIMALES_SALIDA + " integer, "
 		  + "FOREIGN KEY("+DATABASE_TABLE_GUIA_KEY_EXPLOTACION +") REFERENCES " + DATABASE_TABLE_EXPLOTACION + "( "+DATABASE_TABLE_EXPLOTACION_KEY_ID + "), "
 		  + "FOREIGN KEY("+DATABASE_TABLE_GUIA_KEY_EXPLOTACION_PROCEDENCIA +") REFERENCES " + DATABASE_TABLE_EXPLOTACION + "( "+DATABASE_TABLE_EXPLOTACION_KEY_ID + ")"
-			+ DATABASE_CREATE_STATEMENT_END;
+		  + DATABASE_CREATE_STATEMENT_END;
         
 //Table: ceba_cebadero
   private static final String DATABASE_TABLE_CEBA_CEBADERO = "ceba_cebadero";
@@ -509,86 +510,86 @@ public class DbAdapter {
   
   	private static final String DROP_STATEMENT = "DROP TABLE IF EXISTS ";
   
-    private DatabaseHelper mDbHelper;
-    private SQLiteDatabase mDb;
-    
-    private final Context mCtx;
-    
-    private static class DatabaseHelper extends SQLiteOpenHelper {
-    	
-        private static DatabaseHelper instance;
-    	
-        DatabaseHelper(Context context) {
-            super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        }
+	private DatabaseHelper mDbHelper;
+	private SQLiteDatabase mDb;
 
-        public static synchronized DatabaseHelper getHelper(Context context)
-        {
-            if (instance == null)
-                instance = new DatabaseHelper(context);
+	private final Context mCtx;
 
-            return instance;
-        }
-        
-        
+	private static class DatabaseHelper extends SQLiteOpenHelper {
+
+		private static DatabaseHelper instance;
+
+		DatabaseHelper(Context context) {
+			super(context, DATABASE_NAME, null, DATABASE_VERSION);
+		}
+
+		public static synchronized DatabaseHelper getHelper(Context context) {
+			if (instance == null)
+				instance = new DatabaseHelper(context);
+			return instance;
+		}
+
 		@Override
 		public void onCreate(SQLiteDatabase db) {
 
-            db.execSQL(DATABASE_CREATE_EXPLOTACION);
-            db.execSQL(DATABASE_CREATE_CEBADERO);
-            db.execSQL(DATABASE_CREATE_GUIA);
-            db.execSQL(DATABASE_CREATE_CEBA_CEBADERO);
-            db.execSQL(DATABASE_CREATE_CORRAL);
-            db.execSQL(DATABASE_CREATE_LOTE_CEBADERO);
-            db.execSQL(DATABASE_CREATE_RAZA);
-            db.execSQL(DATABASE_CREATE_ESPECIE);
-            db.execSQL(DATABASE_CREATE_ANIMALES);
-            db.execSQL(DATABASE_CREATE_PATOLOGIAS);
-            db.execSQL(DATABASE_CREATE_PRUEBAS);
-            db.execSQL(DATABASE_CREATE_VETERINARIO);
-            db.execSQL(DATABASE_CREATE_TRAT_PREV_CEBA);
-            db.execSQL(DATABASE_CREATE_TRAT_CUR_ANIMAL);
-        }
+			db.execSQL(DATABASE_CREATE_EXPLOTACION);
+			db.execSQL(DATABASE_CREATE_CEBADERO);
+			db.execSQL(DATABASE_CREATE_GUIA);
+			db.execSQL(DATABASE_CREATE_CEBA_CEBADERO);
+			db.execSQL(DATABASE_CREATE_CORRAL);
+			db.execSQL(DATABASE_CREATE_LOTE_CEBADERO);
+			db.execSQL(DATABASE_CREATE_RAZA);
+			db.execSQL(DATABASE_CREATE_ESPECIE);
+			db.execSQL(DATABASE_CREATE_ANIMALES);
+			db.execSQL(DATABASE_CREATE_PATOLOGIAS);
+			db.execSQL(DATABASE_CREATE_PRUEBAS);
+			db.execSQL(DATABASE_CREATE_VETERINARIO);
+			db.execSQL(DATABASE_CREATE_TRAT_PREV_CEBA);
+			db.execSQL(DATABASE_CREATE_TRAT_CUR_ANIMAL);
+		}
 
 		@Override
-        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            Log.w(TAG, "Upgrading database from version " + oldVersion + " to "
-                    + newVersion + ", which will destroy all old data");
+		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+			Log.w(TAG, "Upgrading database from version " + oldVersion + " to "
+					+ newVersion + ", which will destroy all old data");
 
-            db.execSQL(DROP_STATEMENT + DATABASE_TABLE_EXPLOTACION + ";");
-            db.execSQL(DROP_STATEMENT + DATABASE_TABLE_CEBADERO + ";");
-            db.execSQL(DROP_STATEMENT + DATABASE_TABLE_GUIA + ";");
-            db.execSQL(DROP_STATEMENT + DATABASE_TABLE_CEBA_CEBADERO + ";");
-            db.execSQL(DROP_STATEMENT + DATABASE_TABLE_CORRAL + ";");
-            db.execSQL(DROP_STATEMENT + DATABASE_TABLE_LOTE_CEBADERO + ";");
-            db.execSQL(DROP_STATEMENT + DATABASE_TABLE_RAZA + ";");
-            db.execSQL(DROP_STATEMENT + DATABASE_TABLE_ESPECIE + ";");
-            db.execSQL(DROP_STATEMENT + DATABASE_TABLE_ANIMALES + ";");
-            db.execSQL(DROP_STATEMENT + DATABASE_TABLE_PATOLOGIAS+ ";");
-            db.execSQL(DROP_STATEMENT + DATABASE_TABLE_PRUEBAS + ";");
-            db.execSQL(DROP_STATEMENT + DATABASE_TABLE_VETERINARIO + ";");
-            db.execSQL(DROP_STATEMENT + DATABASE_TABLE_TRAT_PREV_CEBA + ";");
-            db.execSQL(DROP_STATEMENT + DATABASE_TABLE_TRAT_CUR_ANIMAL + ";");
-            onCreate(db);
-        }
-		
-    }
-    
-    public DbAdapter (Context ctx)
-    {
-            this.mCtx = ctx;
-    }
-    
-    public DbAdapter open() throws SQLException {
-        mDbHelper = DatabaseHelper.getHelper(mCtx);
-        mDb = mDbHelper.getWritableDatabase();
-        if (!mDb.isReadOnly()){
-        mDb.execSQL("PRAGMA foreign_keys=ON;");
-        }
-        return this;
-    }
+			db.execSQL(DROP_STATEMENT + DATABASE_TABLE_EXPLOTACION + ";");
+			db.execSQL(DROP_STATEMENT + DATABASE_TABLE_CEBADERO + ";");
+			db.execSQL(DROP_STATEMENT + DATABASE_TABLE_GUIA + ";");
+			db.execSQL(DROP_STATEMENT + DATABASE_TABLE_CEBA_CEBADERO + ";");
+			db.execSQL(DROP_STATEMENT + DATABASE_TABLE_CORRAL + ";");
+			db.execSQL(DROP_STATEMENT + DATABASE_TABLE_LOTE_CEBADERO + ";");
+			db.execSQL(DROP_STATEMENT + DATABASE_TABLE_RAZA + ";");
+			db.execSQL(DROP_STATEMENT + DATABASE_TABLE_ESPECIE + ";");
+			db.execSQL(DROP_STATEMENT + DATABASE_TABLE_ANIMALES + ";");
+			db.execSQL(DROP_STATEMENT + DATABASE_TABLE_PATOLOGIAS + ";");
+			db.execSQL(DROP_STATEMENT + DATABASE_TABLE_PRUEBAS + ";");
+			db.execSQL(DROP_STATEMENT + DATABASE_TABLE_VETERINARIO + ";");
+			db.execSQL(DROP_STATEMENT + DATABASE_TABLE_TRAT_PREV_CEBA + ";");
+			db.execSQL(DROP_STATEMENT + DATABASE_TABLE_TRAT_CUR_ANIMAL + ";");
+			onCreate(db);
+		}
 
-    public void close() {
-        mDbHelper.close();
-    }
+		@Override
+		public void onConfigure(SQLiteDatabase db) {
+			super.onConfigure(db);
+			if (db.isReadOnly()) {
+				db.execSQL("PRAGMA foreign_keys=ON;");
+			}
+		}
+	}
+
+	public DbAdapter(Context ctx) {
+		this.mCtx = ctx;
+	}
+
+	public DbAdapter open() throws SQLException {
+		mDbHelper = DatabaseHelper.getHelper(mCtx);
+		mDb = mDbHelper.getWritableDatabase();
+		return this;
+	}
+
+	public void close() {
+		mDbHelper.close();
+	}
 }

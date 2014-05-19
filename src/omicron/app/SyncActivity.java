@@ -1,5 +1,6 @@
 package omicron.app;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -10,8 +11,6 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.json.JSONObject;
 
 import android.content.Context;
 import android.content.Intent;
@@ -129,6 +128,7 @@ public class SyncActivity extends ActionBarActivity {
 				try {
 					return downloadUrl(urls[0]);
 				} catch (IOException e) {
+					e.printStackTrace();
 					return getString(R.string.urlNotFound);
 				}
 			}
@@ -137,60 +137,31 @@ public class SyncActivity extends ActionBarActivity {
 			// the web page content as a InputStream, which it returns as
 			// a string.
 			private String downloadUrl(String myurl) throws IOException {
-				InputStream is = null;
+				BufferedReader in = null;
 				try {
-					// Post construction
-					Map<String, Object> params = new LinkedHashMap<String, Object>();
-					params.put("read", "*");
-					params.put("from", "newtable");
-					params.put("where", "Julio");
-
-					StringBuilder postData = new StringBuilder();
-					for (Map.Entry<String, Object> param : params.entrySet()) {
-						if (postData.length() != 0)
-							postData.append('&');
-						postData.append(URLEncoder.encode(param.getKey(),
-								"UTF-8"));
-						postData.append('=');
-						postData.append(URLEncoder.encode(
-								String.valueOf(param.getValue()), "UTF-8"));
-					}
-					byte[] postDataBytes = postData.toString()
-							.getBytes("UTF-8");
-
 					// Request construction
 					URL url = new URL(myurl);
 					HttpURLConnection conn = (HttpURLConnection) url
 							.openConnection();
 					conn.setReadTimeout(10000 /* milliseconds */);
 					conn.setConnectTimeout(15000 /* milliseconds */);
-					conn.setRequestMethod("POST");
-					conn.setRequestProperty("Content-Type",
-							"application/x-www-form-urlencoded");
-					conn.setRequestProperty("Content-Length",
-							String.valueOf(postDataBytes.length));
-					conn.setDoOutput(true);
-					conn.getOutputStream().write(postDataBytes);
 
-					// Starts the query
-					conn.connect();
-					int response = conn.getResponseCode();
-					Log.d("Response code: ", Integer.toString(response));
-					is = conn.getInputStream();
-
-					// Convert the InputStream into a string
-					// String contentAsString = readIt(is, len);
-					// Log.d("Response content: ", contentAsString);
-					// Log.d("Longitud:",Integer.toString(contentAsString.length()));
-					String contentAsString = readJsonStream(is).toString();
-					return contentAsString;
-
+					in = new BufferedReader (new InputStreamReader(url.openStream()));
+					String str;
+					String reader = null;
+					while ((str = in.readLine())!=null)
+					{
+						reader += str;
+					}
+					in.close();
+					String contentAsString = reader.toString();
+					return contentAsString;}
 					// Makes sure that the InputStream is closed after the app
 					// is
 					// finished using it.
-				} finally {
-					if (is != null) {
-						is.close();
+					finally {
+					if (in != null) {
+						in.close();
 					}
 				}
 			}
