@@ -28,7 +28,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/syncActivityHeader"
-        android:text="@string/button_receive_data" />
-        <!-- android:onClick="sendData" --> 
+        android:text="@string/button_receive_data"
+        android:onClick="downloadData" /> 
     
 </RelativeLayout>

@@ -46,7 +46,7 @@
     </string-array>
     
     <string name="pref_title_server_url">Dirección del servidor</string>
-    <string name="pref_default_server_url">http://10.0.2.2</string>
+    <string name="pref_default_server_url">http://10.0.2.2/ws/exportCSV.php</string>
 
     <string name="pref_title_system_sync_settings">Configuración de sincronización del sistema</string>
 

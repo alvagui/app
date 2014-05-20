@@ -30,4 +30,6 @@
     <!-- Commons -->
     <string name="DOWNLOADING">Descargando</string>
     <string name="urlNotFound">URL no encontrada</string>
+    <string name="noNetworkConnectionFound">Conexión de datos no disponible</string>
+	<string name="ackDownloaded">Datos descargados de forma correcta</string>
 </resources>
