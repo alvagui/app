@@ -1,11 +1,12 @@
 package omicron.app;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import omicron.app.DbManagement.DbAdapter;
+import omicron.app.DbManagement.RazaDbAdapter;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -24,6 +25,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+import au.com.bytecode.opencsv.CSVReader;
 
 public class SyncActivity extends ActionBarActivity {
 
@@ -42,7 +44,7 @@ public class SyncActivity extends ActionBarActivity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-
+		//
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.sync, menu);
 		return true;
@@ -87,6 +89,9 @@ public class SyncActivity extends ActionBarActivity {
 
 	private class DownloadTask extends AsyncTask<String, Integer, String> {
 
+		private static final int READ_TIMEOUT = 10000 /* milliseconds */;
+		private static final int CONNECT_TIMEOUT = 15000 /* milliseconds */;
+
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
@@ -103,16 +108,14 @@ public class SyncActivity extends ActionBarActivity {
 		// Get data from server database.
 		protected String doInBackground(String... urls) {
 
+			
 			Log.d("Debugging", "Got into doInBackground() with " + urls[0]);
 			// params comes from the execute() call: params[0] is the url.
 			try {
 				return downloadUrl(urls[0]);
 			} catch (IOException e) {
-//				(Toast.makeText(this.context, R.string.urlNotFound,
-//						Toast.LENGTH_LONG)).show();
 				e.printStackTrace();
 
-//				return getString(R.string.urlNotFound);
 				return null;
 			}
 		}
@@ -121,52 +124,65 @@ public class SyncActivity extends ActionBarActivity {
 		// the web page content as a InputStream, which it returns as
 		// a string.
 		private String downloadUrl(String myurl) throws IOException {
-			BufferedReader in = null;
+			CSVReader reader = null;
+			DbAdapter dba = new DbAdapter(this.context);
+			dba.resetDB();
 			try {
 				// Request construction
 				URL url = new URL(myurl);
 				HttpURLConnection conn = (HttpURLConnection) url
 						.openConnection();
-				conn.setReadTimeout(10000 /* milliseconds */);
-				conn.setConnectTimeout(15000 /* milliseconds */);
+				conn.setReadTimeout(READ_TIMEOUT);
+				conn.setConnectTimeout(CONNECT_TIMEOUT);
 
-				in = new BufferedReader(new InputStreamReader(url.openStream()));
-				String str;
-				String reader = null;
-				while ((str = in.readLine()) != null) {
-					reader += str;
+				reader = new CSVReader(new InputStreamReader(url.openStream()));
+				String[] nextLine;
+				boolean header =true;
+				while ((nextLine = reader.readNext()) != null) {
+					for (int index = 0; index < nextLine.length; index++) {
+						Log.d("F" + index + ": ", nextLine[index]);
+					}
+					if (!header)
+					{
+						RazaDbAdapter razadba = new RazaDbAdapter(context);
+					insertRow("'"+nextLine[1] + "','" + nextLine[2]+"'", razadba);
+					}
+					else
+					{
+						header = false;
+					}
 				}
-				in.close();
-				String contentAsString = reader.toString();
-				return contentAsString;
+				
+				return "OK";
 			}
 			// Makes sure that the BufferReader is closed after the app
 			// is
 			// finished using it.
 			finally {
-				if (in != null) {
-					in.close();
-				}
 
+				if (reader != null) {
+					reader.close();
+				}
 			}
+		}
+
+		private boolean insertRow(String values, RazaDbAdapter dba) {
+			return dba.insertionTest(values);
 		}
 
 		@Override
 		protected void onPostExecute(String result) {
-			if (result!=null)
-			{
+			if (result != null) {
 
 				(Toast.makeText(context, R.string.ackDownloaded,
 						Toast.LENGTH_LONG)).show();
-			}
-			else
-			{
+			} else {
 
 				(Toast.makeText(context, R.string.urlNotFound,
 						Toast.LENGTH_LONG)).show();
 			}
 			Log.d("Debugging", "Got into onPostExecute() with " + result);
-//			Log.d("Response: ", result);
+			// Log.d("Response: ", result);
 			pDialog.dismiss();
 		}
 
@@ -185,13 +201,6 @@ public class SyncActivity extends ActionBarActivity {
 				Bundle savedInstanceState) {
 			View rootView = inflater.inflate(R.layout.fragment_sync, container,
 					false);
-
-			// pDialog = new ProgressDialog(getActivity());
-
-			//
-			// pDialog.setCancelable(true);
-			// pDialog.setMax(100);
-			// Gets the URL from the UI's text field.
 
 			return rootView;
 		}
