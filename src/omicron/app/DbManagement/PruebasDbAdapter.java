@@ -2,10 +2,9 @@ package omicron.app.DbManagement;
 
 import android.content.Context;
 
+public class PruebasDbAdapter extends DbAdapter {
 
-public class CorralDbAdapter extends DbAdapter {
-
-	public CorralDbAdapter(Context ctx) {
+	public PruebasDbAdapter(Context ctx) {
 		super(ctx);
 	}
 
