@@ -1,9 +1,7 @@
 package omicron.app.dbManagement;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static omicron.app.dbManagement.DBConsts.*;
@@ -28,8 +26,28 @@ public class RemoteDBConsts {
 	// "Tratamiento Preventivo Ceba",
 	// "Tratamiento Curativo Animal"));
 
-	public static final List<String> REMOTE_TABLES_LIST = Collections
-			.unmodifiableList(Arrays.asList("Especie", "Raza", "Explotacion"));
+	// Tables
+	public static final Map<String, String> TABLE_PAIRS_MAP;
+	static {
+		Map<String, String> aMap = new HashMap<String, String>();
+		aMap.put("Especie", DATABASE_TABLE_ESPECIE);
+//		aMap.put("Raza", DATABASE_TABLE_RAZA);
+		// aMap.put("Explotación", DATABASE_TABLE_EXPLOTACION);
+		// aMap.put("Cebadero", DATABASE_TABLE_CEBADERO);
+		// aMap.put("Ceba-Cebadero", DATABASE_TABLE_CEBA_CEBADERO);
+		// aMap.put("Corral", DATABASE_TABLE_CORRAL);
+		// aMap.put("Animales", DATABASE_TABLE_ANIMALES);
+		// aMap.put("Guía", DATABASE_TABLE_GUIA);
+		// aMap.put("Patologías", DATABASE_TABLE_PATOLOGIAS);
+		// aMap.put("Lote Cebadero", DATABASE_TABLE_LOTE_CEBADERO);
+		// aMap.put("Pruebas", DATABASE_TABLE_PRUEBAS);
+		// aMap.put("Veterinario", DATABASE_TABLE_VETERINARIO);
+		// aMap.put("Tratamiento Preventivo Ceba",
+		// DATABASE_TABLE_TRAT_PREV_CEBA);
+		// aMap.put("Tratamiento Curativo Animal",
+		// DATABASE_TABLE_TRAT_CUR_ANIMAL);
+		TABLE_PAIRS_MAP = Collections.unmodifiableMap(aMap);
+	}
 
 	// Maps - Key-Value Pairs where are defined the equivalent fields between
 	// local and remote DBs.
@@ -38,8 +56,8 @@ public class RemoteDBConsts {
 	public static final Map<String, String> TABLE_RAZA_PAIRS_MAP;
 	static {
 		Map<String, String> aMap = new HashMap<String, String>();
-		aMap.put("Código", DATABASE_TABLE_RAZA_KEY_CODIGO);
-		aMap.put("Descripción", DATABASE_TABLE_RAZA_KEY_DESCRIPCION);
+		aMap.put("codigo", DATABASE_TABLE_RAZA_KEY_CODIGO);
+		aMap.put("descripcion", DATABASE_TABLE_RAZA_KEY_DESCRIPCION);
 		TABLE_RAZA_PAIRS_MAP = Collections.unmodifiableMap(aMap);
 	}
 
@@ -342,6 +360,28 @@ public class RemoteDBConsts {
 		TABLE_TRAT_CUR_ANIMAL_PAIRS_MAP = Collections.unmodifiableMap(aMap);
 	}
 
+	// Whole remote table estructure
+	public static final Map<String, Map<String, String>> TABLES_INDEX_MAP;
+	static {
+		Map<String, Map<String, String>> aMap = new HashMap<String, Map<String, String>>();
+		aMap.put(DATABASE_TABLE_RAZA, TABLE_RAZA_PAIRS_MAP);
+		aMap.put(DATABASE_TABLE_ESPECIE, TABLE_ESPECIE_PAIRS_MAP);
+		aMap.put(DATABASE_TABLE_EXPLOTACION, TABLE_EXPLOTACION_PAIRS_MAP);
+		aMap.put(DATABASE_TABLE_CEBADERO, TABLE_CEBADERO_PAIRS_MAP);
+		aMap.put(DATABASE_TABLE_GUIA, TABLE_GUIA_PAIRS_MAP);
+		aMap.put(DATABASE_TABLE_CEBA_CEBADERO, TABLE_CEBA_CEBADERO_PAIRS_MAP);
+		aMap.put(DATABASE_TABLE_CORRAL, TABLE_CORRAL_PAIRS_MAP);
+		aMap.put(DATABASE_TABLE_LOTE_CEBADERO, TABLE_LOTE_CEBADERO_PAIRS_MAP);
+		aMap.put(DATABASE_TABLE_ANIMALES, TABLE_ANIMALES_PAIRS_MAP);
+		aMap.put(DATABASE_TABLE_PATOLOGIAS, TABLE_PATOLOGIAS_PAIRS_MAP);
+		aMap.put(DATABASE_TABLE_PRUEBAS, TABLE_PRUEBAS_PAIRS_MAP);
+		aMap.put(DATABASE_TABLE_VETERINARIO, TABLE_VETERINARIO_PAIRS_MAP);
+		aMap.put(DATABASE_TABLE_TRAT_PREV_CEBA, TABLE_TRAT_PREV_CEBA_PAIRS_MAP);
+		aMap.put(DATABASE_TABLE_TRAT_CUR_ANIMAL,
+				TABLE_TRAT_CUR_ANIMAL_PAIRS_MAP);
+		TABLES_INDEX_MAP = Collections.unmodifiableMap(aMap);
+	}
+
 	// PRIVATE //
 
 	/**
@@ -353,5 +393,11 @@ public class RemoteDBConsts {
 		// this prevents even the native class from
 		// calling this ctor as well :
 		throw new AssertionError();
+	}
+
+	public static String getLocalHeader(String remoteTable, String remoteField) {
+		String localDB = TABLE_PAIRS_MAP.get(remoteTable);
+		Map<String, String> localDBFields = TABLES_INDEX_MAP.get(localDB);
+		return localDBFields.get(remoteField);
 	}
 }

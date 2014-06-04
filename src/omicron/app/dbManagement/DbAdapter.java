@@ -12,6 +12,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import android.util.Pair;
 import static omicron.app.dbManagement.DBConsts.*;
+import static omicron.app.dbManagement.RemoteDBConsts.*;
 
 public class DbAdapter {
 //Main DB Adapter, used on create and update of all dbs. It's intended to 
@@ -124,12 +125,33 @@ public class DbAdapter {
 
 	public boolean insert(String table, List<String> headers, List<List<String>> rawValues)
 	{
-//		TODO: Implementar
-		ContentValues values = new ContentValues();
-		String localDB = TABLE_PAIRS_MAP.get(table);
+		String localTable = TABLE_PAIRS_MAP.get(table);
+		Iterator<String> headersIterator = null;
+		List<String> currentRow = null;
+		Iterator<List<String>> rowsIterator = rawValues.iterator();
+		Iterator<String> currentRowIterator = null;
+		while (rowsIterator.hasNext())
+		{
+			ContentValues values = new ContentValues();
+			currentRow = rowsIterator.next();
+			headersIterator = headers.iterator();
+			currentRowIterator = currentRow.iterator();
+			while (headersIterator.hasNext())
+			{
+				
+				String currentHeader = headersIterator.next();
+				String currentValue = currentRowIterator.next();
+				Log.d(DEBUG_TAG, "Current header is: "+currentHeader);
+				String currentLocalHeader = getLocalHeader(table, currentHeader);
+				Log.d(DEBUG_TAG, "Current field is: "+ currentLocalHeader);
+				Log.d(DEBUG_TAG, "Current value for field "+currentLocalHeader+" is: "+ currentValue);
+				values.put(currentLocalHeader, currentValue);
+			}
+			mDb.insertOrThrow(localTable, null, values);	
+		}
 //		values.put();
 //		db.execSQL();
-		mDb.insert(table, null, values);
+//		
 		return true;
 	}
 	

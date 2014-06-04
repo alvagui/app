@@ -16,7 +16,7 @@ import java.util.Map;
 import omicron.app.datatypes.Raza;
 import omicron.app.dbManagement.DbAdapter;
 import omicron.app.dbManagement.RazaDbAdapter;
-import omicron.app.dbManagement.TableContainer;
+import omicron.app.dbManagement.ExportedTableContainer;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -172,23 +172,33 @@ public class SyncActivity extends ActionBarActivity {
 		protected Boolean doInBackground(final String... urls) {
 
 			Log.d(DEBUG_TAG, "Got into doInBackground() with " + urls[0]);
-			TableContainer container = null;
+			ExportedTableContainer container = null;
 			// params comes from the execute() call: params[0] is the url.
 			try {
 				// Download data from server
-				ArrayList<TableContainer> downloadedData = null;
-				Iterator<String> tablesIterator = REMOTE_TABLES_LIST.iterator();
+				List<ExportedTableContainer> downloadedData = new ArrayList<ExportedTableContainer>();
+				Iterator<String> tablesIterator = TABLE_PAIRS_MAP.keySet()
+						.iterator();
 
 				// Read all the tables
 				while (tablesIterator.hasNext()) {
-					String thisTable = tablesIterator.next();
+					String currentTable = tablesIterator.next();
+					Log.d(DEBUG_TAG, "Current table is: " + currentTable);
 					List<List<String>> downloadedTable = downloadDataFromServer(
-							urls[0], thisTable);
+							urls[0], currentTable);
 					if (downloadedTable != null) {
-						container = new TableContainer(thisTable,
+						container = new ExportedTableContainer(currentTable,
 								downloadedTable);
+						// TODO: TEMP DEBUGGING. BORRAR
+						Log.d(DEBUG_TAG,
+								"Container for " + container.getTableName()
+										+ " table.");
+						if (container == null) {
+							Log.e(DEBUG_TAG, "Nothing in container");
+						}
 						downloadedData.add(container);
 					} else {
+						Log.e(DEBUG_TAG, "Downloaded table == NULL!!!");
 						throw new EmptyStackException();
 					}
 				}
@@ -324,7 +334,7 @@ public class SyncActivity extends ActionBarActivity {
 			return true;
 		}
 
-		private boolean populateDatabase(ArrayList<TableContainer> retrievedData)
+		private boolean populateDatabase(List<ExportedTableContainer> retrievedData)
 				throws Exception {
 			// Populates local db with data retrieved from server
 			// Empties current database
@@ -332,20 +342,18 @@ public class SyncActivity extends ActionBarActivity {
 			dba.open();
 			dba.resetDB();
 
-			Iterator<TableContainer> tablesIterator = retrievedData.iterator();
+			Iterator<ExportedTableContainer> tablesIterator = retrievedData.iterator();
 			List<String> currentRow;
-			Raza nextRaza = null;
+			Raza currentRaza = null;
 			while (tablesIterator.hasNext()) {
-				TableContainer thisTable = tablesIterator.next();
-				boolean inserted = dba.insert(thisTable.getTableName(),
-						thisTable.getHeaders(), thisTable.getTableData());
-				Log.d(DEBUG_TAG, "Inserted row :" + inserted);
+				ExportedTableContainer currentTable = tablesIterator.next();
+				boolean inserted = dba.insert(currentTable.getTableName(),
+						currentTable.getHeaders(), currentTable.getTableData());
+				Log.d(DEBUG_TAG, "Inserted "+currentTable.getTableName()+" table:" + inserted);
 				if (!inserted) {
 					throw new Exception();
 				}
-
 			}
-
 			return true;
 		}
 

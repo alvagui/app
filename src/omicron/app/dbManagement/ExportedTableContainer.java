@@ -1,13 +1,15 @@
 package omicron.app.dbManagement;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
 /**
  * This class will get the data from remote db before is stored in local sqlite db.
  * @author aaguilar
  *
  */
-public class TableContainer {
+public class ExportedTableContainer {
 	private String tableName;
 	private List<List<String>> tableData;
 	private List<String> tableHeaders;
@@ -32,11 +34,12 @@ public class TableContainer {
 	 * @param tableName
 	 * @param tableData
 	 */
-	public TableContainer(String tableName, List<List<String>> tableData) {
+	public ExportedTableContainer(String tableName, List<List<String>> tableData) {
 		super();
 		this.tableName = tableName;
 		Iterator<List<String>> it = tableData.iterator();
 		this.tableHeaders = it.next();
+		this.tableData = new ArrayList<List<String>>();
 		while (it.hasNext())
 			this.tableData.add(it.next());
 	}
