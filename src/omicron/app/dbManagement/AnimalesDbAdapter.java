@@ -1,4 +1,4 @@
-package omicron.app.DbManagement;
+package omicron.app.dbManagement;
 
 import android.content.Context;
 

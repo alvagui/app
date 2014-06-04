@@ -1,0 +1,822 @@
+src/omicron/app/DbManagement/AnimalesDbAdapter.java:1:	Package name contains upper case characters
+src/omicron/app/DbManagement/AnimalesDbAdapter.java:5:	headerCommentRequirement Required
+src/omicron/app/DbManagement/AnimalesDbAdapter.java:7:	Parameter 'ctx' is not assigned and could be declared final
+src/omicron/app/DbManagement/AnimalesDbAdapter.java:7:	publicMethodCommentRequirement Required
+src/omicron/app/DbManagement/CebaCebaderoDbAdapter.java:1:	Package name contains upper case characters
+src/omicron/app/DbManagement/CebaCebaderoDbAdapter.java:5:	headerCommentRequirement Required
+src/omicron/app/DbManagement/CebaCebaderoDbAdapter.java:7:	Parameter 'ctx' is not assigned and could be declared final
+src/omicron/app/DbManagement/CebaCebaderoDbAdapter.java:7:	publicMethodCommentRequirement Required
+src/omicron/app/DbManagement/CebaderoDbAdapter.java:1:	Package name contains upper case characters
+src/omicron/app/DbManagement/CebaderoDbAdapter.java:5:	headerCommentRequirement Required
+src/omicron/app/DbManagement/CebaderoDbAdapter.java:7:	Parameter 'ctx' is not assigned and could be declared final
+src/omicron/app/DbManagement/CebaderoDbAdapter.java:7:	publicMethodCommentRequirement Required
+src/omicron/app/DbManagement/CorralDbAdapter.java:1:	Package name contains upper case characters
+src/omicron/app/DbManagement/CorralDbAdapter.java:5:	headerCommentRequirement Required
+src/omicron/app/DbManagement/CorralDbAdapter.java:7:	Parameter 'ctx' is not assigned and could be declared final
+src/omicron/app/DbManagement/CorralDbAdapter.java:7:	publicMethodCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:1:	Package name contains upper case characters
+src/omicron/app/DbManagement/DBConsts.java:10:	headerCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:12:	Avoid excessively long variable names like SERVER_TABLES_LIST
+src/omicron/app/DbManagement/DBConsts.java:12:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:20:	Avoid excessively long variable names like DATABASE_CREATE_STATEMENT_START
+src/omicron/app/DbManagement/DBConsts.java:20:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:21:	Avoid excessively long variable names like DATABASE_STATEMENT_END
+src/omicron/app/DbManagement/DBConsts.java:21:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:22:	Avoid excessively long variable names like DATABASE_INSERT_STATEMENT_START
+src/omicron/app/DbManagement/DBConsts.java:22:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:25:	Avoid excessively long variable names like DATABASE_TABLE_EXPLOTACION
+src/omicron/app/DbManagement/DBConsts.java:25:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:26:	Avoid excessively long variable names like DATABASE_TABLE_EXPLOTACION_KEY_ID
+src/omicron/app/DbManagement/DBConsts.java:26:	The String literal "_id" appears 14 times in this file; the first occurrence is on line 26
+src/omicron/app/DbManagement/DBConsts.java:26:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:27:	Avoid excessively long variable names like DATABASE_TABLE_EXPLOTACION_KEY_CODIGO
+src/omicron/app/DbManagement/DBConsts.java:27:	The String literal "codigo" appears 8 times in this file; the first occurrence is on line 27
+src/omicron/app/DbManagement/DBConsts.java:27:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:28:	Avoid excessively long variable names like DATABASE_TABLE_EXPLOTACION_KEY_CIF_NIF
+src/omicron/app/DbManagement/DBConsts.java:28:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:29:	Avoid excessively long variable names like DATABASE_TABLE_EXPLOTACION_KEY_TITULAR
+src/omicron/app/DbManagement/DBConsts.java:29:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:30:	Avoid excessively long variable names like DATABASE_TABLE_EXPLOTACION_KEY_FAPERTURA
+src/omicron/app/DbManagement/DBConsts.java:30:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:31:	Avoid excessively long variable names like DATABASE_TABLE_EXPLOTACION_KEY_ESPECIE
+src/omicron/app/DbManagement/DBConsts.java:31:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:32:	Avoid excessively long variable names like DATABASE_TABLE_EXPLOTACION_KEY_N_ANIMALES_EN
+src/omicron/app/DbManagement/DBConsts.java:32:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:33:	Avoid excessively long variable names like DATABASE_TABLE_EXPLOTACION_KEY_N_ANIMALES_SA
+src/omicron/app/DbManagement/DBConsts.java:33:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:35:	Avoid excessively long variable names like DATABASE_CREATE_EXPLOTACION
+src/omicron/app/DbManagement/DBConsts.java:35:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:39:	The String literal " integer primary key autoincrement, " appears 14 times in this file; the first occurrence is on line 39
+src/omicron/app/DbManagement/DBConsts.java:41:	The String literal " text, " appears 57 times in this file; the first occurrence is on line 41
+src/omicron/app/DbManagement/DBConsts.java:47:	The String literal " date, " appears 8 times in this file; the first occurrence is on line 47
+src/omicron/app/DbManagement/DBConsts.java:51:	The String literal " integer, " appears 46 times in this file; the first occurrence is on line 51
+src/omicron/app/DbManagement/DBConsts.java:73:	Avoid excessively long variable names like DATABASE_TABLE_CEBADERO
+src/omicron/app/DbManagement/DBConsts.java:73:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:74:	Avoid excessively long variable names like DATABASE_TABLE_CEBADERO_KEY_ID
+src/omicron/app/DbManagement/DBConsts.java:74:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:75:	Avoid excessively long variable names like DATABASE_TABLE_CEBADERO_KEY_CODIGO
+src/omicron/app/DbManagement/DBConsts.java:75:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:76:	Avoid excessively long variable names like DATABASE_TABLE_CEBADERO_KEY_NOMBRE
+src/omicron/app/DbManagement/DBConsts.java:76:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:77:	Avoid excessively long variable names like DATABASE_TABLE_CEBADERO_KEY_NOMBRE2
+src/omicron/app/DbManagement/DBConsts.java:77:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:78:	Avoid excessively long variable names like DATABASE_TABLE_CEBADERO_KEY_DIRECCION
+src/omicron/app/DbManagement/DBConsts.java:78:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:79:	Avoid excessively long variable names like DATABASE_TABLE_CEBADERO_KEY_DIRECCION2
+src/omicron/app/DbManagement/DBConsts.java:79:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:80:	Avoid excessively long variable names like DATABASE_TABLE_CEBADERO_KEY_POBLACION
+src/omicron/app/DbManagement/DBConsts.java:80:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:81:	Avoid excessively long variable names like DATABASE_TABLE_CEBADERO_KEY_TELEFONO
+src/omicron/app/DbManagement/DBConsts.java:81:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:82:	Avoid excessively long variable names like DATABASE_TABLE_CEBADERO_KEY_TELEFONO2
+src/omicron/app/DbManagement/DBConsts.java:82:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:83:	Avoid excessively long variable names like DATABASE_TABLE_CEBADERO_KEY_FAX
+src/omicron/app/DbManagement/DBConsts.java:83:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:84:	Avoid excessively long variable names like DATABASE_TABLE_CEBADERO_KEY_CONTACTO
+src/omicron/app/DbManagement/DBConsts.java:84:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:85:	Avoid excessively long variable names like DATABASE_TABLE_CEBADERO_KEY_CP
+src/omicron/app/DbManagement/DBConsts.java:85:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:86:	Avoid excessively long variable names like DATABASE_TABLE_CEBADERO_KEY_PROVINCIA
+src/omicron/app/DbManagement/DBConsts.java:86:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:87:	Avoid excessively long variable names like DATABASE_TABLE_CEBADERO_KEY_EMAIL
+src/omicron/app/DbManagement/DBConsts.java:87:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:88:	Avoid excessively long variable names like DATABASE_TABLE_CEBADERO_KEY_WEB
+src/omicron/app/DbManagement/DBConsts.java:88:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:89:	Avoid excessively long variable names like DATABASE_TABLE_CEBADERO_KEY_CPR
+src/omicron/app/DbManagement/DBConsts.java:89:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:90:	Avoid excessively long variable names like DATABASE_TABLE_CEBADERO_KEY_PLAZAS_D
+src/omicron/app/DbManagement/DBConsts.java:90:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:91:	Avoid excessively long variable names like DATABASE_TABLE_CEBADERO_KEY_PLAZAS_O
+src/omicron/app/DbManagement/DBConsts.java:91:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:93:	Avoid excessively long variable names like DATABASE_CREATE_CEBADERO
+src/omicron/app/DbManagement/DBConsts.java:93:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:129:	The String literal " real, " appears 37 times in this file; the first occurrence is on line 129
+src/omicron/app/DbManagement/DBConsts.java:135:	Avoid excessively long variable names like DATABASE_TABLE_GUIA
+src/omicron/app/DbManagement/DBConsts.java:135:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:136:	Avoid excessively long variable names like DATABASE_TABLE_GUIA_KEY_ID
+src/omicron/app/DbManagement/DBConsts.java:136:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:137:	Avoid excessively long variable names like DATABASE_TABLE_GUIA_KEY_TIPO
+src/omicron/app/DbManagement/DBConsts.java:137:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:138:	Avoid excessively long variable names like DATABASE_TABLE_GUIA_KEY_FECHA
+src/omicron/app/DbManagement/DBConsts.java:138:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:139:	Avoid excessively long variable names like DATABASE_TABLE_GUIA_KEY_NUMERO
+src/omicron/app/DbManagement/DBConsts.java:139:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:140:	Avoid excessively long variable names like DATABASE_TABLE_GUIA_KEY_EXPLOTACION
+src/omicron/app/DbManagement/DBConsts.java:140:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:141:	Avoid excessively long variable names like DATABASE_TABLE_GUIA_KEY_POBLACION
+src/omicron/app/DbManagement/DBConsts.java:141:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:142:	Avoid excessively long variable names like DATABASE_TABLE_GUIA_KEY_PROVINCIA
+src/omicron/app/DbManagement/DBConsts.java:142:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:143:	Avoid excessively long variable names like DATABASE_TABLE_GUIA_KEY_MUNICIPIO
+src/omicron/app/DbManagement/DBConsts.java:143:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:144:	Avoid excessively long variable names like DATABASE_TABLE_GUIA_KEY_CA
+src/omicron/app/DbManagement/DBConsts.java:144:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:145:	Avoid excessively long variable names like DATABASE_TABLE_GUIA_KEY_PAIS
+src/omicron/app/DbManagement/DBConsts.java:145:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:146:	Avoid excessively long variable names like DATABASE_TABLE_GUIA_KEY_TRANSPORTISTA
+src/omicron/app/DbManagement/DBConsts.java:146:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:147:	Avoid excessively long variable names like DATABASE_TABLE_GUIA_KEY_EXPLOTACION_PROCEDENCIA
+src/omicron/app/DbManagement/DBConsts.java:147:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:148:	Avoid excessively long variable names like DATABASE_TABLE_GUIA_KEY_COSTE_TRANSPORTE_ANIMAL
+src/omicron/app/DbManagement/DBConsts.java:148:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:149:	Avoid excessively long variable names like DATABASE_TABLE_GUIA_KEY_MOTIVO_SALIDA
+src/omicron/app/DbManagement/DBConsts.java:149:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:150:	Avoid excessively long variable names like DATABASE_TABLE_GUIA_KEY_PESO_MEDIO_SALIDA_MACHOS
+src/omicron/app/DbManagement/DBConsts.java:150:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:151:	Avoid excessively long variable names like DATABASE_TABLE_GUIA_KEY_PESO_MEDIO_SALIDA_HEMBRAS
+src/omicron/app/DbManagement/DBConsts.java:151:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:152:	Avoid excessively long variable names like DATABASE_TABLE_GUIA_KEY_DESTINO
+src/omicron/app/DbManagement/DBConsts.java:152:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:153:	Avoid excessively long variable names like DATABASE_TABLE_GUIA_KEY_PIENSO_CONSUMIDO_MACHOS
+src/omicron/app/DbManagement/DBConsts.java:153:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:154:	Avoid excessively long variable names like DATABASE_TABLE_GUIA_KEY_PIENSO_CONSUMIDO_HEMBRAS
+src/omicron/app/DbManagement/DBConsts.java:154:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:155:	Avoid excessively long variable names like DATABASE_TABLE_GUIA_KEY_COSTE_MEDIO_PIENSO
+src/omicron/app/DbManagement/DBConsts.java:155:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:156:	Avoid excessively long variable names like DATABASE_TABLE_GUIA_KEY_PAJA_CONSUMIDA_ANIMAL
+src/omicron/app/DbManagement/DBConsts.java:156:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:157:	Avoid excessively long variable names like DATABASE_TABLE_GUIA_KEY_COSTE_MEDIO_PAJA
+src/omicron/app/DbManagement/DBConsts.java:157:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:158:	Avoid excessively long variable names like DATABASE_TABLE_GUIA_KEY_COSTE_FIJO_ANIMAL
+src/omicron/app/DbManagement/DBConsts.java:158:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:159:	Avoid excessively long variable names like DATABASE_TABLE_GUIA_KEY_COSTE_VARIABLE_ANIMAL
+src/omicron/app/DbManagement/DBConsts.java:159:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:160:	Avoid excessively long variable names like DATABASE_TABLE_GUIA_KEY_COSTE_MER
+src/omicron/app/DbManagement/DBConsts.java:160:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:161:	Avoid excessively long variable names like DATABASE_TABLE_GUIA_KEY_N_ANIMALES_ENTRADA
+src/omicron/app/DbManagement/DBConsts.java:161:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:162:	Avoid excessively long variable names like DATABASE_TABLE_GUIA_KEY_N_ANIMALES_SALIDA
+src/omicron/app/DbManagement/DBConsts.java:162:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:164:	Avoid excessively long variable names like DATABASE_CREATE_GUIA
+src/omicron/app/DbManagement/DBConsts.java:164:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:221:	The String literal "FOREIGN KEY(" appears 27 times in this file; the first occurrence is on line 221
+src/omicron/app/DbManagement/DBConsts.java:223:	The String literal ") REFERENCES " appears 27 times in this file; the first occurrence is on line 223
+src/omicron/app/DbManagement/DBConsts.java:236:	Avoid excessively long variable names like DATABASE_TABLE_CEBA_CEBADERO
+src/omicron/app/DbManagement/DBConsts.java:236:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:237:	Avoid excessively long variable names like DATABASE_TABLE_CEBA_CEBADERO_KEY_ID
+src/omicron/app/DbManagement/DBConsts.java:237:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:238:	Avoid excessively long variable names like DATABASE_TABLE_CEBA_CEBADERO_KEY_CEBADERO
+src/omicron/app/DbManagement/DBConsts.java:238:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:239:	Avoid excessively long variable names like DATABASE_TABLE_CEBA_CEBADERO_KEY_CODIGO
+src/omicron/app/DbManagement/DBConsts.java:239:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:240:	Avoid excessively long variable names like DATABASE_TABLE_CEBA_CEBADERO_KEY_CNP
+src/omicron/app/DbManagement/DBConsts.java:240:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:241:	Avoid excessively long variable names like DATABASE_TABLE_CEBA_CEBADERO_KEY_CN
+src/omicron/app/DbManagement/DBConsts.java:241:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:242:	Avoid excessively long variable names like DATABASE_TABLE_CEBA_CEBADERO_KEY_TRANSPORTISTA
+src/omicron/app/DbManagement/DBConsts.java:242:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:243:	Avoid excessively long variable names like DATABASE_TABLE_CEBA_CEBADERO_KEY_COSTE_TRANSPORTE_ANIMAL
+src/omicron/app/DbManagement/DBConsts.java:243:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:244:	Avoid excessively long variable names like DATABASE_TABLE_CEBA_CEBADERO_KEY_N_ANIMALES
+src/omicron/app/DbManagement/DBConsts.java:244:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:245:	Avoid excessively long variable names like DATABASE_TABLE_CEBA_CEBADERO_KEY_EXPLOTACION
+src/omicron/app/DbManagement/DBConsts.java:245:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:246:	Avoid excessively long variable names like DATABASE_TABLE_CEBA_CEBADERO_KEY_FECHA_E
+src/omicron/app/DbManagement/DBConsts.java:246:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:247:	Avoid excessively long variable names like DATABASE_TABLE_CEBA_CEBADERO_KEY_MOTIVO_E
+src/omicron/app/DbManagement/DBConsts.java:247:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:248:	Avoid excessively long variable names like DATABASE_TABLE_CEBA_CEBADERO_KEY_PME_M
+src/omicron/app/DbManagement/DBConsts.java:248:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:249:	Avoid excessively long variable names like DATABASE_TABLE_CEBA_CEBADERO_KEY_PME_H
+src/omicron/app/DbManagement/DBConsts.java:249:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:250:	Avoid excessively long variable names like DATABASE_TABLE_CEBA_CEBADERO_KEY_PCOMPRA_M
+src/omicron/app/DbManagement/DBConsts.java:250:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:251:	Avoid excessively long variable names like DATABASE_TABLE_CEBA_CEBADERO_KEY_PCOMPRA_H
+src/omicron/app/DbManagement/DBConsts.java:251:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:252:	Avoid excessively long variable names like DATABASE_TABLE_CEBA_CEBADERO_KEY_FILTRO_NO_GUIA
+src/omicron/app/DbManagement/DBConsts.java:252:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:253:	Avoid excessively long variable names like DATABASE_TABLE_CEBA_CEBADERO_KEY_NO_GUIA_E
+src/omicron/app/DbManagement/DBConsts.java:253:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:255:	Avoid excessively long variable names like DATABASE_CREATE_CEBA_CEBADERO
+src/omicron/app/DbManagement/DBConsts.java:255:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:309:	Avoid excessively long variable names like DATABASE_TABLE_CORRAL
+src/omicron/app/DbManagement/DBConsts.java:309:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:310:	Avoid excessively long variable names like DATABASE_TABLE_CORRAL_KEY_ID
+src/omicron/app/DbManagement/DBConsts.java:310:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:311:	Avoid excessively long variable names like DATABASE_TABLE_CORRAL_KEY_CEBADERO
+src/omicron/app/DbManagement/DBConsts.java:311:	The String literal "cod_cebadero" appears 5 times in this file; the first occurrence is on line 311
+src/omicron/app/DbManagement/DBConsts.java:311:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:312:	Avoid excessively long variable names like DATABASE_TABLE_CORRAL_KEY_N_CORRAL
+src/omicron/app/DbManagement/DBConsts.java:312:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:313:	Avoid excessively long variable names like DATABASE_TABLE_CORRAL_KEY_N_PLAZAS_DISP
+src/omicron/app/DbManagement/DBConsts.java:313:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:314:	Avoid excessively long variable names like DATABASE_TABLE_CORRAL_KEY_N_PLAZAS_OCUP
+src/omicron/app/DbManagement/DBConsts.java:314:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:315:	Avoid excessively long variable names like DATABASE_TABLE_CORRAL_KEY_BASCULA
+src/omicron/app/DbManagement/DBConsts.java:315:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:317:	Avoid excessively long variable names like DATABASE_CREATE_CORRAL
+src/omicron/app/DbManagement/DBConsts.java:317:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:341:	Avoid excessively long variable names like DATABASE_TABLE_LOTE_CEBADERO
+src/omicron/app/DbManagement/DBConsts.java:341:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:342:	Avoid excessively long variable names like DATABASE_TABLE_LOTE_CEBADERO_KEY_ID
+src/omicron/app/DbManagement/DBConsts.java:342:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:343:	Avoid excessively long variable names like DATABASE_TABLE_LOTE_CEBADERO_KEY_CEBADERO
+src/omicron/app/DbManagement/DBConsts.java:343:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:344:	Avoid excessively long variable names like DATABASE_TABLE_LOTE_CEBADERO_KEY_CEBA
+src/omicron/app/DbManagement/DBConsts.java:344:	The String literal "cod_ceba" appears 4 times in this file; the first occurrence is on line 344
+src/omicron/app/DbManagement/DBConsts.java:344:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:345:	Avoid excessively long variable names like DATABASE_TABLE_LOTE_CEBADERO_KEY_NUMERO
+src/omicron/app/DbManagement/DBConsts.java:345:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:346:	Avoid excessively long variable names like DATABASE_TABLE_LOTE_CEBADERO_KEY_N_ANIMALES
+src/omicron/app/DbManagement/DBConsts.java:346:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:347:	Avoid excessively long variable names like DATABASE_TABLE_LOTE_CEBADERO_KEY_LOTE_CON_BAJAS
+src/omicron/app/DbManagement/DBConsts.java:347:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:348:	Avoid excessively long variable names like DATABASE_TABLE_LOTE_CEBADERO_KEY_PIENSO_CONSUMIDO
+src/omicron/app/DbManagement/DBConsts.java:348:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:349:	Avoid excessively long variable names like DATABASE_TABLE_LOTE_CEBADERO_KEY_COSTE_MEDIO_PIENSO
+src/omicron/app/DbManagement/DBConsts.java:349:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:351:	Avoid excessively long variable names like DATABASE_CREATE_LOTE_CEBADERO
+src/omicron/app/DbManagement/DBConsts.java:351:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:387:	Avoid excessively long variable names like DATABASE_TABLE_RAZA
+src/omicron/app/DbManagement/DBConsts.java:387:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:388:	Avoid excessively long variable names like DATABASE_TABLE_RAZA_KEY_ID
+src/omicron/app/DbManagement/DBConsts.java:388:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:389:	Avoid excessively long variable names like DATABASE_TABLE_RAZA_KEY_CODIGO
+src/omicron/app/DbManagement/DBConsts.java:389:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:390:	Avoid excessively long variable names like DATABASE_TABLE_RAZA_KEY_DESCRIPCION
+src/omicron/app/DbManagement/DBConsts.java:390:	The String literal "descripcion" appears 4 times in this file; the first occurrence is on line 390
+src/omicron/app/DbManagement/DBConsts.java:390:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:392:	Avoid excessively long variable names like DATABASE_CREATE_RAZA
+src/omicron/app/DbManagement/DBConsts.java:392:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:400:	The String literal " text" appears 4 times in this file; the first occurrence is on line 400
+src/omicron/app/DbManagement/DBConsts.java:404:	Avoid excessively long variable names like DATABASE_TABLE_ESPECIE
+src/omicron/app/DbManagement/DBConsts.java:404:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:405:	Avoid excessively long variable names like DATABASE_TABLE_ESPECIE_KEY_ID
+src/omicron/app/DbManagement/DBConsts.java:405:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:406:	Avoid excessively long variable names like DATABASE_TABLE_ESPECIE_KEY_CODIGO
+src/omicron/app/DbManagement/DBConsts.java:406:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:407:	Avoid excessively long variable names like DATABASE_TABLE_ESPECIE_KEY_DESCRIPCION
+src/omicron/app/DbManagement/DBConsts.java:407:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:409:	Avoid excessively long variable names like DATABASE_CREATE_ESPECIE
+src/omicron/app/DbManagement/DBConsts.java:409:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:421:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES
+src/omicron/app/DbManagement/DBConsts.java:421:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:422:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_ID
+src/omicron/app/DbManagement/DBConsts.java:422:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:423:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_N_ID
+src/omicron/app/DbManagement/DBConsts.java:423:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:424:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_F_NAC
+src/omicron/app/DbManagement/DBConsts.java:424:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:425:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_SEXO
+src/omicron/app/DbManagement/DBConsts.java:425:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:426:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_RAZA
+src/omicron/app/DbManagement/DBConsts.java:426:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:427:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_N_ID_MADRE
+src/omicron/app/DbManagement/DBConsts.java:427:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:428:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_EXPLOTACION_NACIMIENTO
+src/omicron/app/DbManagement/DBConsts.java:428:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:429:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_PAIS_NACIMIENTO
+src/omicron/app/DbManagement/DBConsts.java:429:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:430:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_PAIS_ENGORDE
+src/omicron/app/DbManagement/DBConsts.java:430:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:431:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_ALIAS
+src/omicron/app/DbManagement/DBConsts.java:431:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:432:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_VACUNADO_EN_ORIGEN
+src/omicron/app/DbManagement/DBConsts.java:432:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:433:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_CEBADERO
+src/omicron/app/DbManagement/DBConsts.java:433:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:434:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_CEBA
+src/omicron/app/DbManagement/DBConsts.java:434:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:435:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_CORRAL
+src/omicron/app/DbManagement/DBConsts.java:435:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:436:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_LOTE_CEBADERO
+src/omicron/app/DbManagement/DBConsts.java:436:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:437:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_ESPECIE
+src/omicron/app/DbManagement/DBConsts.java:437:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:438:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_EXPLOTACION
+src/omicron/app/DbManagement/DBConsts.java:438:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:439:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_F_ENTRADA
+src/omicron/app/DbManagement/DBConsts.java:439:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:440:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_N_GUIA_ENTRADA
+src/omicron/app/DbManagement/DBConsts.java:440:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:441:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_PESO_IND_ENTRADA
+src/omicron/app/DbManagement/DBConsts.java:441:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:442:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_PESO_MED_ENTRADA
+src/omicron/app/DbManagement/DBConsts.java:442:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:443:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_PMC
+src/omicron/app/DbManagement/DBConsts.java:443:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:444:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_MOTIVO_ENTRADA
+src/omicron/app/DbManagement/DBConsts.java:444:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:445:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_EXPLOTACION_PROCEDENCIA
+src/omicron/app/DbManagement/DBConsts.java:445:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:446:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_EDAD_ENTRADA
+src/omicron/app/DbManagement/DBConsts.java:446:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:447:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_F_SALIDA
+src/omicron/app/DbManagement/DBConsts.java:447:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:448:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_N_GUIA_SALIDA
+src/omicron/app/DbManagement/DBConsts.java:448:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:449:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_PESO_IND_SALIDA
+src/omicron/app/DbManagement/DBConsts.java:449:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:450:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_PESO_MED_SALIDA
+src/omicron/app/DbManagement/DBConsts.java:450:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:451:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_PESO_FINAL_CORREGIDO
+src/omicron/app/DbManagement/DBConsts.java:451:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:452:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_PESO_CANAL
+src/omicron/app/DbManagement/DBConsts.java:452:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:453:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_CLASIFICACION_CANAL
+src/omicron/app/DbManagement/DBConsts.java:453:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:454:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_MOTIVO_SALIDA
+src/omicron/app/DbManagement/DBConsts.java:454:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:455:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_DESTINO
+src/omicron/app/DbManagement/DBConsts.java:455:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:456:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_EDAD_SALIDA
+src/omicron/app/DbManagement/DBConsts.java:456:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:457:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_DIAS_ESTANCIA_CEBADERO
+src/omicron/app/DbManagement/DBConsts.java:457:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:458:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_KG_ENGORDADOS
+src/omicron/app/DbManagement/DBConsts.java:458:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:459:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_GANANCIA_MEDIA_DIARIA
+src/omicron/app/DbManagement/DBConsts.java:459:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:460:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_COSTE_TRATAMIENTO_CURATIVO
+src/omicron/app/DbManagement/DBConsts.java:460:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:461:	Avoid excessively long variable names like DATABASE_TABLE_ANIMALES_KEY_INDICE_TRANSFORMACION
+src/omicron/app/DbManagement/DBConsts.java:461:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:463:	Avoid excessively long variable names like DATABASE_CREATE_ANIMALES
+src/omicron/app/DbManagement/DBConsts.java:463:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:633:	Avoid excessively long variable names like DATABASE_TABLE_PATOLOGIAS
+src/omicron/app/DbManagement/DBConsts.java:633:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:634:	Avoid excessively long variable names like DATABASE_TABLE_PATOLOGIAS_KEY_ID
+src/omicron/app/DbManagement/DBConsts.java:634:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:635:	Avoid excessively long variable names like DATABASE_TABLE_PATOLOGIAS_KEY_CODIGO
+src/omicron/app/DbManagement/DBConsts.java:635:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:636:	Avoid excessively long variable names like DATABASE_TABLE_PATOLOGIAS_KEY_DESCRIPCION
+src/omicron/app/DbManagement/DBConsts.java:636:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:637:	Avoid excessively long variable names like DATABASE_TABLE_PATOLOGIAS_KEY_ENFERMEDAD_INFECCIOSA
+src/omicron/app/DbManagement/DBConsts.java:637:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:638:	Avoid excessively long variable names like DATABASE_TABLE_PATOLOGIAS_KEY_ENFERMEDAD_PARASITARIA
+src/omicron/app/DbManagement/DBConsts.java:638:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:640:	Avoid excessively long variable names like DATABASE_CREATE_PATOLOGIAS
+src/omicron/app/DbManagement/DBConsts.java:640:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:655:	Avoid excessively long variable names like DATABASE_TABLE_PRUEBAS
+src/omicron/app/DbManagement/DBConsts.java:655:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:656:	Avoid excessively long variable names like DATABASE_TABLE_PRUEBAS_KEY_ID
+src/omicron/app/DbManagement/DBConsts.java:656:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:657:	Avoid excessively long variable names like DATABASE_TABLE_PRUEBAS_KEY_CODIGO
+src/omicron/app/DbManagement/DBConsts.java:657:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:658:	Avoid excessively long variable names like DATABASE_TABLE_PRUEBAS_KEY_DESCRIPCION
+src/omicron/app/DbManagement/DBConsts.java:658:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:660:	Avoid excessively long variable names like DATABASE_CREATE_PRUEBAS
+src/omicron/app/DbManagement/DBConsts.java:660:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:672:	Avoid excessively long variable names like DATABASE_TABLE_VETERINARIO
+src/omicron/app/DbManagement/DBConsts.java:672:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:673:	Avoid excessively long variable names like DATABASE_TABLE_VETERINARIO_KEY_ID
+src/omicron/app/DbManagement/DBConsts.java:673:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:674:	Avoid excessively long variable names like DATABASE_TABLE_VETERINARIO_KEY_CODIGO
+src/omicron/app/DbManagement/DBConsts.java:674:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:675:	Avoid excessively long variable names like DATABASE_TABLE_VETERINARIO_KEY_NOMBRE
+src/omicron/app/DbManagement/DBConsts.java:675:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:676:	Avoid excessively long variable names like DATABASE_TABLE_VETERINARIO_KEY_DIRECCION
+src/omicron/app/DbManagement/DBConsts.java:676:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:677:	Avoid excessively long variable names like DATABASE_TABLE_VETERINARIO_KEY_POBLACION
+src/omicron/app/DbManagement/DBConsts.java:677:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:678:	Avoid excessively long variable names like DATABASE_TABLE_VETERINARIO_KEY_CP
+src/omicron/app/DbManagement/DBConsts.java:678:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:679:	Avoid excessively long variable names like DATABASE_TABLE_VETERINARIO_KEY_PROVINCIA
+src/omicron/app/DbManagement/DBConsts.java:679:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:680:	Avoid excessively long variable names like DATABASE_TABLE_VETERINARIO_KEY_CIF_NIF
+src/omicron/app/DbManagement/DBConsts.java:680:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:681:	Avoid excessively long variable names like DATABASE_TABLE_VETERINARIO_KEY_N_COLEGIADO
+src/omicron/app/DbManagement/DBConsts.java:681:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:682:	Avoid excessively long variable names like DATABASE_TABLE_VETERINARIO_KEY_PROVINCIA_COLEGIACION
+src/omicron/app/DbManagement/DBConsts.java:682:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:683:	Avoid excessively long variable names like DATABASE_TABLE_VETERINARIO_KEY_N_SERIE_RECETA
+src/omicron/app/DbManagement/DBConsts.java:683:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:685:	Avoid excessively long variable names like DATABASE_CREATE_VETERINARIO
+src/omicron/app/DbManagement/DBConsts.java:685:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:713:	Avoid excessively long variable names like DATABASE_TABLE_TRAT_PREV_CEBA
+src/omicron/app/DbManagement/DBConsts.java:713:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:714:	Avoid excessively long variable names like DATABASE_TABLE_TRAT_PREV_CEBA_KEY_ID
+src/omicron/app/DbManagement/DBConsts.java:714:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:715:	Avoid excessively long variable names like DATABASE_TABLE_TRAT_PREV_CEBA_KEY_CEBADERO
+src/omicron/app/DbManagement/DBConsts.java:715:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:716:	Avoid excessively long variable names like DATABASE_TABLE_TRAT_PREV_CEBA_KEY_CEBA
+src/omicron/app/DbManagement/DBConsts.java:716:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:717:	Avoid excessively long variable names like DATABASE_TABLE_TRAT_PREV_CEBA_KEY_N_PRODUCTO
+src/omicron/app/DbManagement/DBConsts.java:717:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:718:	Avoid excessively long variable names like DATABASE_TABLE_TRAT_PREV_CEBA_KEY_PRUEBA
+src/omicron/app/DbManagement/DBConsts.java:718:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:719:	Avoid excessively long variable names like DATABASE_TABLE_TRAT_PREV_CEBA_KEY_PRECIO_UNITARIO
+src/omicron/app/DbManagement/DBConsts.java:719:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:720:	Avoid excessively long variable names like DATABASE_TABLE_TRAT_PREV_CEBA_KEY_PRECIO_ML
+src/omicron/app/DbManagement/DBConsts.java:720:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:721:	Avoid excessively long variable names like DATABASE_TABLE_TRAT_PREV_CEBA_KEY_N_DOSIS
+src/omicron/app/DbManagement/DBConsts.java:721:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:722:	Avoid excessively long variable names like DATABASE_TABLE_TRAT_PREV_CEBA_KEY_FECHA
+src/omicron/app/DbManagement/DBConsts.java:722:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:724:	Avoid excessively long variable names like DATABASE_CREATE_TRAT_PREV_CEBA
+src/omicron/app/DbManagement/DBConsts.java:724:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:768:	Avoid excessively long variable names like DATABASE_TABLE_TRAT_CUR_ANIMAL
+src/omicron/app/DbManagement/DBConsts.java:768:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:769:	Avoid excessively long variable names like DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_ID
+src/omicron/app/DbManagement/DBConsts.java:769:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:770:	Avoid excessively long variable names like DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_CEBADERO
+src/omicron/app/DbManagement/DBConsts.java:770:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:771:	Avoid excessively long variable names like DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_CEBA
+src/omicron/app/DbManagement/DBConsts.java:771:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:772:	Avoid excessively long variable names like DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_ANIMAL
+src/omicron/app/DbManagement/DBConsts.java:772:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:773:	Avoid excessively long variable names like DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_PRODUCTO
+src/omicron/app/DbManagement/DBConsts.java:773:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:774:	Avoid excessively long variable names like DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_FECHA
+src/omicron/app/DbManagement/DBConsts.java:774:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:775:	Avoid excessively long variable names like DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_EXPLOTACION
+src/omicron/app/DbManagement/DBConsts.java:775:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:776:	Avoid excessively long variable names like DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_PATOLOGIA
+src/omicron/app/DbManagement/DBConsts.java:776:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:777:	Avoid excessively long variable names like DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_PRECIO_UNITARIO
+src/omicron/app/DbManagement/DBConsts.java:777:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:778:	Avoid excessively long variable names like DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_PRECIO_ML
+src/omicron/app/DbManagement/DBConsts.java:778:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:779:	Avoid excessively long variable names like DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_N_DOSIS
+src/omicron/app/DbManagement/DBConsts.java:779:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:781:	Avoid excessively long variable names like DATABASE_CREATE_TRAT_CUR_ANIMAL
+src/omicron/app/DbManagement/DBConsts.java:781:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:841:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:844:	Avoid excessively long variable names like DATABASE_DROP_EXPLOTACION
+src/omicron/app/DbManagement/DBConsts.java:844:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:846:	Avoid excessively long variable names like DATABASE_DROP_CEBADERO
+src/omicron/app/DbManagement/DBConsts.java:846:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:848:	Avoid excessively long variable names like DATABASE_DROP_GUIA
+src/omicron/app/DbManagement/DBConsts.java:848:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:850:	Avoid excessively long variable names like DATABASE_DROP_CEBA_CEBADERO
+src/omicron/app/DbManagement/DBConsts.java:850:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:852:	Avoid excessively long variable names like DATABASE_DROP_CORRAL
+src/omicron/app/DbManagement/DBConsts.java:852:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:854:	Avoid excessively long variable names like DATABASE_DROP_LOTE_CEBADERO
+src/omicron/app/DbManagement/DBConsts.java:854:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:856:	Avoid excessively long variable names like DATABASE_DROP_RAZA
+src/omicron/app/DbManagement/DBConsts.java:856:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:858:	Avoid excessively long variable names like DATABASE_DROP_ESPECIE
+src/omicron/app/DbManagement/DBConsts.java:858:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:860:	Avoid excessively long variable names like DATABASE_DROP_ANIMALES
+src/omicron/app/DbManagement/DBConsts.java:860:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:862:	Avoid excessively long variable names like DATABASE_DROP_PATOLOGIAS
+src/omicron/app/DbManagement/DBConsts.java:862:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:864:	Avoid excessively long variable names like DATABASE_DROP_PRUEBAS
+src/omicron/app/DbManagement/DBConsts.java:864:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:866:	Avoid excessively long variable names like DATABASE_DROP_VETERINARIO
+src/omicron/app/DbManagement/DBConsts.java:866:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:868:	Avoid excessively long variable names like DATABASE_DROP_TRAT_PREV_CEBA
+src/omicron/app/DbManagement/DBConsts.java:868:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:870:	Avoid excessively long variable names like DATABASE_DROP_TRAT_CUR_ANIMAL
+src/omicron/app/DbManagement/DBConsts.java:870:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:874:	Avoid excessively long variable names like CREATE_TABLES_LIST
+src/omicron/app/DbManagement/DBConsts.java:874:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DBConsts.java:885:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DbAdapter.java:1:	Package name contains upper case characters
+src/omicron/app/DbManagement/DbAdapter.java:12:	headerCommentRequirement Required
+src/omicron/app/DbManagement/DbAdapter.java:16:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DbAdapter.java:18:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DbAdapter.java:21:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DbAdapter.java:23:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/omicron/app/DbManagement/DbAdapter.java:23:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DbAdapter.java:24:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/omicron/app/DbManagement/DbAdapter.java:24:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DbAdapter.java:26:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/omicron/app/DbManagement/DbAdapter.java:26:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DbAdapter.java:28:	headerCommentRequirement Required
+src/omicron/app/DbManagement/DbAdapter.java:30:	fieldCommentRequirement Required
+src/omicron/app/DbManagement/DbAdapter.java:33:	Parameter 'context' is not assigned and could be declared final
+src/omicron/app/DbManagement/DbAdapter.java:38:	Parameter 'context' is not assigned and could be declared final
+src/omicron/app/DbManagement/DbAdapter.java:38:	Use block level rather than method level synchronization
+src/omicron/app/DbManagement/DbAdapter.java:38:	publicMethodCommentRequirement Required
+src/omicron/app/DbManagement/DbAdapter.java:40:	Avoid using if statements without curly braces
+src/omicron/app/DbManagement/DbAdapter.java:46:	Avoid variables with short names like db
+src/omicron/app/DbManagement/DbAdapter.java:46:	Parameter 'db' is not assigned and could be declared final
+src/omicron/app/DbManagement/DbAdapter.java:46:	publicMethodCommentRequirement Required
+src/omicron/app/DbManagement/DbAdapter.java:52:	Avoid variables with short names like db
+src/omicron/app/DbManagement/DbAdapter.java:52:	Parameter 'db' is not assigned and could be declared final
+src/omicron/app/DbManagement/DbAdapter.java:52:	Parameter 'newVersion' is not assigned and could be declared final
+src/omicron/app/DbManagement/DbAdapter.java:52:	Parameter 'oldVersion' is not assigned and could be declared final
+src/omicron/app/DbManagement/DbAdapter.java:52:	publicMethodCommentRequirement Required
+src/omicron/app/DbManagement/DbAdapter.java:60:	Avoid variables with short names like db
+src/omicron/app/DbManagement/DbAdapter.java:60:	Parameter 'db' is not assigned and could be declared final
+src/omicron/app/DbManagement/DbAdapter.java:60:	publicMethodCommentRequirement Required
+src/omicron/app/DbManagement/DbAdapter.java:61:	Local variable 'dbCreatorIterator' could be declared final
+src/omicron/app/DbManagement/DbAdapter.java:62:	Avoid using while statements without curly braces
+src/omicron/app/DbManagement/DbAdapter.java:67:	Avoid variables with short names like db
+src/omicron/app/DbManagement/DbAdapter.java:67:	Parameter 'db' is not assigned and could be declared final
+src/omicron/app/DbManagement/DbAdapter.java:67:	publicMethodCommentRequirement Required
+src/omicron/app/DbManagement/DbAdapter.java:68:	Local variable 'dbDropIterator' could be declared final
+src/omicron/app/DbManagement/DbAdapter.java:69:	Avoid using while statements without curly braces
+src/omicron/app/DbManagement/DbAdapter.java:74:	Avoid variables with short names like db
+src/omicron/app/DbManagement/DbAdapter.java:74:	Parameter 'db' is not assigned and could be declared final
+src/omicron/app/DbManagement/DbAdapter.java:74:	publicMethodCommentRequirement Required
+src/omicron/app/DbManagement/DbAdapter.java:80:	Avoid variables with short names like db
+src/omicron/app/DbManagement/DbAdapter.java:80:	Parameter 'db' is not assigned and could be declared final
+src/omicron/app/DbManagement/DbAdapter.java:80:	publicMethodCommentRequirement Required
+src/omicron/app/DbManagement/DbAdapter.java:88:	Parameter 'ctx' is not assigned and could be declared final
+src/omicron/app/DbManagement/DbAdapter.java:88:	publicMethodCommentRequirement Required
+src/omicron/app/DbManagement/DbAdapter.java:90:	Overridable method 'open' called during object construction
+src/omicron/app/DbManagement/DbAdapter.java:93:	publicMethodCommentRequirement Required
+src/omicron/app/DbManagement/DbAdapter.java:99:	publicMethodCommentRequirement Required
+src/omicron/app/DbManagement/DbAdapter.java:103:	publicMethodCommentRequirement Required
+src/omicron/app/DbManagement/DbAdapter.java:107:	protectedMethodCommentRequirement Required
+src/omicron/app/DbManagement/DbAdapter.java:111:	Parameter 'mDb' is not assigned and could be declared final
+src/omicron/app/DbManagement/DbAdapter.java:111:	protectedMethodCommentRequirement Required
+src/omicron/app/DbManagement/EspecieDbAdapter.java:1:	Package name contains upper case characters
+src/omicron/app/DbManagement/EspecieDbAdapter.java:5:	headerCommentRequirement Required
+src/omicron/app/DbManagement/EspecieDbAdapter.java:7:	Parameter 'ctx' is not assigned and could be declared final
+src/omicron/app/DbManagement/EspecieDbAdapter.java:7:	publicMethodCommentRequirement Required
+src/omicron/app/DbManagement/ExplotacionDbAdapter.java:1:	Package name contains upper case characters
+src/omicron/app/DbManagement/ExplotacionDbAdapter.java:5:	headerCommentRequirement Required
+src/omicron/app/DbManagement/ExplotacionDbAdapter.java:7:	Parameter 'ctx' is not assigned and could be declared final
+src/omicron/app/DbManagement/ExplotacionDbAdapter.java:7:	publicMethodCommentRequirement Required
+src/omicron/app/DbManagement/GuiaDbAdapter.java:1:	Package name contains upper case characters
+src/omicron/app/DbManagement/GuiaDbAdapter.java:5:	headerCommentRequirement Required
+src/omicron/app/DbManagement/GuiaDbAdapter.java:7:	Parameter 'ctx' is not assigned and could be declared final
+src/omicron/app/DbManagement/GuiaDbAdapter.java:7:	publicMethodCommentRequirement Required
+src/omicron/app/DbManagement/LoteCebaderoDbAdapter.java:1:	Package name contains upper case characters
+src/omicron/app/DbManagement/LoteCebaderoDbAdapter.java:5:	headerCommentRequirement Required
+src/omicron/app/DbManagement/LoteCebaderoDbAdapter.java:7:	Parameter 'ctx' is not assigned and could be declared final
+src/omicron/app/DbManagement/LoteCebaderoDbAdapter.java:7:	publicMethodCommentRequirement Required
+src/omicron/app/DbManagement/PatologiasDbAdapter.java:1:	Package name contains upper case characters
+src/omicron/app/DbManagement/PatologiasDbAdapter.java:5:	headerCommentRequirement Required
+src/omicron/app/DbManagement/PatologiasDbAdapter.java:7:	Parameter 'ctx' is not assigned and could be declared final
+src/omicron/app/DbManagement/PatologiasDbAdapter.java:7:	publicMethodCommentRequirement Required
+src/omicron/app/DbManagement/PruebasDbAdapter.java:1:	Package name contains upper case characters
+src/omicron/app/DbManagement/PruebasDbAdapter.java:5:	headerCommentRequirement Required
+src/omicron/app/DbManagement/PruebasDbAdapter.java:7:	Parameter 'ctx' is not assigned and could be declared final
+src/omicron/app/DbManagement/PruebasDbAdapter.java:7:	publicMethodCommentRequirement Required
+src/omicron/app/DbManagement/RazaDbAdapter.java:1:	Package name contains upper case characters
+src/omicron/app/DbManagement/RazaDbAdapter.java:7:	headerCommentRequirement Required
+src/omicron/app/DbManagement/RazaDbAdapter.java:9:	Parameter 'ctx' is not assigned and could be declared final
+src/omicron/app/DbManagement/RazaDbAdapter.java:9:	publicMethodCommentRequirement Required
+src/omicron/app/DbManagement/RazaDbAdapter.java:13:	Parameter 'code' is not assigned and could be declared final
+src/omicron/app/DbManagement/RazaDbAdapter.java:13:	Parameter 'descripcion' is not assigned and could be declared final
+src/omicron/app/DbManagement/RazaDbAdapter.java:13:	publicMethodCommentRequirement Required
+src/omicron/app/DbManagement/RazaDbAdapter.java:15:	Local variable 'query' could be declared final
+src/omicron/app/DbManagement/RazaDbAdapter.java:18:	Potential violation of Law of Demeter (method chain calls)
+src/omicron/app/DbManagement/RazaDbAdapter.java:19:	A method should have only one exit point, and that should be the last statement in the method
+src/omicron/app/DbManagement/RazaDbAdapter.java:20:	Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+src/omicron/app/DbManagement/RazaDbAdapter.java:22:	Avoid printStackTrace(); use a logger call instead.
+src/omicron/app/DbManagement/RazaDbAdapter.java:28:	Parameter 'values' is not assigned and could be declared final
+src/omicron/app/DbManagement/RazaDbAdapter.java:28:	publicMethodCommentRequirement Required
+src/omicron/app/DbManagement/RazaDbAdapter.java:30:	Local variable 'query' could be declared final
+src/omicron/app/DbManagement/RazaDbAdapter.java:33:	Potential violation of Law of Demeter (method chain calls)
+src/omicron/app/DbManagement/RazaDbAdapter.java:34:	A method should have only one exit point, and that should be the last statement in the method
+src/omicron/app/DbManagement/RazaDbAdapter.java:35:	Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+src/omicron/app/DbManagement/RazaDbAdapter.java:37:	Avoid printStackTrace(); use a logger call instead.
+src/omicron/app/DbManagement/Trat_Cur_AnimalDbAdapter.java:1:	Package name contains upper case characters
+src/omicron/app/DbManagement/Trat_Cur_AnimalDbAdapter.java:5:	headerCommentRequirement Required
+src/omicron/app/DbManagement/Trat_Cur_AnimalDbAdapter.java:7:	Parameter 'ctx' is not assigned and could be declared final
+src/omicron/app/DbManagement/Trat_Cur_AnimalDbAdapter.java:7:	publicMethodCommentRequirement Required
+src/omicron/app/DbManagement/Trat_Prev_CebaDbAdapter.java:1:	Package name contains upper case characters
+src/omicron/app/DbManagement/Trat_Prev_CebaDbAdapter.java:5:	headerCommentRequirement Required
+src/omicron/app/DbManagement/Trat_Prev_CebaDbAdapter.java:7:	Parameter 'ctx' is not assigned and could be declared final
+src/omicron/app/DbManagement/Trat_Prev_CebaDbAdapter.java:7:	publicMethodCommentRequirement Required
+src/omicron/app/DbManagement/VeterinarioDbAdapter.java:1:	Package name contains upper case characters
+src/omicron/app/DbManagement/VeterinarioDbAdapter.java:5:	headerCommentRequirement Required
+src/omicron/app/DbManagement/VeterinarioDbAdapter.java:7:	Parameter 'ctx' is not assigned and could be declared final
+src/omicron/app/DbManagement/VeterinarioDbAdapter.java:7:	publicMethodCommentRequirement Required
+src/omicron/app/ExploreActivity.java:4:	Avoid unused imports such as 'android.support.v7.app.ActionBar'
+src/omicron/app/ExploreActivity.java:13:	Avoid unused imports such as 'android.os.Build'
+src/omicron/app/ExploreActivity.java:15:	headerCommentRequirement Required
+src/omicron/app/ExploreActivity.java:18:	Avoid excessively long variable names like savedInstanceState
+src/omicron/app/ExploreActivity.java:18:	Parameter 'savedInstanceState' is not assigned and could be declared final
+src/omicron/app/ExploreActivity.java:18:	protectedMethodCommentRequirement Required
+src/omicron/app/ExploreActivity.java:29:	Parameter 'menu' is not assigned and could be declared final
+src/omicron/app/ExploreActivity.java:29:	publicMethodCommentRequirement Required
+src/omicron/app/ExploreActivity.java:32:	Potential violation of Law of Demeter (method chain calls)
+src/omicron/app/ExploreActivity.java:37:	Parameter 'item' is not assigned and could be declared final
+src/omicron/app/ExploreActivity.java:37:	publicMethodCommentRequirement Required
+src/omicron/app/ExploreActivity.java:41:	Avoid variables with short names like id
+src/omicron/app/ExploreActivity.java:41:	Local variable 'id' could be declared final
+src/omicron/app/ExploreActivity.java:44:	A method should have only one exit point, and that should be the last statement in the method
+src/omicron/app/ExploreActivity.java:54:	Avoid unnecessary constructors - the compiler will generate these for you
+src/omicron/app/ExploreActivity.java:54:	Document empty constructor
+src/omicron/app/ExploreActivity.java:54:	It is a good practice to call super() in a constructor
+src/omicron/app/ExploreActivity.java:54:	publicMethodCommentRequirement Required
+src/omicron/app/ExploreActivity.java:58:	Parameter 'container' is not assigned and could be declared final
+src/omicron/app/ExploreActivity.java:58:	Parameter 'inflater' is not assigned and could be declared final
+src/omicron/app/ExploreActivity.java:58:	publicMethodCommentRequirement Required
+src/omicron/app/ExploreActivity.java:59:	Avoid excessively long variable names like savedInstanceState
+src/omicron/app/ExploreActivity.java:59:	Parameter 'savedInstanceState' is not assigned and could be declared final
+src/omicron/app/ExploreActivity.java:60:	Local variable 'rootView' could be declared final
+src/omicron/app/MainActivity.java:14:	headerCommentRequirement Required
+src/omicron/app/MainActivity.java:16:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/omicron/app/MainActivity.java:16:	Perhaps 'mDbHelper' could be replaced by a local variable.
+src/omicron/app/MainActivity.java:16:	fieldCommentRequirement Required
+src/omicron/app/MainActivity.java:19:	Avoid excessively long variable names like savedInstanceState
+src/omicron/app/MainActivity.java:19:	Parameter 'savedInstanceState' is not assigned and could be declared final
+src/omicron/app/MainActivity.java:19:	protectedMethodCommentRequirement Required
+src/omicron/app/MainActivity.java:34:	Parameter 'menu' is not assigned and could be declared final
+src/omicron/app/MainActivity.java:34:	publicMethodCommentRequirement Required
+src/omicron/app/MainActivity.java:37:	Potential violation of Law of Demeter (method chain calls)
+src/omicron/app/MainActivity.java:42:	Parameter 'item' is not assigned and could be declared final
+src/omicron/app/MainActivity.java:42:	publicMethodCommentRequirement Required
+src/omicron/app/MainActivity.java:46:	Avoid variables with short names like id
+src/omicron/app/MainActivity.java:46:	Local variable 'id' could be declared final
+src/omicron/app/MainActivity.java:49:	A method should have only one exit point, and that should be the last statement in the method
+src/omicron/app/MainActivity.java:52:	A method should have only one exit point, and that should be the last statement in the method
+src/omicron/app/MainActivity.java:62:	Avoid unnecessary constructors - the compiler will generate these for you
+src/omicron/app/MainActivity.java:62:	Document empty constructor
+src/omicron/app/MainActivity.java:62:	It is a good practice to call super() in a constructor
+src/omicron/app/MainActivity.java:62:	publicMethodCommentRequirement Required
+src/omicron/app/MainActivity.java:66:	Parameter 'container' is not assigned and could be declared final
+src/omicron/app/MainActivity.java:66:	Parameter 'inflater' is not assigned and could be declared final
+src/omicron/app/MainActivity.java:66:	publicMethodCommentRequirement Required
+src/omicron/app/MainActivity.java:67:	Avoid excessively long variable names like savedInstanceState
+src/omicron/app/MainActivity.java:67:	Parameter 'savedInstanceState' is not assigned and could be declared final
+src/omicron/app/MainActivity.java:68:	Local variable 'rootView' could be declared final
+src/omicron/app/MainActivity.java:77:	Parameter 'view' is not assigned and could be declared final
+src/omicron/app/MainActivity.java:77:	publicMethodCommentRequirement Required
+src/omicron/app/MainActivity.java:79:	Local variable 'intent' could be declared final
+src/omicron/app/MainActivity.java:84:	Parameter 'view' is not assigned and could be declared final
+src/omicron/app/MainActivity.java:84:	publicMethodCommentRequirement Required
+src/omicron/app/MainActivity.java:86:	Local variable 'intent' could be declared final
+src/omicron/app/SettingsActivity.java:8:	headerCommentRequirement Required
+src/omicron/app/SettingsActivity.java:10:	Avoid excessively long variable names like savedInstanceState
+src/omicron/app/SettingsActivity.java:10:	Overriding method merely calls super
+src/omicron/app/SettingsActivity.java:10:	Overriding method merely calls super
+src/omicron/app/SettingsActivity.java:10:	Parameter 'savedInstanceState' is not assigned and could be declared final
+src/omicron/app/SettingsActivity.java:10:	protectedMethodCommentRequirement Required
+src/omicron/app/SettingsActivity.java:15:	Parameter 'target' is not assigned and could be declared final
+src/omicron/app/SettingsActivity.java:15:	publicMethodCommentRequirement Required
+src/omicron/app/SettingsActivity.java:19:	headerCommentRequirement Required
+src/omicron/app/SettingsActivity.java:21:	Avoid excessively long variable names like savedInstanceState
+src/omicron/app/SettingsActivity.java:21:	Parameter 'savedInstanceState' is not assigned and could be declared final
+src/omicron/app/SettingsActivity.java:21:	publicMethodCommentRequirement Required
+src/omicron/app/SettingsActivity.java:24:	Local variable 'settings' could be declared final
+src/omicron/app/SettingsActivity.java:24:	Potential violation of Law of Demeter (method chain calls)
+src/omicron/app/SettingsActivity.java:37:	Parameter 'fragmentName' is not assigned and could be declared final
+src/omicron/app/SettingsActivity.java:37:	protectedMethodCommentRequirement Required
+src/omicron/app/SettingsActivity.java:39:	Potential violation of Law of Demeter (method chain calls)
+src/omicron/app/SettingsActivity.java:39:	Potential violation of Law of Demeter (method chain calls)
+src/omicron/app/SyncActivity.java:34:	This class has too many methods, consider refactoring it.
+src/omicron/app/SyncActivity.java:34:	headerCommentRequirement Required
+src/omicron/app/SyncActivity.java:37:	fieldCommentRequirement Required
+src/omicron/app/SyncActivity.java:39:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/omicron/app/SyncActivity.java:39:	Use explicit scoping instead of the default package private level
+src/omicron/app/SyncActivity.java:39:	fieldCommentRequirement Required
+src/omicron/app/SyncActivity.java:42:	Avoid excessively long variable names like savedInstanceState
+src/omicron/app/SyncActivity.java:42:	Parameter 'savedInstanceState' is not assigned and could be declared final
+src/omicron/app/SyncActivity.java:42:	protectedMethodCommentRequirement Required
+src/omicron/app/SyncActivity.java:53:	Parameter 'menu' is not assigned and could be declared final
+src/omicron/app/SyncActivity.java:53:	publicMethodCommentRequirement Required
+src/omicron/app/SyncActivity.java:56:	Potential violation of Law of Demeter (method chain calls)
+src/omicron/app/SyncActivity.java:61:	Parameter 'item' is not assigned and could be declared final
+src/omicron/app/SyncActivity.java:61:	publicMethodCommentRequirement Required
+src/omicron/app/SyncActivity.java:65:	Avoid variables with short names like id
+src/omicron/app/SyncActivity.java:65:	Local variable 'id' could be declared final
+src/omicron/app/SyncActivity.java:68:	A method should have only one exit point, and that should be the last statement in the method
+src/omicron/app/SyncActivity.java:73:	Parameter 'view' is not assigned and could be declared final
+src/omicron/app/SyncActivity.java:73:	publicMethodCommentRequirement Required
+src/omicron/app/SyncActivity.java:74:	Local variable 'preferences' could be declared final
+src/omicron/app/SyncActivity.java:76:	Local variable 'serverURLPref' could be declared final
+src/omicron/app/SyncActivity.java:76:	Potential violation of Law of Demeter (object not created locally)
+src/omicron/app/SyncActivity.java:78:	Local variable 'connMgr' could be declared final
+src/omicron/app/SyncActivity.java:79:	Local variable 'networkInfo' could be declared final
+src/omicron/app/SyncActivity.java:79:	Potential violation of Law of Demeter (object not created locally)
+src/omicron/app/SyncActivity.java:80:	Potential violation of Law of Demeter (object not created locally)
+src/omicron/app/SyncActivity.java:85:	Avoid variables with short names like dt
+src/omicron/app/SyncActivity.java:85:	Local variable 'dt' could be declared final
+src/omicron/app/SyncActivity.java:91:	Potential violation of Law of Demeter (method chain calls)
+src/omicron/app/SyncActivity.java:97:	headerCommentRequirement Required
+src/omicron/app/SyncActivity.java:100:	fieldCommentRequirement Required
+src/omicron/app/SyncActivity.java:101:	fieldCommentRequirement Required
+src/omicron/app/SyncActivity.java:104:	protectedMethodCommentRequirement Required
+src/omicron/app/SyncActivity.java:109:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/omicron/app/SyncActivity.java:109:	Private field 'context' could be made final; it is only initialized in the declaration or constructor.
+src/omicron/app/SyncActivity.java:109:	fieldCommentRequirement Required
+src/omicron/app/SyncActivity.java:111:	It is a good practice to call super() in a constructor
+src/omicron/app/SyncActivity.java:111:	Parameter 'context' is not assigned and could be declared final
+src/omicron/app/SyncActivity.java:111:	publicMethodCommentRequirement Required
+src/omicron/app/SyncActivity.java:118:	Parameter 'urls' is not assigned and could be declared final
+src/omicron/app/SyncActivity.java:118:	protectedMethodCommentRequirement Required
+src/omicron/app/SyncActivity.java:120:	Potential violation of Law of Demeter (method chain calls)
+src/omicron/app/SyncActivity.java:124:	Local variable 'downloadedData' could be declared final
+src/omicron/app/SyncActivity.java:124:	Potential violation of Law of Demeter (method chain calls)
+src/omicron/app/SyncActivity.java:126:	Avoid if (x != y) ..; else ..;
+src/omicron/app/SyncActivity.java:127:	A method should have only one exit point, and that should be the last statement in the method
+src/omicron/app/SyncActivity.java:127:	Avoid using if...else statements without curly braces
+src/omicron/app/SyncActivity.java:127:	This statement may have some unnecessary parentheses
+src/omicron/app/SyncActivity.java:127:	Useless parentheses.
+src/omicron/app/SyncActivity.java:127:	Useless parentheses.
+src/omicron/app/SyncActivity.java:129:	A method should have only one exit point, and that should be the last statement in the method
+src/omicron/app/SyncActivity.java:129:	Avoid using if...else statements without curly braces
+src/omicron/app/SyncActivity.java:131:	Avoid printStackTrace(); use a logger call instead.
+src/omicron/app/SyncActivity.java:137:	Avoid excessively long variable names like downloadDataFromServer
+src/omicron/app/SyncActivity.java:137:	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/omicron/app/SyncActivity.java:137:	Parameter 'downloadDataFromServer' is not assigned and could be declared final
+src/omicron/app/SyncActivity.java:140:	Local variable 'dba' could be declared final
+src/omicron/app/SyncActivity.java:141:	Potential violation of Law of Demeter (object not created locally)
+src/omicron/app/SyncActivity.java:143:	Local variable 'rowIt' could be declared final
+src/omicron/app/SyncActivity.java:145:	Found 'DU'-anomaly for variable 'headers' (lines '145'-'157').
+src/omicron/app/SyncActivity.java:145:	Local variable 'headers' could be declared final
+src/omicron/app/SyncActivity.java:147:	Found 'DU'-anomaly for variable 'razadba' (lines '147'-'157').
+src/omicron/app/SyncActivity.java:147:	Local variable 'razadba' could be declared final
+src/omicron/app/SyncActivity.java:151:	Potential violation of Law of Demeter (object not created locally)
+src/omicron/app/SyncActivity.java:151:	Potential violation of Law of Demeter (object not created locally)
+src/omicron/app/SyncActivity.java:152:	Potential violation of Law of Demeter (object not created locally)
+src/omicron/app/SyncActivity.java:152:	Potential violation of Law of Demeter (object not created locally)
+src/omicron/app/SyncActivity.java:162:	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/omicron/app/SyncActivity.java:162:	Parameter 'myurl' is not assigned and could be declared final
+src/omicron/app/SyncActivity.java:164:	Found 'DD'-anomaly for variable 'reader' (lines '164'-'172').
+src/omicron/app/SyncActivity.java:167:	Local variable 'url' could be declared final
+src/omicron/app/SyncActivity.java:168:	Local variable 'conn' could be declared final
+src/omicron/app/SyncActivity.java:176:	Local variable 'values' could be declared final
+src/omicron/app/SyncActivity.java:189:	Avoid assignments in operands
+src/omicron/app/SyncActivity.java:189:	Found 'DU'-anomaly for variable 'nextLine' (lines '189'-'209').
+src/omicron/app/SyncActivity.java:190:	Avoid instantiating new objects inside loops
+src/omicron/app/SyncActivity.java:195:	A method should have only one exit point, and that should be the last statement in the method
+src/omicron/app/SyncActivity.java:196:	Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+src/omicron/app/SyncActivity.java:197:	Avoid printStackTrace(); use a logger call instead.
+src/omicron/app/SyncActivity.java:211:	Parameter 'dba' is not assigned and could be declared final
+src/omicron/app/SyncActivity.java:211:	Parameter 'value1' is not assigned and could be declared final
+src/omicron/app/SyncActivity.java:211:	Parameter 'value2' is not assigned and could be declared final
+src/omicron/app/SyncActivity.java:217:	Parameter 'result' is not assigned and could be declared final
+src/omicron/app/SyncActivity.java:217:	protectedMethodCommentRequirement Required
+src/omicron/app/SyncActivity.java:218:	Avoid unnecessary comparisons in boolean expressions
+src/omicron/app/SyncActivity.java:218:	Avoid using Literals in Conditional Statements
+src/omicron/app/SyncActivity.java:220:	Potential violation of Law of Demeter (method chain calls)
+src/omicron/app/SyncActivity.java:224:	Potential violation of Law of Demeter (method chain calls)
+src/omicron/app/SyncActivity.java:239:	Avoid unnecessary constructors - the compiler will generate these for you
+src/omicron/app/SyncActivity.java:239:	Document empty constructor
+src/omicron/app/SyncActivity.java:239:	It is a good practice to call super() in a constructor
+src/omicron/app/SyncActivity.java:239:	publicMethodCommentRequirement Required
+src/omicron/app/SyncActivity.java:243:	Parameter 'container' is not assigned and could be declared final
+src/omicron/app/SyncActivity.java:243:	Parameter 'inflater' is not assigned and could be declared final
+src/omicron/app/SyncActivity.java:243:	publicMethodCommentRequirement Required
+src/omicron/app/SyncActivity.java:244:	Avoid excessively long variable names like savedInstanceState
+src/omicron/app/SyncActivity.java:244:	Parameter 'savedInstanceState' is not assigned and could be declared final
+src/omicron/app/SyncActivity.java:245:	Local variable 'rootView' could be declared final
+src/omicron/app/TabbedActivity.java:14:	Avoid unused imports such as 'android.view.Gravity'
+src/omicron/app/TabbedActivity.java:22:	headerCommentRequirement Required
+src/omicron/app/TabbedActivity.java:32:	Avoid excessively long variable names like mSectionsPagerAdapter
+src/omicron/app/TabbedActivity.java:32:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/omicron/app/TabbedActivity.java:32:	Use explicit scoping instead of the default package private level
+src/omicron/app/TabbedActivity.java:37:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/omicron/app/TabbedActivity.java:37:	Use explicit scoping instead of the default package private level
+src/omicron/app/TabbedActivity.java:40:	Avoid excessively long variable names like savedInstanceState
+src/omicron/app/TabbedActivity.java:40:	Parameter 'savedInstanceState' is not assigned and could be declared final
+src/omicron/app/TabbedActivity.java:40:	protectedMethodCommentRequirement Required
+src/omicron/app/TabbedActivity.java:46:	Potential violation of Law of Demeter (object not created locally)
+src/omicron/app/TabbedActivity.java:47:	Potential violation of Law of Demeter (object not created locally)
+src/omicron/app/TabbedActivity.java:62:	Parameter 'position' is not assigned and could be declared final
+src/omicron/app/TabbedActivity.java:62:	publicMethodCommentRequirement Required
+src/omicron/app/TabbedActivity.java:73:	Potential violation of Law of Demeter (method chain calls)
+src/omicron/app/TabbedActivity.java:73:	Potential violation of Law of Demeter (method chain calls)
+src/omicron/app/TabbedActivity.java:73:	Potential violation of Law of Demeter (object not created locally)
+src/omicron/app/TabbedActivity.java:74:	Potential violation of Law of Demeter (method chain calls)
+src/omicron/app/TabbedActivity.java:74:	Potential violation of Law of Demeter (method chain calls)
+src/omicron/app/TabbedActivity.java:74:	Potential violation of Law of Demeter (object not created locally)
+src/omicron/app/TabbedActivity.java:82:	Parameter 'menu' is not assigned and could be declared final
+src/omicron/app/TabbedActivity.java:82:	publicMethodCommentRequirement Required
+src/omicron/app/TabbedActivity.java:85:	Potential violation of Law of Demeter (method chain calls)
+src/omicron/app/TabbedActivity.java:90:	Parameter 'item' is not assigned and could be declared final
+src/omicron/app/TabbedActivity.java:90:	publicMethodCommentRequirement Required
+src/omicron/app/TabbedActivity.java:94:	Avoid variables with short names like id
+src/omicron/app/TabbedActivity.java:94:	Local variable 'id' could be declared final
+src/omicron/app/TabbedActivity.java:102:	Avoid excessively long variable names like fragmentTransaction
+src/omicron/app/TabbedActivity.java:102:	Parameter 'fragmentTransaction' is not assigned and could be declared final
+src/omicron/app/TabbedActivity.java:102:	Parameter 'tab' is not assigned and could be declared final
+src/omicron/app/TabbedActivity.java:102:	publicMethodCommentRequirement Required
+src/omicron/app/TabbedActivity.java:109:	Avoid excessively long variable names like fragmentTransaction
+src/omicron/app/TabbedActivity.java:109:	Document empty method
+src/omicron/app/TabbedActivity.java:109:	Parameter 'fragmentTransaction' is not assigned and could be declared final
+src/omicron/app/TabbedActivity.java:109:	Parameter 'tab' is not assigned and could be declared final
+src/omicron/app/TabbedActivity.java:109:	publicMethodCommentRequirement Required
+src/omicron/app/TabbedActivity.java:113:	Avoid excessively long variable names like fragmentTransaction
+src/omicron/app/TabbedActivity.java:113:	Document empty method
+src/omicron/app/TabbedActivity.java:113:	Parameter 'fragmentTransaction' is not assigned and could be declared final
+src/omicron/app/TabbedActivity.java:113:	Parameter 'tab' is not assigned and could be declared final
+src/omicron/app/TabbedActivity.java:113:	publicMethodCommentRequirement Required
+src/omicron/app/TabbedActivity.java:122:	Avoid variables with short names like fm
+src/omicron/app/TabbedActivity.java:122:	Parameter 'fm' is not assigned and could be declared final
+src/omicron/app/TabbedActivity.java:122:	publicMethodCommentRequirement Required
+src/omicron/app/TabbedActivity.java:127:	Parameter 'position' is not assigned and could be declared final
+src/omicron/app/TabbedActivity.java:127:	publicMethodCommentRequirement Required
+src/omicron/app/TabbedActivity.java:134:	publicMethodCommentRequirement Required
+src/omicron/app/TabbedActivity.java:140:	Parameter 'position' is not assigned and could be declared final
+src/omicron/app/TabbedActivity.java:140:	publicMethodCommentRequirement Required
+src/omicron/app/TabbedActivity.java:141:	Avoid variables with short names like l
+src/omicron/app/TabbedActivity.java:141:	Found 'DU'-anomaly for variable 'l' (lines '141'-'151').
+src/omicron/app/TabbedActivity.java:141:	Local variable 'l' could be declared final
+src/omicron/app/TabbedActivity.java:142:	Switch statements should have a default label
+src/omicron/app/TabbedActivity.java:144:	A method should have only one exit point, and that should be the last statement in the method
+src/omicron/app/TabbedActivity.java:144:	Potential violation of Law of Demeter (method chain calls)
+src/omicron/app/TabbedActivity.java:146:	A method should have only one exit point, and that should be the last statement in the method
+src/omicron/app/TabbedActivity.java:146:	Potential violation of Law of Demeter (method chain calls)
+src/omicron/app/TabbedActivity.java:148:	A method should have only one exit point, and that should be the last statement in the method
+src/omicron/app/TabbedActivity.java:148:	Potential violation of Law of Demeter (method chain calls)
+src/omicron/app/TabbedActivity.java:162:	Avoid excessively long variable names like ARG_SECTION_NUMBER
+src/omicron/app/TabbedActivity.java:168:	Parameter 'sectionNumber' is not assigned and could be declared final
+src/omicron/app/TabbedActivity.java:169:	Local variable 'fragment' could be declared final
+src/omicron/app/TabbedActivity.java:170:	Local variable 'args' could be declared final
+src/omicron/app/TabbedActivity.java:176:	Avoid unnecessary constructors - the compiler will generate these for you
+src/omicron/app/TabbedActivity.java:176:	Document empty constructor
+src/omicron/app/TabbedActivity.java:176:	It is a good practice to call super() in a constructor
+src/omicron/app/TabbedActivity.java:176:	publicMethodCommentRequirement Required
+src/omicron/app/TabbedActivity.java:180:	Parameter 'container' is not assigned and could be declared final
+src/omicron/app/TabbedActivity.java:180:	Parameter 'inflater' is not assigned and could be declared final
+src/omicron/app/TabbedActivity.java:180:	publicMethodCommentRequirement Required
+src/omicron/app/TabbedActivity.java:181:	Avoid excessively long variable names like savedInstanceState
+src/omicron/app/TabbedActivity.java:181:	Parameter 'savedInstanceState' is not assigned and could be declared final
+src/omicron/app/TabbedActivity.java:182:	Local variable 'rootView' could be declared final
+src/omicron/app/TabbedActivity.java:183:	Local variable 'textView' could be declared final
+src/omicron/app/TabbedActivity.java:183:	Potential violation of Law of Demeter (object not created locally)
+src/omicron/app/TabbedActivity.java:184:	Potential violation of Law of Demeter (method chain calls)
+src/omicron/app/TabbedActivity.java:184:	Potential violation of Law of Demeter (method chain calls)
+src/omicron/app/TabbedActivity.java:184:	Potential violation of Law of Demeter (method chain calls)
+src/omicron/app/TabbedActivity.java:184:	Potential violation of Law of Demeter (object not created locally)

@@ -7,12 +7,16 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.EmptyStackException;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
-import omicron.app.DbManagement.DbAdapter;
-import omicron.app.DbManagement.RazaDbAdapter;
+import omicron.app.datatypes.Raza;
+import omicron.app.dbManagement.DbAdapter;
+import omicron.app.dbManagement.RazaDbAdapter;
+import omicron.app.dbManagement.TableContainer;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -33,16 +37,29 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 //
 import au.com.bytecode.opencsv.CSVReader;
+import static omicron.app.dbManagement.RemoteDBConsts.*;
 
+/**
+ * This activity is responsible of data sync management, whether downloading
+ * from either uploading to server.
+ * 
+ * @version 1, 28/05/14
+ * @author AAGUILAR
+ */
 public class SyncActivity extends ActionBarActivity {
 
-	// Log Tag
-	private static final String TAG = "Synchronization Activity";
+	/**
+	 * Will use this Tag for debugging LogCat.
+	 */
+	private static final String DEBUG_TAG = "Synchronization Activity";
 
-	ProgressDialog pDialog;
+	/**
+	 * Populating progress indicator.
+	 */
+	private transient ProgressDialog pDialog;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected final void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_sync);
 
@@ -53,7 +70,7 @@ public class SyncActivity extends ActionBarActivity {
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
+	public final boolean onCreateOptionsMenu(final Menu menu) {
 		//
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.sync, menu);
@@ -61,11 +78,11 @@ public class SyncActivity extends ActionBarActivity {
 	}
 
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
+	public final boolean onOptionsItemSelected(final MenuItem item) {
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
+		int id = item.getItemId(); // NOPMD by aaguilar on 28/05/14 15:38
 		if (id == R.id.action_settings) {
 			startActivity(new Intent(this, SettingsActivity.class));
 			return true;
@@ -73,11 +90,19 @@ public class SyncActivity extends ActionBarActivity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	public void downloadData(View view) {
+	/**
+	 * Starts download data from remote server and populate local database
+	 * action.
+	 * 
+	 * @param view
+	 *            current Android view.
+	 */
+	@SuppressWarnings("ucd")
+	public final void downloadData(final View view) {
 		SharedPreferences preferences = PreferenceManager
 				.getDefaultSharedPreferences(this);
 		String serverURLPref = preferences.getString("serverURL", "");
-		Log.d(TAG, serverURLPref);
+		Log.d(DEBUG_TAG, serverURLPref);
 		ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 		if (networkInfo != null && networkInfo.isConnected()) {
@@ -90,148 +115,188 @@ public class SyncActivity extends ActionBarActivity {
 
 		} else {
 
-			Log.d(TAG, "No Network Connection Available.");
+			Log.d(DEBUG_TAG, "No Network Connection Available.");
 			(Toast.makeText(this, R.string.noNetworkConnectionFound,
 					Toast.LENGTH_LONG)).show();
 		}
 
 	}
 
+	/**
+	 * This async task contacts server, download DB and populate local DB with
+	 * this data.
+	 * 
+	 * @version 1, 28/05/14
+	 * @author AAGUILAR
+	 */
 	private class PopulateDatabaseTask extends
 			AsyncTask<String, Integer, Boolean> {
 
-		private static final String POST_PARAMETER = "table";
+		/**
+		 * Sets the key for POST parameters in HTTP connection.
+		 */
+		private static final String HTTP_POST_PARAM_NAME = "table";
+		/**
+		 * Sets the read timeout for HTTP connection.
+		 */
 		private static final int READ_TIMEOUT = 10000 /* milliseconds */;
+		/**
+		 * Sets the connection timeout for HTTP connection.
+		 */
 		private static final int CONNECT_TIMEOUT = 15000 /* milliseconds */;
+
+		/**
+		 * Current Android context.
+		 */
+		private Context context;
+
+		/**
+		 * Constructor for PopulateDatabaseTask.
+		 * 
+		 * @param context
+		 *            current Android context.
+		 */
+		public PopulateDatabaseTask(Context context) {
+			super();
+			this.context = context;
+		}
 
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			Log.d(TAG, "Got into onPreExecute()");
-		}
-
-		private Context context;
-
-		public PopulateDatabaseTask(Context context) {
-			this.context = context;
-
+			Log.d(DEBUG_TAG, "Got into onPreExecute()");
 		}
 
 		// Get data from server database.
 		@Override
-		protected Boolean doInBackground(String... urls) {
+		protected Boolean doInBackground(final String... urls) {
 
-			Log.d(TAG, "Got into doInBackground() with " + urls[0]);
+			Log.d(DEBUG_TAG, "Got into doInBackground() with " + urls[0]);
+			TableContainer container = null;
 			// params comes from the execute() call: params[0] is the url.
 			try {
 				// Download data from server
-				ArrayList<ArrayList<String>> downloadedData = downloadDataFromServer(urls[0]);
+				ArrayList<TableContainer> downloadedData = null;
+				Iterator<String> tablesIterator = REMOTE_TABLES_LIST.iterator();
+
+				// Read all the tables
+				while (tablesIterator.hasNext()) {
+					String thisTable = tablesIterator.next();
+					List<List<String>> downloadedTable = downloadDataFromServer(
+							urls[0], thisTable);
+					if (downloadedTable != null) {
+						container = new TableContainer(thisTable,
+								downloadedTable);
+						downloadedData.add(container);
+					} else {
+						throw new EmptyStackException();
+					}
+				}
 				// Populate db with fresh data from server
-				if (downloadedData != null)
-					return (populateDatabase(downloadedData));
-				else
-					return false;
+
+				return populateDatabase(downloadedData);
 			} catch (IOException e) {
-				e.printStackTrace();
+				Log.d(DEBUG_TAG, Arrays.toString(e.getStackTrace()));
+				return false;
+			} catch (Exception e) {
+				Log.d(DEBUG_TAG, Arrays.toString(e.getStackTrace()));
 				return false;
 			}
 		}
 
-		private boolean populateDatabase(
-				ArrayList<ArrayList<String>> downloadDataFromServer) {
-			// Populates local db with data retrieved from server
-			// Empties current database
-			DbAdapter dba = new DbAdapter(this.context);
-			dba.resetDB();
+		@Override
+		protected void onPostExecute(final Boolean result) {
+			if (result) {
 
-			Iterator<ArrayList<String>> rowIt = downloadDataFromServer
-					.iterator();
-			ArrayList<String> headers = rowIt.next();
-			ArrayList<String> currentRow;
-			RazaDbAdapter razadba = new RazaDbAdapter(context);
-			while (rowIt.hasNext()) {
-				currentRow = rowIt.next();
-				// TODO: Temporal, borrar
-				insertRow(currentRow.get(headers.indexOf("codigo")),
-								currentRow.get(headers.indexOf("descripcion"))
-								, razadba);
+				(Toast.makeText(context, R.string.ackDownloaded,
+						Toast.LENGTH_LONG)).show();
+			} else {
+
+				(Toast.makeText(context, R.string.urlNotFound,
+						Toast.LENGTH_LONG)).show();
 			}
-
-			return true;
+			Log.d(DEBUG_TAG, "Got into onPostExecute() with " + result);
+			// Log.d("Response: ", result);
+			pDialog.dismiss();
 		}
 
-		// Given a URL, establishes an HttpUrlConnection and retrieves
-		// the web page content as a InputStream, which it returns as
-		// a string.
-		private ArrayList<ArrayList<String>> downloadDataFromServer(String myurl)
-				throws IOException {
+		/**
+		 * // NOPMD by aaguilar on 28/05/14 15:36 Given a URL, establishes an
+		 * HttpUrlConnection and retrieves the web page content as a
+		 * InputStream, which it returns as a string.
+		 * 
+		 * @param myurl
+		 *            Server URL string.
+		 * @return Contains the whole db information downloaded from server.
+		 * @throws IOException
+		 *             if non reachable URL.
+		 */
+
+		private List<List<String>> downloadDataFromServer(String myurl,
+				String table) throws IOException {
 			CSVReader reader = null;
 			try {
-				
-								// Post construction
-						        Map<String,Object> params = new LinkedHashMap<String, Object>();
-								params.put(POST_PARAMETER, "raza");
-								
-						      
-						        StringBuilder postData = new StringBuilder();
-						        for (Map.Entry<String,Object> param : params.entrySet()) {
-						            if (postData.length() != 0) postData.append('&');
-						            postData.append(URLEncoder.encode(param.getKey(), "UTF-8"));
-						            postData.append('=');
-						            postData.append(URLEncoder.encode(String.valueOf(param.getValue()), "UTF-8"));
-						        }
-						        byte[] postDataBytes = postData.toString().getBytes("UTF-8");
-								 
-				
-				
+
+				// Post construction
+				Map<String, Object> params = new LinkedHashMap<String, Object>();
+				params.put(HTTP_POST_PARAM_NAME, table);
+
+				StringBuilder postData = new StringBuilder();
+				for (Map.Entry<String, Object> param : params.entrySet()) {
+					if (postData.length() != 0) {
+						postData.append('&');
+					}
+					postData.append(URLEncoder.encode(param.getKey(), "UTF-8"));
+					postData.append('=');
+					postData.append(URLEncoder.encode(
+							String.valueOf(param.getValue()), "UTF-8"));
+				}
+				byte[] postDataBytes = postData.toString().getBytes("UTF-8");
+
 				// Request construction
-				URL url = new URL(myurl);
+				final URL url = new URL(myurl);
 				HttpURLConnection conn = (HttpURLConnection) url
 						.openConnection();
 				conn.setReadTimeout(READ_TIMEOUT);
 				conn.setConnectTimeout(CONNECT_TIMEOUT);
-				
-							conn.setRequestMethod("POST");
-						    conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-						    conn.setRequestProperty("Content-Length", String.valueOf(postDataBytes.length));
-						    conn.setDoOutput(true);
-						    conn.getOutputStream().write(postDataBytes);
-				
-						    conn.connect();
-						    int response = conn.getResponseCode();
-						    Log.d(TAG, "Response code: "+ Integer.toString(response));
-						    
-//				reader = new CSVReader(new InputStreamReader(url.openStream()),
-//						',', '"', 2);
-						    reader = new CSVReader (new InputStreamReader(conn.getInputStream()),',', '"', 2);
+
+				conn.setRequestMethod("POST");
+				conn.setRequestProperty("Content-Type",
+						"application/x-www-form-urlencoded");
+				conn.setRequestProperty("Content-Length",
+						String.valueOf(postDataBytes.length));
+				conn.setDoOutput(true);
+				conn.getOutputStream().write(postDataBytes);
+
+				conn.connect();
+				int response = conn.getResponseCode();
+				Log.d(DEBUG_TAG, "Response code: " + Integer.toString(response));
+
+				// reader = new CSVReader(new
+				// InputStreamReader(url.openStream()),
+				// ',', '"', 2);
+				reader = new CSVReader(new InputStreamReader(
+						conn.getInputStream()), ',', '"', 2);
 				String[] nextLine;
 				// ArrayList<String> headers = new ArrayList<String>();
-				ArrayList<ArrayList<String>> values = new ArrayList<ArrayList<String>>();
+				List<List<String>> values = new ArrayList<List<String>>();
 
-				// nextLine = reader.readNext();
-
-				// Reads headers from CSV
-				// headers = new ArrayList<String>(Arrays.asList(nextLine));
-
-				// Iterator<String> it = headers.iterator();
-				// while (it.hasNext())
-				// Log.d(TAG, it.next().toString());
-				//
-				// Reads data and put them into DB
+				// Reads data and saves them into an array
 				ArrayList<String> row;
 				while ((nextLine = reader.readNext()) != null) {
 					row = new ArrayList<String>(Arrays.asList(nextLine));
-					Log.d(TAG, "Row: " + row.toString());
+					Log.d(DEBUG_TAG, "Row: " + row.toString());
 					values.add(row);
 				}
-				Log.d(TAG, "Values: " + values.toString());
-				if (values.isEmpty())
+				Log.d(DEBUG_TAG, "Values: " + values.toString());
+				if (values.isEmpty()) {
 					return null;
-				else
+				} else {
 					return values;
-					
-			} catch (Exception e) {
-				e.printStackTrace();
+				}
+
+			} catch (IOException e) {
+				Log.d(DEBUG_TAG, Arrays.toString(e.getStackTrace()));
 				return null;
 			}
 			// Makes sure that the BufferReader is closed after the app
@@ -245,25 +310,50 @@ public class SyncActivity extends ActionBarActivity {
 			}
 		}
 
-		private boolean insertRow(String value1,String value2, RazaDbAdapter dba) {
-			Log.d(TAG, "Insert with values : " + value1 + " - " + value2);
-			return dba.insert(value1,value2);
+		/**
+		 * Populate local DB with data downloaded from remote server.
+		 * 
+		 * @param retrievedData
+		 *            Contains the whole db information downloaded from server.
+		 * @return True if operation completed succesfully, false if not.
+		 */
+
+		private boolean populateDatabase(List<List<String>> retrievedData,
+				String table) {
+
+			return true;
 		}
 
-		@Override
-		protected void onPostExecute(Boolean result) {
-			if (result == true) {
+		private boolean populateDatabase(ArrayList<TableContainer> retrievedData)
+				throws Exception {
+			// Populates local db with data retrieved from server
+			// Empties current database
+			DbAdapter dba = new DbAdapter(this.context);
+			dba.open();
+			dba.resetDB();
 
-				(Toast.makeText(context, R.string.ackDownloaded,
-						Toast.LENGTH_LONG)).show();
-			} else {
+			Iterator<TableContainer> tablesIterator = retrievedData.iterator();
+			List<String> currentRow;
+			Raza nextRaza = null;
+			while (tablesIterator.hasNext()) {
+				TableContainer thisTable = tablesIterator.next();
+				boolean inserted = dba.insert(thisTable.getTableName(),
+						thisTable.getHeaders(), thisTable.getTableData());
+				Log.d(DEBUG_TAG, "Inserted row :" + inserted);
+				if (!inserted) {
+					throw new Exception();
+				}
 
-				(Toast.makeText(context, R.string.urlNotFound,
-						Toast.LENGTH_LONG)).show();
 			}
-			Log.d(TAG, "Got into onPostExecute() with " + result);
-			// Log.d("Response: ", result);
-			pDialog.dismiss();
+
+			return true;
+		}
+
+		// TODO: temporal, borrar
+		private boolean insertRow(final String value1, final String value2,
+				final RazaDbAdapter dba) {
+			Log.d(DEBUG_TAG, "Insert with values : " + value1 + " - " + value2);
+			return dba.insert(value1, value2);
 		}
 
 	}
@@ -273,15 +363,17 @@ public class SyncActivity extends ActionBarActivity {
 	 */
 	public static class PlaceholderFragment extends Fragment {
 
-		public PlaceholderFragment() {
-		}
-
 		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_sync, container,
+		public final View onCreateView(final LayoutInflater inflater,
+				final ViewGroup container, final Bundle savedInstanceState) {
+			View rootView = inflater.inflate(R.layout.fragment_sync, container, // NOPMD
+																				// by
+																				// aaguilar
+																				// on
+																				// 28/05/14
+																				// 15:34
 					false);
-
+			MainActivity.getAppContext();
 			return rootView;
 		}
 	}

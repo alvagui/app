@@ -1,0 +1,177 @@
+Found a 18 line (59 tokens) duplication in the following files: 
+Starting at line 56 of D:\workspace\App\src\omicron\app\SyncActivity.java
+Starting at line 32 of D:\workspace\App\src\omicron\app\ExploreActivity.java
+
+		getMenuInflater().inflate(R.menu.sync, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			startActivity(new Intent(this, SettingsActivity.class));
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
+	public void downloadData(View view) {
+=====================================================================
+Found a 13 line (55 tokens) duplication in the following files: 
+Starting at line 44 of D:\workspace\App\src\omicron\app\SyncActivity.java
+Starting at line 20 of D:\workspace\App\src\omicron\app\ExploreActivity.java
+
+		setContentView(R.layout.activity_sync);
+
+		if (savedInstanceState == null) {
+			getSupportFragmentManager().beginTransaction()
+					.add(R.id.container, new PlaceholderFragment()).commit();
+		}
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		//
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.sync, menu);
+=====================================================================
+Found a 18 line (55 tokens) duplication in the following files: 
+Starting at line 51 of D:\workspace\App\src\omicron\app\MainActivity.java
+Starting at line 43 of D:\workspace\App\src\omicron\app\ExploreActivity.java
+
+			startActivity(new Intent(this, SyncActivity.class));
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
+	/**
+	 * A placeholder fragment containing a simple view.
+	 */
+	public static class PlaceholderFragment extends Fragment {
+
+		public PlaceholderFragment() {
+		}
+
+		@Override
+		public View onCreateView(LayoutInflater inflater, ViewGroup container,
+				Bundle savedInstanceState) {
+			View rootView = inflater.inflate(R.layout.fragment_main, container,
+=====================================================================
+Found a 12 line (47 tokens) duplication in the following files: 
+Starting at line 85 of D:\workspace\App\src\omicron\app\TabbedActivity.java
+Starting at line 56 of D:\workspace\App\src\omicron\app\SyncActivity.java
+Starting at line 32 of D:\workspace\App\src\omicron\app\ExploreActivity.java
+
+        getMenuInflater().inflate(R.menu.tabbed, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+    			startActivity(new Intent(this, SettingsActivity.class));
+=====================================================================
+Found a 12 line (45 tokens) duplication in the following files: 
+Starting at line 58 of D:\workspace\App\src\omicron\app\SyncActivity.java
+Starting at line 39 of D:\workspace\App\src\omicron\app\MainActivity.java
+Starting at line 34 of D:\workspace\App\src\omicron\app\ExploreActivity.java
+
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			startActivity(new Intent(this, SettingsActivity.class));
+			return true;
+		}
+=====================================================================
+Found a 10 line (42 tokens) duplication in the following files: 
+Starting at line 87 of D:\workspace\App\src\omicron\app\TabbedActivity.java
+Starting at line 39 of D:\workspace\App\src\omicron\app\MainActivity.java
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+    			startActivity(new Intent(this, SettingsActivity.class));
+=====================================================================
+Found a 14 line (41 tokens) duplication in the following files: 
+Starting at line 232 of D:\workspace\App\src\omicron\app\SyncActivity.java
+Starting at line 55 of D:\workspace\App\src\omicron\app\MainActivity.java
+Starting at line 47 of D:\workspace\App\src\omicron\app\ExploreActivity.java
+
+	}
+
+	/**
+	 * A placeholder fragment containing a simple view.
+	 */
+	public static class PlaceholderFragment extends Fragment {
+
+		public PlaceholderFragment() {
+		}
+
+		@Override
+		public View onCreateView(LayoutInflater inflater, ViewGroup container,
+				Bundle savedInstanceState) {
+			View rootView = inflater.inflate(R.layout.fragment_sync, container,
+=====================================================================
+Found a 12 line (38 tokens) duplication in the following files: 
+Starting at line 15 of D:\workspace\App\src\omicron\app\DbManagement\RazaDbAdapter.java
+Starting at line 30 of D:\workspace\App\src\omicron\app\DbManagement\RazaDbAdapter.java
+
+		String query = DATABASE_INSERT_STATEMENT_START +DATABASE_TABLE_RAZA+" ("+DATABASE_TABLE_RAZA_KEY_CODIGO+","+ DATABASE_TABLE_RAZA_KEY_DESCRIPCION+") VALUES ( '"+code+"','" +descripcion +"'"+DATABASE_STATEMENT_END;
+		Log.d("SQLite statement: ", query);
+		try{
+		getDb().execSQL(query);
+		return true;
+		}catch (Exception e)
+		{
+			e.printStackTrace();
+			return false;
+		}
+
+	}
+=====================================================================
+Found a 6 line (34 tokens) duplication in the following files: 
+Starting at line 44 of D:\workspace\App\src\omicron\app\SyncActivity.java
+Starting at line 21 of D:\workspace\App\src\omicron\app\MainActivity.java
+Starting at line 20 of D:\workspace\App\src\omicron\app\ExploreActivity.java
+
+		setContentView(R.layout.activity_sync);
+
+		if (savedInstanceState == null) {
+			getSupportFragmentManager().beginTransaction()
+					.add(R.id.container, new PlaceholderFragment()).commit();
+		}
+=====================================================================
+Found a 7 line (33 tokens) duplication in the following files: 
+Starting at line 176 of D:\workspace\App\src\omicron\app\TabbedActivity.java
+Starting at line 239 of D:\workspace\App\src\omicron\app\SyncActivity.java
+Starting at line 62 of D:\workspace\App\src\omicron\app\MainActivity.java
+Starting at line 54 of D:\workspace\App\src\omicron\app\ExploreActivity.java
+
+        public PlaceholderFragment() {
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_tabbed, container, false);

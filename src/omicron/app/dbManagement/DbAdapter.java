@@ -1,13 +1,17 @@
-package omicron.app.DbManagement;
+package omicron.app.dbManagement;
 
+import java.lang.reflect.Array;
 import java.util.Iterator;
+import java.util.List;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-import static omicron.app.DbManagement.DBConsts.*;
+import android.util.Pair;
+import static omicron.app.dbManagement.DBConsts.*;
 
 public class DbAdapter {
 //Main DB Adapter, used on create and update of all dbs. It's intended to 
@@ -15,10 +19,12 @@ public class DbAdapter {
 	
 	private static final String DATABASE_NAME = "omicron.db";
 	// Whenever DB structure is changed, must be incremented
-	private static final int DATABASE_VERSION = 6;
+	private static final int DATABASE_VERSION = 7;
 
-	// Log Tag
-	private static final String TAG = "DbAdapter";
+	/**
+	 * Will use this Tag for debugging LogCat.
+	 */
+	private static final String DEBUG_TAG = "DbAdapter";
 
 	private DatabaseHelper mDbHelper;
 	private SQLiteDatabase mDb;
@@ -36,8 +42,9 @@ public class DbAdapter {
 
 		// Grants only one instance
 		public static synchronized DatabaseHelper getHelper(Context context) {
-			if (instance == null)
+			if (instance == null) {
 				instance = new DatabaseHelper(context);
+			}
 			return instance;
 		}
 
@@ -49,25 +56,25 @@ public class DbAdapter {
 
 		@Override
 		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-			Log.w(TAG, "Upgrading database from version " + oldVersion + " to "
+			Log.w(DEBUG_TAG, "Upgrading database from version " + oldVersion + " to "
 					+ newVersion + ", which will destroy all old data");
 
 			dropDB(db);
-			onCreate(db);
+			createDB(db);
 		}
 
 		public void createDB(SQLiteDatabase db) {
 			Iterator<String> dbCreatorIterator = CREATE_TABLES_LIST.iterator();
 			while (dbCreatorIterator.hasNext())
 			db.execSQL(dbCreatorIterator.next());
-			Log.d(TAG, "All DB tables created.");
+			Log.d(DEBUG_TAG, "All DB tables created.");
 		}
 
 		public void dropDB(SQLiteDatabase db) {
 			Iterator<String> dbDropIterator = DROP_TABLES_LIST.iterator();
 			while (dbDropIterator.hasNext())
 			db.execSQL(dbDropIterator.next());
-			Log.d(TAG, "All DB tables deleted.");
+			Log.d(DEBUG_TAG, "All DB tables deleted.");
 		}
 
 		public void resetDB(SQLiteDatabase db) {
@@ -86,7 +93,6 @@ public class DbAdapter {
 
 	public DbAdapter(Context ctx) {
 		this.mCtx = ctx;
-		open();
 	}
 
 	public DbAdapter open() throws SQLException {
@@ -99,6 +105,11 @@ public class DbAdapter {
 		mDbHelper.close();
 	}
 
+//	public boolean insert(ContentValues values)
+//	{
+//		return true;
+//	};
+	
 	public void resetDB() {
 		mDbHelper.resetDB(getDb());
 	}
@@ -109,5 +120,21 @@ public class DbAdapter {
 
 	protected void setmDb(SQLiteDatabase mDb) {
 		this.mDb = mDb;
+	}
+
+	public boolean insert(String table, List<String> headers, List<List<String>> rawValues)
+	{
+//		TODO: Implementar
+		ContentValues values = new ContentValues();
+		String localDB = TABLE_PAIRS_MAP.get(table);
+//		values.put();
+//		db.execSQL();
+		mDb.insert(table, null, values);
+		return true;
+	}
+	
+	public boolean insert(String code, String descripcion) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

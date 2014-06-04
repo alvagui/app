@@ -1,6 +1,7 @@
 package omicron.app;
 
-import omicron.app.DbManagement.DbAdapter;
+import omicron.app.dbManagement.DbAdapter;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,12 +14,23 @@ import android.view.ViewGroup;
 
 public class MainActivity extends ActionBarActivity {
 
+//	Static reference to Application Context. Use it whenever a non-activity
+//	class needs a context.
+	static private Context appContext; 
+	
+	public static Context getAppContext() {
+		return appContext;
+	}
+
 	private DbAdapter mDbHelper;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+//		Assign application context to static appContext
+		appContext = getApplicationContext();
 
 		if (savedInstanceState == null) {
 			getSupportFragmentManager().beginTransaction()

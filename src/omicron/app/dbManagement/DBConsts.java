@@ -1,25 +1,62 @@
-package omicron.app.DbManagement;
+package omicron.app.dbManagement;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-//Collected constants of general utility.
+import static omicron.app.dbManagement.RemoteDBConsts.*;
+
+//Collected DB management constants of general utility.
 //
-//All members of this class are immutable. 
+//All members of this class are immutable.
+//
+//DATABASE means local SQLite DB
+//REMOTE means remote Navision DB
+
 public final class DBConsts {
-	// List of databases
-	public static final List<String> SERVER_TABLES_LIST = Collections
-			.unmodifiableList(Arrays.asList("Explotacion", "Cebadero",
-					"Ceba-Cebadero", "Corral", "Animales", "Guia",
-					"Patologias", "Lote Cebadero", "Pruebas", "Raza",
-					"Especie", "Veterinario", "Tratamiento Preventivo Ceba",
-					"Tratamiento Curativo Animal"));
 
 	// Database commons
 	public static final String DATABASE_CREATE_STATEMENT_START = "create table ";
 	public static final String DATABASE_STATEMENT_END = ");";
 	public static final String DATABASE_INSERT_STATEMENT_START = "insert into ";
+
+	// Table: raza
+	public static final String DATABASE_TABLE_RAZA = "raza";
+	public static final String DATABASE_TABLE_RAZA_KEY_ID = "_id";
+	public static final String DATABASE_TABLE_RAZA_KEY_CODIGO = "codigo";
+	public static final String DATABASE_TABLE_RAZA_KEY_DESCRIPCION = "descripcion";
+
+	// Create Table statement
+	public static final String DATABASE_CREATE_RAZA = DATABASE_CREATE_STATEMENT_START
+			+ DATABASE_TABLE_RAZA
+			+ " ("
+			+ DATABASE_TABLE_RAZA_KEY_ID
+			+ " integer primary key autoincrement, "
+			+ DATABASE_TABLE_RAZA_KEY_CODIGO
+			+ " text, "
+			+ DATABASE_TABLE_RAZA_KEY_DESCRIPCION
+			+ " text"
+			+ DATABASE_STATEMENT_END;
+
+	// Table: especie
+	public static final String DATABASE_TABLE_ESPECIE = "especie";
+	public static final String DATABASE_TABLE_ESPECIE_KEY_ID = "_id";
+	public static final String DATABASE_TABLE_ESPECIE_KEY_CODIGO = "codigo";
+	public static final String DATABASE_TABLE_ESPECIE_KEY_DESCRIPCION = "descripcion";
+
+	// Create Table statement
+	public static final String DATABASE_CREATE_ESPECIE = DATABASE_CREATE_STATEMENT_START
+			+ DATABASE_TABLE_ESPECIE
+			+ " ("
+			+ DATABASE_TABLE_ESPECIE_KEY_ID
+			+ " integer primary key autoincrement, "
+			+ DATABASE_TABLE_ESPECIE_KEY_CODIGO
+			+ " text, "
+			+ DATABASE_TABLE_ESPECIE_KEY_DESCRIPCION
+			+ " text"
+			+ DATABASE_STATEMENT_END;
 
 	// Table: explotacion
 	public static final String DATABASE_TABLE_EXPLOTACION = "explotacion";
@@ -29,8 +66,10 @@ public final class DBConsts {
 	public static final String DATABASE_TABLE_EXPLOTACION_KEY_TITULAR = "nombre_titular";
 	public static final String DATABASE_TABLE_EXPLOTACION_KEY_FAPERTURA = "fecha_apertura";
 	public static final String DATABASE_TABLE_EXPLOTACION_KEY_ESPECIE = "cod_especie";
+	public static final String DATABASE_TABLE_EXPLOTACION_KEY_FFECHA = "filtro_fecha";
 	public static final String DATABASE_TABLE_EXPLOTACION_KEY_N_ANIMALES_EN = "no_animales_entrada";
 	public static final String DATABASE_TABLE_EXPLOTACION_KEY_N_ANIMALES_SA = "no_animales_salida";
+
 	// Create Table statement
 	public static final String DATABASE_CREATE_EXPLOTACION = DATABASE_CREATE_STATEMENT_START
 			+ DATABASE_TABLE_EXPLOTACION
@@ -46,12 +85,19 @@ public final class DBConsts {
 			+ DATABASE_TABLE_EXPLOTACION_KEY_FAPERTURA
 			+ " date, "
 			+ DATABASE_TABLE_EXPLOTACION_KEY_ESPECIE
-			+ " text, "
+			+ " integer, "
+			+ DATABASE_TABLE_EXPLOTACION_KEY_FFECHA
+			+ "date, "
 			+ DATABASE_TABLE_EXPLOTACION_KEY_N_ANIMALES_EN
 			+ " integer, "
 			+ DATABASE_TABLE_EXPLOTACION_KEY_N_ANIMALES_SA
-			+ " integer"
-			+ DATABASE_STATEMENT_END;
+			+ " integer, "
+			+ "FOREIGN KEY("
+			+ DATABASE_TABLE_EXPLOTACION_KEY_ESPECIE
+			+ ") REFERENCES "
+			+ DATABASE_TABLE_ESPECIE
+			+ "( "
+			+ DATABASE_TABLE_EXPLOTACION_KEY_ID + ")" + DATABASE_STATEMENT_END;
 
 	// TODO: decidir cómo se quiere implementar esta tabla. Preferencias con
 	// pares K-V
@@ -89,6 +135,7 @@ public final class DBConsts {
 	public static final String DATABASE_TABLE_CEBADERO_KEY_CPR = "cod_pais_region";
 	public static final String DATABASE_TABLE_CEBADERO_KEY_PLAZAS_D = "no_plazas_disponibles";
 	public static final String DATABASE_TABLE_CEBADERO_KEY_PLAZAS_O = "no_plazas_ocupadas";
+
 	// Create Table statement
 	public static final String DATABASE_CREATE_CEBADERO = DATABASE_CREATE_STATEMENT_START
 			+ DATABASE_TABLE_CEBADERO
@@ -160,6 +207,7 @@ public final class DBConsts {
 	public static final String DATABASE_TABLE_GUIA_KEY_COSTE_MER = "coste_mer_animal";
 	public static final String DATABASE_TABLE_GUIA_KEY_N_ANIMALES_ENTRADA = "no_animales_entrada";
 	public static final String DATABASE_TABLE_GUIA_KEY_N_ANIMALES_SALIDA = "no_animales_salida";
+
 	// Create Table statement
 	public static final String DATABASE_CREATE_GUIA = DATABASE_CREATE_STATEMENT_START
 			+ DATABASE_TABLE_GUIA
@@ -251,6 +299,7 @@ public final class DBConsts {
 	public static final String DATABASE_TABLE_CEBA_CEBADERO_KEY_PCOMPRA_H = "precio_compra_hembras";
 	public static final String DATABASE_TABLE_CEBA_CEBADERO_KEY_FILTRO_NO_GUIA = "filtro_no_guia";
 	public static final String DATABASE_TABLE_CEBA_CEBADERO_KEY_NO_GUIA_E = "no_guia_entrada";
+
 	// Create Table statement
 	public static final String DATABASE_CREATE_CEBA_CEBADERO = DATABASE_CREATE_STATEMENT_START
 			+ DATABASE_TABLE_CEBA_CEBADERO
@@ -313,6 +362,7 @@ public final class DBConsts {
 	public static final String DATABASE_TABLE_CORRAL_KEY_N_PLAZAS_DISP = "no_plazas_disponibles";
 	public static final String DATABASE_TABLE_CORRAL_KEY_N_PLAZAS_OCUP = "no_plazas_ocupadas";
 	public static final String DATABASE_TABLE_CORRAL_KEY_BASCULA = "pesebre_con_bascula";
+
 	// Create Table statement
 	public static final String DATABASE_CREATE_CORRAL = DATABASE_CREATE_STATEMENT_START
 			+ DATABASE_TABLE_CORRAL
@@ -347,6 +397,7 @@ public final class DBConsts {
 	public static final String DATABASE_TABLE_LOTE_CEBADERO_KEY_LOTE_CON_BAJAS = "lote_con_bajas";
 	public static final String DATABASE_TABLE_LOTE_CEBADERO_KEY_PIENSO_CONSUMIDO = "kg_dia_pienso_consumidos";
 	public static final String DATABASE_TABLE_LOTE_CEBADERO_KEY_COSTE_MEDIO_PIENSO = "coste_medio_pienso";
+
 	// Create Table statement
 	public static final String DATABASE_CREATE_LOTE_CEBADERO = DATABASE_CREATE_STATEMENT_START
 			+ DATABASE_TABLE_LOTE_CEBADERO
@@ -381,40 +432,6 @@ public final class DBConsts {
 			+ "( "
 			+ DATABASE_TABLE_CEBA_CEBADERO_KEY_ID
 			+ ") "
-			+ DATABASE_STATEMENT_END;
-
-	// Table: raza
-	public static final String DATABASE_TABLE_RAZA = "raza";
-	public static final String DATABASE_TABLE_RAZA_KEY_ID = "_id";
-	public static final String DATABASE_TABLE_RAZA_KEY_CODIGO = "codigo";
-	public static final String DATABASE_TABLE_RAZA_KEY_DESCRIPCION = "descripcion";
-	// Create Table statement
-	public static final String DATABASE_CREATE_RAZA = DATABASE_CREATE_STATEMENT_START
-			+ DATABASE_TABLE_RAZA
-			+ " ("
-			+ DATABASE_TABLE_RAZA_KEY_ID
-			+ " integer primary key autoincrement, "
-			+ DATABASE_TABLE_RAZA_KEY_CODIGO
-			+ " text, "
-			+ DATABASE_TABLE_RAZA_KEY_DESCRIPCION
-			+ " text"
-			+ DATABASE_STATEMENT_END;
-
-	// Table: especie
-	public static final String DATABASE_TABLE_ESPECIE = "especie";
-	public static final String DATABASE_TABLE_ESPECIE_KEY_ID = "_id";
-	public static final String DATABASE_TABLE_ESPECIE_KEY_CODIGO = "codigo";
-	public static final String DATABASE_TABLE_ESPECIE_KEY_DESCRIPCION = "descripcion";
-	// Create Table statement
-	public static final String DATABASE_CREATE_ESPECIE = DATABASE_CREATE_STATEMENT_START
-			+ DATABASE_TABLE_ESPECIE
-			+ " ("
-			+ DATABASE_TABLE_ESPECIE_KEY_ID
-			+ " integer primary key autoincrement, "
-			+ DATABASE_TABLE_ESPECIE_KEY_CODIGO
-			+ " text, "
-			+ DATABASE_TABLE_ESPECIE_KEY_DESCRIPCION
-			+ " text"
 			+ DATABASE_STATEMENT_END;
 
 	// Table: animales
@@ -459,6 +476,7 @@ public final class DBConsts {
 	public static final String DATABASE_TABLE_ANIMALES_KEY_GANANCIA_MEDIA_DIARIA = "ganancia_media_diaria";
 	public static final String DATABASE_TABLE_ANIMALES_KEY_COSTE_TRATAMIENTO_CURATIVO = "coste_tratamiento_curativo";
 	public static final String DATABASE_TABLE_ANIMALES_KEY_INDICE_TRANSFORMACION = "indice_transformacion";
+
 	// Create Table statement
 	public static final String DATABASE_CREATE_ANIMALES = DATABASE_CREATE_STATEMENT_START
 			+ DATABASE_TABLE_ANIMALES
@@ -636,6 +654,7 @@ public final class DBConsts {
 	public static final String DATABASE_TABLE_PATOLOGIAS_KEY_DESCRIPCION = "descripcion";
 	public static final String DATABASE_TABLE_PATOLOGIAS_KEY_ENFERMEDAD_INFECCIOSA = "enfermedad_infecciosa";
 	public static final String DATABASE_TABLE_PATOLOGIAS_KEY_ENFERMEDAD_PARASITARIA = "enfermedad_parasitaria";
+
 	// Create Table statement
 	public static final String DATABASE_CREATE_PATOLOGIAS = DATABASE_CREATE_STATEMENT_START
 			+ DATABASE_TABLE_PATOLOGIAS
@@ -656,6 +675,7 @@ public final class DBConsts {
 	public static final String DATABASE_TABLE_PRUEBAS_KEY_ID = "_id";
 	public static final String DATABASE_TABLE_PRUEBAS_KEY_CODIGO = "codigo";
 	public static final String DATABASE_TABLE_PRUEBAS_KEY_DESCRIPCION = "descripcion";
+
 	// Create Table statement
 	public static final String DATABASE_CREATE_PRUEBAS = DATABASE_CREATE_STATEMENT_START
 			+ DATABASE_TABLE_PRUEBAS
@@ -681,6 +701,7 @@ public final class DBConsts {
 	public static final String DATABASE_TABLE_VETERINARIO_KEY_N_COLEGIADO = "no_colegiado";
 	public static final String DATABASE_TABLE_VETERINARIO_KEY_PROVINCIA_COLEGIACION = "provincia_colegiacion";
 	public static final String DATABASE_TABLE_VETERINARIO_KEY_N_SERIE_RECETA = "no_serie_receta";
+
 	// Create Table statement
 	public static final String DATABASE_CREATE_VETERINARIO = DATABASE_CREATE_STATEMENT_START
 			+ DATABASE_TABLE_VETERINARIO
@@ -720,6 +741,7 @@ public final class DBConsts {
 	public static final String DATABASE_TABLE_TRAT_PREV_CEBA_KEY_PRECIO_ML = "precio_ml";
 	public static final String DATABASE_TABLE_TRAT_PREV_CEBA_KEY_N_DOSIS = "no_dosis";
 	public static final String DATABASE_TABLE_TRAT_PREV_CEBA_KEY_FECHA = "fecha";
+
 	// Create Table statement
 	public static final String DATABASE_CREATE_TRAT_PREV_CEBA = DATABASE_CREATE_STATEMENT_START
 			+ DATABASE_TABLE_TRAT_PREV_CEBA
@@ -777,6 +799,7 @@ public final class DBConsts {
 	public static final String DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_PRECIO_UNITARIO = "precio_unitario";
 	public static final String DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_PRECIO_ML = "precio_ml";
 	public static final String DATABASE_TABLE_TRAT_CUR_ANIMAL_KEY_N_DOSIS = "no_dosis";
+
 	// Create Table statement
 	public static final String DATABASE_CREATE_TRAT_CUR_ANIMAL = DATABASE_CREATE_STATEMENT_START
 			+ DATABASE_TABLE_TRAT_CUR_ANIMAL
@@ -872,11 +895,11 @@ public final class DBConsts {
 
 	// Create/Drop Tables Lists
 	public static final List<String> CREATE_TABLES_LIST = Collections
-			.unmodifiableList(Arrays.asList(DATABASE_CREATE_EXPLOTACION,
+			.unmodifiableList(Arrays.asList(DATABASE_CREATE_ESPECIE,
+					DATABASE_CREATE_RAZA, DATABASE_CREATE_EXPLOTACION,
 					DATABASE_CREATE_CEBADERO, DATABASE_CREATE_GUIA,
 					DATABASE_CREATE_CEBA_CEBADERO, DATABASE_CREATE_CORRAL,
-					DATABASE_CREATE_LOTE_CEBADERO, DATABASE_CREATE_RAZA,
-					DATABASE_CREATE_ESPECIE, DATABASE_CREATE_ANIMALES,
+					DATABASE_CREATE_LOTE_CEBADERO, DATABASE_CREATE_ANIMALES,
 					DATABASE_CREATE_PATOLOGIAS, DATABASE_CREATE_PRUEBAS,
 					DATABASE_CREATE_VETERINARIO,
 					DATABASE_CREATE_TRAT_PREV_CEBA,
@@ -886,23 +909,44 @@ public final class DBConsts {
 			.unmodifiableList(Arrays.asList(DATABASE_DROP_TRAT_CUR_ANIMAL,
 					DATABASE_DROP_TRAT_PREV_CEBA, DATABASE_DROP_VETERINARIO,
 					DATABASE_DROP_PRUEBAS, DATABASE_DROP_PATOLOGIAS,
-					DATABASE_DROP_ANIMALES, DATABASE_DROP_ESPECIE,
-					DATABASE_DROP_RAZA, DATABASE_DROP_LOTE_CEBADERO,
+					DATABASE_DROP_ANIMALES, DATABASE_DROP_LOTE_CEBADERO,
 					DATABASE_DROP_CORRAL, DATABASE_DROP_CEBA_CEBADERO,
 					DATABASE_DROP_GUIA, DATABASE_DROP_CEBADERO,
-					DATABASE_DROP_EXPLOTACION));
+					DATABASE_DROP_EXPLOTACION, DATABASE_DROP_RAZA,
+					DATABASE_DROP_ESPECIE));
+
+	public static final Map<String, String> TABLE_PAIRS_MAP;
+	static {
+		Map<String, String> aMap = new HashMap<String, String>();
+		aMap.put(REMOTE_TABLES_LIST.get(0), DATABASE_TABLE_ESPECIE);
+		aMap.put(REMOTE_TABLES_LIST.get(1), DATABASE_TABLE_RAZA);
+		aMap.put(REMOTE_TABLES_LIST.get(2), DATABASE_TABLE_EXPLOTACION);
+		aMap.put(REMOTE_TABLES_LIST.get(3), DATABASE_TABLE_CEBADERO);
+		aMap.put(REMOTE_TABLES_LIST.get(4), DATABASE_TABLE_GUIA);
+		aMap.put(REMOTE_TABLES_LIST.get(5), DATABASE_TABLE_CEBA_CEBADERO);
+		aMap.put(REMOTE_TABLES_LIST.get(5), DATABASE_TABLE_CEBA_CEBADERO);
+		aMap.put(REMOTE_TABLES_LIST.get(6), DATABASE_TABLE_CORRAL);
+		aMap.put(REMOTE_TABLES_LIST.get(7), DATABASE_TABLE_LOTE_CEBADERO);
+		aMap.put(REMOTE_TABLES_LIST.get(8), DATABASE_TABLE_ANIMALES);
+		aMap.put(REMOTE_TABLES_LIST.get(9), DATABASE_TABLE_PATOLOGIAS);
+		aMap.put(REMOTE_TABLES_LIST.get(10), DATABASE_TABLE_PRUEBAS);
+		aMap.put(REMOTE_TABLES_LIST.get(11), DATABASE_TABLE_VETERINARIO);
+		aMap.put(REMOTE_TABLES_LIST.get(12), DATABASE_TABLE_TRAT_PREV_CEBA);
+		aMap.put(REMOTE_TABLES_LIST.get(13), DATABASE_TABLE_TRAT_CUR_ANIMAL);
+
+		TABLE_PAIRS_MAP = Collections.unmodifiableMap(aMap);
+	}
 
 	// PRIVATE //
 
 	/**
-	 * The caller references the constants using <tt>DBConsts.EMPTY_STRING</tt>,
-	 * and so on. Thus, the caller should be prevented from constructing objects
-	 * of this class, by declaring this private constructor.
+	 * The caller references the constants using <tt>DBConsts.STRING</tt>, and
+	 * so on. Thus, the caller should be prevented from constructing objects of
+	 * this class, by declaring this private constructor.
 	 */
 	private DBConsts() {
 		// this prevents even the native class from
 		// calling this ctor as well :
 		throw new AssertionError();
 	}
-
 }

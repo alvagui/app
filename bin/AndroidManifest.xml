@@ -7,6 +7,8 @@
     <uses-sdk
         android:minSdkVersion="11"
         android:targetSdkVersion="19" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /><uses-permission android:name="android.permission.INTERNET"/>
+    
 
     <application
         android:allowBackup="true"
@@ -33,6 +35,22 @@
         <activity
             android:name="omicron.app.SettingsActivity"
             android:label="@string/title_activity_settings" >
+        </activity>
+        <activity
+            android:name="omicron.app.SyncActivity"
+            android:label="@string/title_activity_sync" 
+            android:parentActivityName="omicron.app.MainActivity">
+                        <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="omicron.app.MainActivity" />
+        </activity>
+        <activity
+            android:name="omicron.app.ExploreActivity"
+            android:label="@string/title_activity_explore"
+            android:parentActivityName="omicron.app.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="omicron.app.MainActivity" />
         </activity>
     </application>
 
