@@ -51,8 +51,4 @@ public class Raza {
 	public int getId() {
 		return id;
 	}
-	public boolean importIntoLocalDB()
-	{
-		return dba.insert(this.codigo, this.descripcion);
-	};
 }

@@ -18,28 +18,7 @@ public class RazaDbAdapter extends DbAdapter {
 //		return false;
 //	}
 	
-	@Override
-	public boolean insert (String code, String descripcion)
-	{
-//		TODO: refinar
-		String query = DATABASE_INSERT_STATEMENT_START +DATABASE_TABLE_RAZA+" ("+DATABASE_TABLE_RAZA_KEY_CODIGO+","+ DATABASE_TABLE_RAZA_KEY_DESCRIPCION+") VALUES ( '"+code+"','" +descripcion +"'"+DATABASE_STATEMENT_END;
-		Log.d("SQLite statement: ", query);
-		try{
-		open();
-		getDb().execSQL(query);
-		return true;
-		}catch (Exception e)
-		{
-			e.printStackTrace();
-			return false;
-		}
-		finally
-		{
-			close();
-		}
 
-	}
-	
 	public boolean insertionTest (String values)
 	{
 		String query = DATABASE_INSERT_STATEMENT_START +DATABASE_TABLE_RAZA+" ("+DATABASE_TABLE_RAZA_KEY_CODIGO+","+ DATABASE_TABLE_RAZA_KEY_DESCRIPCION+") VALUES ( "+values+ DATABASE_STATEMENT_END;

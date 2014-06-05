@@ -1,7 +1,5 @@
 package omicron.app.dbManagement;
 
-import java.lang.reflect.Array;
-
 import android.content.Context;
 import android.database.Cursor;
 import static omicron.app.dbManagement.DBConsts.*;

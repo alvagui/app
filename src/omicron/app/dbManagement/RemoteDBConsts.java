@@ -30,9 +30,9 @@ public class RemoteDBConsts {
 	public static final Map<String, String> TABLE_PAIRS_MAP;
 	static {
 		Map<String, String> aMap = new HashMap<String, String>();
-		aMap.put("Especie", DATABASE_TABLE_ESPECIE);
-//		aMap.put("Raza", DATABASE_TABLE_RAZA);
-		// aMap.put("Explotación", DATABASE_TABLE_EXPLOTACION);
+		aMap.put("especie", DATABASE_TABLE_ESPECIE);
+		aMap.put("raza", DATABASE_TABLE_RAZA);
+		 aMap.put("explotacion", DATABASE_TABLE_EXPLOTACION);
 		// aMap.put("Cebadero", DATABASE_TABLE_CEBADERO);
 		// aMap.put("Ceba-Cebadero", DATABASE_TABLE_CEBA_CEBADERO);
 		// aMap.put("Corral", DATABASE_TABLE_CORRAL);
@@ -65,8 +65,8 @@ public class RemoteDBConsts {
 	public static final Map<String, String> TABLE_ESPECIE_PAIRS_MAP;
 	static {
 		Map<String, String> aMap = new HashMap<String, String>();
-		aMap.put("Código", DATABASE_TABLE_ESPECIE_KEY_CODIGO);
-		aMap.put("Descripción", DATABASE_TABLE_ESPECIE_KEY_DESCRIPCION);
+		aMap.put("codigo", DATABASE_TABLE_ESPECIE_KEY_CODIGO);
+		aMap.put("descripcion", DATABASE_TABLE_ESPECIE_KEY_DESCRIPCION);
 		TABLE_ESPECIE_PAIRS_MAP = Collections.unmodifiableMap(aMap);
 	}
 
@@ -74,15 +74,15 @@ public class RemoteDBConsts {
 	public static final Map<String, String> TABLE_EXPLOTACION_PAIRS_MAP;
 	static {
 		Map<String, String> aMap = new HashMap<String, String>();
-		aMap.put("Código", DATABASE_TABLE_EXPLOTACION_KEY_CODIGO);
-		aMap.put("CIF/NIF", DATABASE_TABLE_EXPLOTACION_KEY_CIF_NIF);
-		aMap.put("Nombre titular", DATABASE_TABLE_EXPLOTACION_KEY_TITULAR);
-		aMap.put("Fecha apertura", DATABASE_TABLE_EXPLOTACION_KEY_FAPERTURA);
-		aMap.put("Cód. especie", DATABASE_TABLE_EXPLOTACION_KEY_ESPECIE);
+		aMap.put("codigo", DATABASE_TABLE_EXPLOTACION_KEY_CODIGO);
+		aMap.put("cif_nif", DATABASE_TABLE_EXPLOTACION_KEY_CIF_NIF);
+		aMap.put("nombre_titular", DATABASE_TABLE_EXPLOTACION_KEY_TITULAR);
+		aMap.put("fecha_apertura", DATABASE_TABLE_EXPLOTACION_KEY_FAPERTURA);
+		aMap.put("cod_especie", DATABASE_TABLE_EXPLOTACION_KEY_ESPECIE);
 		aMap.put("Filtro fecha", DATABASE_TABLE_EXPLOTACION_KEY_FFECHA);
-		aMap.put("Nº animales entrada",
+		aMap.put("no_animales_entrada",
 				DATABASE_TABLE_EXPLOTACION_KEY_N_ANIMALES_EN);
-		aMap.put("Nº animales salida",
+		aMap.put("no_animales_salida",
 				DATABASE_TABLE_EXPLOTACION_KEY_N_ANIMALES_SA);
 		TABLE_EXPLOTACION_PAIRS_MAP = Collections.unmodifiableMap(aMap);
 	}

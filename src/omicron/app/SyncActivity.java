@@ -1,5 +1,7 @@
 package omicron.app;
 
+import static omicron.app.dbManagement.RemoteDBConsts.*;
+
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -13,9 +15,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import omicron.app.datatypes.Raza;
+import omicron.app.dbManagement.DBBackupUtils;
 import omicron.app.dbManagement.DbAdapter;
-import omicron.app.dbManagement.RazaDbAdapter;
 import omicron.app.dbManagement.ExportedTableContainer;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -37,11 +38,10 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 //
 import au.com.bytecode.opencsv.CSVReader;
-import static omicron.app.dbManagement.RemoteDBConsts.*;
 
 /**
  * This activity is responsible of data sync management, whether downloading
- * from either uploading to server.
+ * from, either uploading to server.
  * 
  * @version 1, 28/05/14
  * @author AAGUILAR
@@ -156,7 +156,7 @@ public class SyncActivity extends ActionBarActivity {
 		 * @param context
 		 *            current Android context.
 		 */
-		public PopulateDatabaseTask(Context context) {
+		public PopulateDatabaseTask(final Context context) {
 			super();
 			this.context = context;
 		}
@@ -165,6 +165,19 @@ public class SyncActivity extends ActionBarActivity {
 		protected void onPreExecute() {
 			super.onPreExecute();
 			Log.d(DEBUG_TAG, "Got into onPreExecute()");
+			if (DBBackupUtils.backupDB(SyncActivity.this))
+			{
+				Log.d(DEBUG_TAG, "DB backup done");
+			}
+			else
+			{
+				Log.e(DEBUG_TAG, "DB backup FAILED");
+				try {
+					throw new Exception() ;
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
 		}
 
 		// Get data from server database.
@@ -189,13 +202,6 @@ public class SyncActivity extends ActionBarActivity {
 					if (downloadedTable != null) {
 						container = new ExportedTableContainer(currentTable,
 								downloadedTable);
-						// TODO: TEMP DEBUGGING. BORRAR
-						Log.d(DEBUG_TAG,
-								"Container for " + container.getTableName()
-										+ " table.");
-						if (container == null) {
-							Log.e(DEBUG_TAG, "Nothing in container");
-						}
 						downloadedData.add(container);
 					} else {
 						Log.e(DEBUG_TAG, "Downloaded table == NULL!!!");
@@ -221,9 +227,9 @@ public class SyncActivity extends ActionBarActivity {
 				(Toast.makeText(context, R.string.ackDownloaded,
 						Toast.LENGTH_LONG)).show();
 			} else {
-
 				(Toast.makeText(context, R.string.urlNotFound,
 						Toast.LENGTH_LONG)).show();
+				DBBackupUtils.restoreDB(SyncActivity.this);
 			}
 			Log.d(DEBUG_TAG, "Got into onPostExecute() with " + result);
 			// Log.d("Response: ", result);
@@ -242,8 +248,8 @@ public class SyncActivity extends ActionBarActivity {
 		 *             if non reachable URL.
 		 */
 
-		private List<List<String>> downloadDataFromServer(String myurl,
-				String table) throws IOException {
+		private List<List<String>> downloadDataFromServer(final String myurl,
+				final String table) throws IOException {
 			CSVReader reader = null;
 			try {
 
@@ -328,42 +334,29 @@ public class SyncActivity extends ActionBarActivity {
 		 * @return True if operation completed succesfully, false if not.
 		 */
 
-		private boolean populateDatabase(List<List<String>> retrievedData,
-				String table) {
-
-			return true;
-		}
-
-		private boolean populateDatabase(List<ExportedTableContainer> retrievedData)
-				throws Exception {
+		private boolean populateDatabase(
+				final List<ExportedTableContainer> retrievedData) throws Exception {
 			// Populates local db with data retrieved from server
 			// Empties current database
 			DbAdapter dba = new DbAdapter(this.context);
 			dba.open();
 			dba.resetDB();
 
-			Iterator<ExportedTableContainer> tablesIterator = retrievedData.iterator();
-			List<String> currentRow;
-			Raza currentRaza = null;
+			Iterator<ExportedTableContainer> tablesIterator = retrievedData
+					.iterator();
+
 			while (tablesIterator.hasNext()) {
 				ExportedTableContainer currentTable = tablesIterator.next();
 				boolean inserted = dba.insert(currentTable.getTableName(),
 						currentTable.getHeaders(), currentTable.getTableData());
-				Log.d(DEBUG_TAG, "Inserted "+currentTable.getTableName()+" table:" + inserted);
+				Log.d(DEBUG_TAG, "Inserted " + currentTable.getTableName()
+						+ " table:" + inserted);
 				if (!inserted) {
 					throw new Exception();
 				}
 			}
 			return true;
 		}
-
-		// TODO: temporal, borrar
-		private boolean insertRow(final String value1, final String value2,
-				final RazaDbAdapter dba) {
-			Log.d(DEBUG_TAG, "Insert with values : " + value1 + " - " + value2);
-			return dba.insert(value1, value2);
-		}
-
 	}
 
 	/**

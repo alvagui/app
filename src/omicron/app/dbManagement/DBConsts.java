@@ -2,11 +2,7 @@ package omicron.app.dbManagement;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import static omicron.app.dbManagement.RemoteDBConsts.*;
 
 //Collected DB management constants of general utility.
 //

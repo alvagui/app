@@ -1,6 +1,5 @@
 package omicron.app.dbManagement;
 
-import java.lang.reflect.Array;
 import java.util.Iterator;
 import java.util.List;
 
@@ -10,15 +9,21 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-import android.util.Pair;
 import static omicron.app.dbManagement.DBConsts.*;
 import static omicron.app.dbManagement.RemoteDBConsts.*;
 
 public class DbAdapter {
-//Main DB Adapter, used on create and update of all dbs. It's intended to 
-//	use individual table classes for table operations
-	
+	// Main DB Adapter, used on create and update of all dbs. It's intended to
+	// use individual table classes for table operations
+
 	private static final String DATABASE_NAME = "omicron.db";
+	/**
+	 * @return the databaseName
+	 */
+	public static String getDatabaseName() {
+		return DATABASE_NAME;
+	}
+
 	// Whenever DB structure is changed, must be incremented
 	private static final int DATABASE_VERSION = 7;
 
@@ -57,8 +62,8 @@ public class DbAdapter {
 
 		@Override
 		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-			Log.w(DEBUG_TAG, "Upgrading database from version " + oldVersion + " to "
-					+ newVersion + ", which will destroy all old data");
+			Log.w(DEBUG_TAG, "Upgrading database from version " + oldVersion
+					+ " to " + newVersion + ", which will destroy all old data");
 
 			dropDB(db);
 			createDB(db);
@@ -67,14 +72,14 @@ public class DbAdapter {
 		public void createDB(SQLiteDatabase db) {
 			Iterator<String> dbCreatorIterator = CREATE_TABLES_LIST.iterator();
 			while (dbCreatorIterator.hasNext())
-			db.execSQL(dbCreatorIterator.next());
+				db.execSQL(dbCreatorIterator.next());
 			Log.d(DEBUG_TAG, "All DB tables created.");
 		}
 
 		public void dropDB(SQLiteDatabase db) {
 			Iterator<String> dbDropIterator = DROP_TABLES_LIST.iterator();
 			while (dbDropIterator.hasNext())
-			db.execSQL(dbDropIterator.next());
+				db.execSQL(dbDropIterator.next());
 			Log.d(DEBUG_TAG, "All DB tables deleted.");
 		}
 
@@ -106,11 +111,11 @@ public class DbAdapter {
 		mDbHelper.close();
 	}
 
-//	public boolean insert(ContentValues values)
-//	{
-//		return true;
-//	};
-	
+	// public boolean insert(ContentValues values)
+	// {
+	// return true;
+	// };
+
 	public void resetDB() {
 		mDbHelper.resetDB(getDb());
 	}
@@ -123,40 +128,34 @@ public class DbAdapter {
 		this.mDb = mDb;
 	}
 
-	public boolean insert(String table, List<String> headers, List<List<String>> rawValues)
-	{
+	public boolean insert(String table, List<String> headers,
+			List<List<String>> rawValues) {
 		String localTable = TABLE_PAIRS_MAP.get(table);
 		Iterator<String> headersIterator = null;
 		List<String> currentRow = null;
 		Iterator<List<String>> rowsIterator = rawValues.iterator();
 		Iterator<String> currentRowIterator = null;
-		while (rowsIterator.hasNext())
-		{
+		while (rowsIterator.hasNext()) {
 			ContentValues values = new ContentValues();
 			currentRow = rowsIterator.next();
 			headersIterator = headers.iterator();
 			currentRowIterator = currentRow.iterator();
-			while (headersIterator.hasNext())
-			{
-				
+			while (headersIterator.hasNext()) {
+
 				String currentHeader = headersIterator.next();
 				String currentValue = currentRowIterator.next();
-				Log.d(DEBUG_TAG, "Current header is: "+currentHeader);
+				Log.d(DEBUG_TAG, "Current header is: " + currentHeader);
 				String currentLocalHeader = getLocalHeader(table, currentHeader);
-				Log.d(DEBUG_TAG, "Current field is: "+ currentLocalHeader);
-				Log.d(DEBUG_TAG, "Current value for field "+currentLocalHeader+" is: "+ currentValue);
+				Log.d(DEBUG_TAG, "Current field is: " + currentLocalHeader);
+				Log.d(DEBUG_TAG, "Current value for field "
+						+ currentLocalHeader + " is: " + currentValue);
 				values.put(currentLocalHeader, currentValue);
 			}
-			mDb.insertOrThrow(localTable, null, values);	
+			mDb.insertOrThrow(localTable, null, values);
 		}
-//		values.put();
-//		db.execSQL();
-//		
+		// values.put();
+		// db.execSQL();
+		//
 		return true;
-	}
-	
-	public boolean insert(String code, String descripcion) {
-		// TODO Auto-generated method stub
-		return false;
 	}
 }
